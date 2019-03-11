@@ -1,2 +1,1 @@
-# SGM
-Sistema de Gerenciamento de Monitorias
+# SGM - Sistema de Gerenciamento de Monitoria
