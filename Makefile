@@ -18,11 +18,22 @@ git-carlos:
 	@git config user.name
 	@git config user.email
 	@echo poha
-git-silvio:
 
-git-eduardo:
+git-silvio:	
+	@git config user.name "Silvio"
+	@git config user.email "silvioej@gmail.com"
+	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
+	@git config user.name
+	@git config user.email
+git-eduardo:	
 	@git config user.name "eduardobispof"
 	@git config user.email "eduardobispof@gmail.com"
+	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
+	@git config user.name
+	@git config user.email
+git-naadabe:	
+	@git config user.name "Naadabe"
+	@git config user.email "naadabefarias@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
 	@git config user.name
 	@git config user.email
