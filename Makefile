@@ -12,7 +12,11 @@ git-jhonatas:
 git-fernanda:
 
 git-carlos:
-
+	@git config user.name "josecarlosmonteiro"
+	@git config user.email "1monteirocarlos@gmail.com"
+	@echo "git configurado"
+	@git user.name
+	@git user.email
 git-silvio:
 
 git-eduardo:	
