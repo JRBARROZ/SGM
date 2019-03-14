@@ -30,8 +30,3 @@ git-eduardo:
 	@git config user.name
 	@git config user.email
 git-naadabe:
-	@git config user.name "Naadabe"
-	@git config user.email "naadabefarias@gmail.com"
-	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
-	@git config user.name
-	@git config user.email
