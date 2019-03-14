@@ -4,39 +4,39 @@
 #Date : 12/03/2019
 #=================
 git-jhonatas:
-	@git config user.name "Murielson"
-	@git config user.email "jhonsnoow32@gmail.com"
+	@git config --global user.name "Murielson"
+	@git config --global user.email "jhonsnoow32@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
-	@git config user.name
-	@git config user.email
+	@git config --global user.name
+	@git config --global user.email
 git-fernanda:
-	@git config user.name "FernandaBatistaVS"
-	@git config user.email "pontocidadaofernanda@gmail.com"
+	@git config --global user.name "FernandaBatistaVS"
+	@git config --global user.email "pontocidadaofernanda@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
-	@git config user.name
-	@git config user.email
+	@git config --global user.name
+	@git config --global user.email
 git-carlos:	
-	@git config user.name "josecarlosmonteiro"
-	@git config user.email "1monteirocarlos@gmail.com"
+	@git config --global user.name "josecarlosmonteiro"
+	@git config --global user.email "1monteirocarlos@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
-	@git config user.name
-	@git config user.email
+	@git config --global user.name
+	@git config --global user.email
 
 git-silvio:
-	@git config user.name "Silvio"
-	@git config user.email "silvioej@gmail.com"
+	@git config --global user.name "Silvio"
+	@git config --global user.email "silvioej@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
-	@git config user.name
-	@git config user.email
+	@git config --global user.name
+	@git config --global user.email
 git-eduardo:
-	@git config user.name "eduardobispof"
-	@git config user.email "eduardobispof@gmail.com"
+	@git config --global user.name "eduardobispof"
+	@git config --global user.email "eduardobispof@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
-	@git config user.name
-	@git config user.email
+	@git config --global user.name
+	@git config --global user.email
 git-naadabe:
-	@git config user.name "naadabefarias"
-	@git config user.email "naadabefarias@gmail.com"
+	@git config --global user.name "naadabefarias"
+	@git config --global user.email "naadabefarias@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
-	@git config user.name
-	@git config user.email
+	@git config --global user.name
+	@git config --global user.email
