@@ -17,7 +17,6 @@ git-carlos:
 	@echo "git configurado"
 	@git config user.name
 	@git config user.email
-	@echo poha
 
 git-silvio:	
 	@git config user.name "Silvio"
@@ -25,6 +24,7 @@ git-silvio:
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
 	@git config user.name
 	@git config user.email
+
 git-eduardo:	
 	@git config user.name "eduardobispof"
 	@git config user.email "eduardobispof@gmail.com"
