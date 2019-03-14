@@ -15,11 +15,11 @@ git-carlos:
 	@git config user.name "josecarlosmonteiro"
 	@git config user.email "1monteirocarlos@gmail.com"
 	@echo "git configurado"
-	@git user.name
-	@git user.email
+	@git config user.name
+	@git config user.email
 git-silvio:
 
-git-eduardo:	
+git-eduardo:
 	@git config user.name "eduardobispof"
 	@git config user.email "eduardobispof@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
