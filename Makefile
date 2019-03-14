@@ -9,7 +9,6 @@ git-jhonatas:
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
 	@git config user.name
 	@git config user.email
-git-fernanda:
 
 git-carlos:
 	@git config user.name "josecarlosmonteiro"
@@ -24,7 +23,6 @@ git-silvio:
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
 	@git config user.name
 	@git config user.email
-
 
 git-eduardo:
 	@git config user.name "eduardobispof"
