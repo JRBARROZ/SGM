@@ -34,6 +34,8 @@
     30 => 'App\\Providers\\AuthServiceProvider',
     31 => 'App\\Providers\\EventServiceProvider',
     32 => 'App\\Providers\\RouteServiceProvider',
+    33 => 'Way\\Generators\\GeneratorsServiceProvider',
+    34 => 'Xethron\\MigrationsGenerator\\MigrationsGeneratorServiceProvider',
   ),
   'eager' => 
   array (
@@ -56,6 +58,8 @@
     16 => 'App\\Providers\\AuthServiceProvider',
     17 => 'App\\Providers\\EventServiceProvider',
     18 => 'App\\Providers\\RouteServiceProvider',
+    19 => 'Way\\Generators\\GeneratorsServiceProvider',
+    20 => 'Xethron\\MigrationsGenerator\\MigrationsGeneratorServiceProvider',
   ),
   'deferred' => 
   array (
