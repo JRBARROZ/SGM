@@ -1,0 +1,17 @@
+[2019-03-21 10:24:30] local.ERROR: include(/home/alunoifpe/Área de Trabalho/SGM/vendor/composer/../xethron/laravel-4-generators/src/Way/Generators/GeneratorsServiceProvider.php): failed to open stream: No such file or directory {"exception":"[object] (ErrorException(code: 0): include(/home/alunoifpe/Área de Trabalho/SGM/vendor/composer/../xethron/laravel-4-generators/src/Way/Generators/GeneratorsServiceProvider.php): failed to open stream: No such file or directory at /home/alunoifpe/Área de Trabalho/SGM/vendor/composer/ClassLoader.php:444)
+[stacktrace]
+#0 /home/alunoifpe/Área de Trabalho/SGM/vendor/composer/ClassLoader.php(444): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'include(/home/a...', '/home/alunoifpe...', 444, Array)
+#1 /home/alunoifpe/Área de Trabalho/SGM/vendor/composer/ClassLoader.php(444): include()
+#2 /home/alunoifpe/Área de Trabalho/SGM/vendor/composer/ClassLoader.php(322): Composer\\Autoload\\includeFile('/home/alunoifpe...')
+#3 [internal function]: Composer\\Autoload\\ClassLoader->loadClass('Way\\\\Generators\\\\...')
+#4 /home/alunoifpe/Área de Trabalho/SGM/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(660): spl_autoload_call('Way\\\\Generators\\\\...')
+#5 /home/alunoifpe/Área de Trabalho/SGM/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(594): Illuminate\\Foundation\\Application->resolveProvider('Way\\\\Generators\\\\...')
+#6 /home/alunoifpe/Área de Trabalho/SGM/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register('Way\\\\Generators\\\\...')
+#7 /home/alunoifpe/Área de Trabalho/SGM/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(574): Illuminate\\Foundation\\ProviderRepository->load(Array)
+#8 /home/alunoifpe/Área de Trabalho/SGM/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#9 /home/alunoifpe/Área de Trabalho/SGM/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(210): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#10 /home/alunoifpe/Área de Trabalho/SGM/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(311): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#11 /home/alunoifpe/Área de Trabalho/SGM/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(120): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#12 /home/alunoifpe/Área de Trabalho/SGM/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 {main}
+"} 
