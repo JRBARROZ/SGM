@@ -40,3 +40,17 @@ git-naadabe:
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
 	@git config --global user.name
 	@git config --global user.email
+conf:
+	
+	composer install --no-scripts
+	cp .env.example	.env
+	php artisan key:generate
+	$(MAKE) db
+
+db:
+	@mysql -u root -p --execute="drop database if exists SGM; create database SGM; drop user if exists master; CREATE USER 'master' IDENTIFIED BY 'origin'; GRANT ALL PRIVILEGES ON SGM . * TO master;"
+	@sed -i 's/DB_DATABASE=homestead/DB_DATABASE=SGM/' .env
+	@sed -i 's/DB_USERNAME=homestead/DB_USERNAME=master/' .env
+	@sed -i 's/DB_PASSWORD=secret/DB_PASSWORD=origin/' .env
+	php artisan migrate:refresh --seed
+
