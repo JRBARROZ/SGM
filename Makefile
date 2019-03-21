@@ -47,6 +47,7 @@ conf:
 	php artisan key:generate
 	$(MAKE) db
 
+# Configuração do DB	
 db:
 	@mysql -u root -p --execute="drop database if exists SGM; create database SGM; drop user if exists master; CREATE USER 'master' IDENTIFIED BY 'origin'; GRANT ALL PRIVILEGES ON SGM . * TO master;"
 	@sed -i 's/DB_DATABASE=homestead/DB_DATABASE=SGM/' .env
