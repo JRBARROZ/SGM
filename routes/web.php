@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//rotas para login
+
+Route::get('/login',['uses' => 'Controller@fazerLogin']);
+Route::post('/login',['as' => 'user.login','uses' => 'DashboardController@auth']);
