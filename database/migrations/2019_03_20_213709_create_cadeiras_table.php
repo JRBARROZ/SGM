@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSgmCadeirasTable extends Migration {
+class CreateCadeirasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,11 +14,7 @@ class CreateSgmCadeirasTable extends Migration {
 	{
 		Schema::create('cadeiras', function(Blueprint $table)
 		{
-			$table->bigIncrements('id')->primary();
-
-			// fk a tabela cursos
-			$table->integer('fk_curso')->unsigned();
-			$table->foreign('fk_curso')->references('id')->on('cursos')->onDelete('cascade');
+			$table->increments('id');
 
 			$table->string('nome');
 			$table->integer('periodo');
@@ -33,7 +29,7 @@ class CreateSgmCadeirasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('sgm_cadeiras');
+		Schema::drop('cadeiras');
 	}
 
 }

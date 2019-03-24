@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFkCursoToUsersTable extends Migration
+class AddFkCursoToCadeirasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class AddFkCursoToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-
-            //fk da coluna cursos para users
+        Schema::table('cadeiras', function (Blueprint $table) {
+            // fk a tabela cursos
             $table->integer('fk_curso')->unsigned();
-			$table->foreign('fk_curso')->references('id')->on('cursos')->onDelete('cascade')->nullable()->change();
+			$table->foreign('fk_curso')->references('id')->on('cursos')->onDelete('cascade');
         });
     }
 
@@ -28,7 +27,7 @@ class AddFkCursoToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('cadeiras', function (Blueprint $table) {
             //
         });
     }

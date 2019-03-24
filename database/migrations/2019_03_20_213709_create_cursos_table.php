@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateSgmCursosTable extends Migration {
+class CreateCursosTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,7 @@ class CreateSgmCursosTable extends Migration {
 	{
 		Schema::create('cursos', function(Blueprint $table)
 		{
-			$table->bigIncrements('id')->primary();
+			$table->increments('id');
 			$table->string('nome');
 			$table->enum('tipo', ['tecnico', 'superior']);
 		});
@@ -28,7 +28,7 @@ class CreateSgmCursosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('sgm_cursos');
+		Schema::drop('cursos');
 	}
 
 }
