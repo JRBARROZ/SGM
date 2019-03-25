@@ -16,23 +16,21 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" name="sobrenome" placeholder="sobrenome...">
                             </div>
+
                             <div class="form-group">
-                                <input type="text" class="form-control" name="tipo" placeholder="tipo...">
+                                <input type="number" class="form-control" name="periodo" placeholder="periodo...">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="periodo" placeholder="periodo...">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="curso" placeholder="curso...">
+                                <input type="number" class="form-control" name="curso" placeholder="curso...">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="matricula" placeholder="Matrícula..." required>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="senha1" placeholder="Senha..." required>
+                                <input type="password" class="form-control" name="password" placeholder="Senha..." required>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="senha2" placeholder="Repita a senha..." required>
+                                <input type="password" class="form-control" name="password_confirm" placeholder="Repita a senha..." required>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" placeholder="E-mail válido" required>
