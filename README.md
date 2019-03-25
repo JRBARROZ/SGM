@@ -2,15 +2,21 @@
 O projeto SGM tem como objetivo facilitar o método de integração de monitorias com os alunos nos campus IFPE. Com o intuito de apresentar uma plantaforma inovadora, rápida e dinâmica.
 
 [![Github Issues](http://githubbadges.herokuapp.com/Murielson/SGM/issues.svg?style=flat-square)](https://github.com/Murielson/SGM/issues)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 ## Começando
 Siga as instruções abaixo para realizar a instalação e execução do projeto SGM.
 > Caso queira selecionar uma sessão.
 
 - [Pré-Requisitos](#pré-requisitos)
 - [Instalação](#instalação)
-
+- [Ferramentas](#ferramentas)
+- [Suporte](#suporte)
+- [Equipe](#equipe)
 ## Pré-Requisitos
-
+> Modelo de banco utilizado é o relacional, de preferência (Mysql) :)
+```
+# apt-get install mysql-server
+```
 Instale o (make) para executar as configurações do nosso projeto.
 ```
 # apt-get install make 
@@ -30,7 +36,7 @@ Instale por fim instale o gerenciador de pacotes (composer)
 ```
 $ make conf
 ```
-### Execução
+## Execução
 > Após a configuração do make conf, execute na pasta o seguinte comando para iniciar o servidor :
 ```
 $ php artisan serve
