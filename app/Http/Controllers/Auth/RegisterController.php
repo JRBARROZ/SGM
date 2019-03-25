@@ -49,14 +49,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nome' => ['required', 'string', 'max:255'],
-            'sobrenome' => ['required', 'string', 'max:255'],
-            'tipo' => ['required', 'string', 'max:255'],
-            'matricula' => ['required', 'string', 'max:255'],
-            'periodo' => ['required', 'string', 'max:255'],
-            'curso' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'nome' => ['string', 'max:255'],
+            'sobrenome' => ['string', 'max:255'],
+            'matricula' => ['string', 'max:255'],
+            'email' => ['string', 'email', 'max:255', 'unique:users'],
+            'periodo' => ['string', 'max:255'],
+            'password' => ['string', 'min:8', 'confirmed'],
+            'fk_curso' => ['integer', 'max:10'],
         ]);
     }
 
@@ -71,12 +70,11 @@ class RegisterController extends Controller
         return User::create([
             'nome' => $data['nome'],
             'sobrenome' => $data['sobrenome'],
-            'periodo' => $data['periodo'],
-            'curso' => $data['curso'],
             'matricula' => $data['matricula'],
-            'tipo' => $data['tipo'],
             'email' => $data['email'],
+            'periodo' => $data['periodo'],
             'password' => Hash::make($data['password']),
+            'fk_curso' => $data['curso'],
         ]);
     }
 }
