@@ -29,13 +29,11 @@ Instale por fim instale o gerenciador de pacotes (composer)
 > Entre na pasta do projeto e utilize o programa make que você acabou de baixar para atualizar o sistema .
 ```
 $ make conf
-
 ```
 ### Execução
 > Após a configuração do make conf, execute na pasta o seguinte comando para iniciar o servidor :
 ```
 $ php artisan serve
-
 ```
 - Depois de todos os passos feitos, coloque no navegador : ``` localhost:8000 ```, e você terá acesso ao nosso projeto.
 ## Ferramentas
