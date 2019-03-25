@@ -11,6 +11,7 @@ Siga as instruções abaixo para realizar a instalação e execução do projeto
 - [Ferramentas](#ferramentas)
 - [Suporte](#suporte)
 - [Equipe](#equipe)
+- [Licença](#licença)
 ## Pré-Requisitos
 > Modelo de banco utilizado é o relacional, de preferência (Mysql) :)
 ```
