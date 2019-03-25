@@ -10,14 +10,18 @@ Siga as instruções abaixo para realizar a instalação e execução do projeto
 - [Instalação](#instalação)
 
 ## Pré-Requisitos
+
 Instale o (make) para executar as configurações do nosso projeto.
 ```
 # apt-get install make 
 ```
-E por fim instale o gerenciador de pacotes (composer)
+Instale por fim instale o gerenciador de pacotes (composer)
 ```
 # apt-get install composer 
 ```
+> Instalação do Laravel obrigatória para a execução do projeto, veja mais em :
+* [Laravel-Installation](https://laravel.com/docs/5.8/installation) - Instalação completa na documentação do framework -
+
 ## Instalação
 ### Clone
 - Clone o repositório do projeto no seu computador : ```git clone https://github.com/Murielson/SGM.git ```
