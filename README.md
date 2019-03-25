@@ -28,8 +28,28 @@ Instale por fim instale o gerenciador de pacotes (composer)
 ### Configuração
 > Entre na pasta do projeto e utilize o programa make que você acabou de baixar para atualizar o sistema .
 ```
-$ make conf 
+$ make conf
+
 ```
+### Execução
+> Após a configuração do make conf, execute na pasta o seguinte comando para iniciar o servidor :
+```
+$ php artisan serve
 
+```
+- Depois de todos os passos feitos, coloque no navegador : ``` localhost:8000 ```, e você terá acesso ao nosso projeto.
+## Ferramentas
+- [Laravel](https://laravel.com) - PHP Framework
+- [Bootstrap](https://getbootstrap.com/) - CSS && HTML Framework
+- [Vue.js](https://vuejs.org/) - Javascript Framework
+## Suporte
 
+- Email : monitoriadigitalsuporte@gmail.com
+
+## Equipe
+
+| <a href="https://github.com/Murielson" target="_blank">Murielson</a> | <a href="https://github.com/Murielson" target="_blank">Murielson</a> | <a href="https://github.com/Murielson" target="_blank">Murielson</a> | <a href="https://github.com/Murielson" target="_blank">Murielson</a> | <a href="https://github.com/Murielson" target="_blank">Murielson</a> | <a href="https://github.com/Murielson" target="_blank">Murielson</a> | 
+| :---: |:---:| :---:| :---:| :---:| :---:|
+| [![Murielson](https://avatars0.githubusercontent.com/u/40250320?s=150&v=90)](https://github.com/Murielson)    | [![Murielson](https://avatars0.githubusercontent.com/u/40250320?s=150&v=90)](https://github.com/Murielson) | [![Murielson](https://avatars0.githubusercontent.com/u/40250320?s=150&v=90)](https://github.com/Murielson) | [![Murielson](https://avatars0.githubusercontent.com/u/40250320?s=150&v=90)](https://github.com/Murielson) | [![Murielson](https://avatars0.githubusercontent.com/u/40250320?s=150&v=90)](https://github.com/Murielson) | [![Murielson](https://avatars0.githubusercontent.com/u/40250320?s=150&v=90)](https://github.com/Murielson) |
+| <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`https://github.com/Murielson`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> | <a href="http://github.com/fvcproductions" target="_blank">`github.com/fvcproductions`</a> |
 
