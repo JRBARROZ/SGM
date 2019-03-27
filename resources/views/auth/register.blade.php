@@ -10,34 +10,118 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="nome" placeholder="Nome completo...">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="sobrenome" placeholder="sobrenome...">
-                            </div>
 
-                            <div class="form-group">
-                                <input type="number" class="form-control" name="periodo" placeholder="periodo...">
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+
+                                @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                            <div class="form-group">
-                                <input type="number" class="form-control" name="curso" placeholder="curso...">
+                        </div>
+                        <div class="form-group row">
+                            <label for="sobrenome" class="col-md-4 col-form-label text-md-right">{{ __('sobrenome') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="sobrenome" type="text" class="form-control{{ $errors->has('sobrenome') ? ' is-invalid' : '' }}" name="sobrenome" value="{{ old('sobrenome') }}" required autofocus>
+
+                                @if ($errors->has('sobrenome'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('sobrenome') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="matricula" placeholder="Matrícula..." required>
+                        </div>
+                        <div class="form-group row">
+                            <label for="periodo" class="col-md-4 col-form-label text-md-right">{{ __('periodo') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="periodo" type="number" class="form-control{{ $errors->has('periodo') ? ' is-invalid' : '' }}" name="periodo" value="{{ old('periodo') }}" required autofocus>
+
+                                @if ($errors->has('periodo'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('periodo') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="Senha..." required>
+                        </div>
+                        
+
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" name="password_confirm" placeholder="Repita a senha..." required>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="E-mail válido" required>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-block">Cadastrar</button>
+                        </div>
+                        <div class="form-group row">
+                            <label for="matricula" class="col-md-4 col-form-label text-md-right">{{ __('matricula') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="matricula" type="text" class="form-control{{ $errors->has('matricula') ? ' is-invalid' : '' }}" name="matricula" required>
+
+                                @if ($errors->has('matricula'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('matricula') }}</strong>
+                                    </span>
+                                @endif
                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="curso" class="col-md-4 col-form-label text-md-right">{{ __('curso') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="curso" type="text" class="form-control{{ $errors->has('curso') ? ' is-invalid' : '' }}" name="curso" required>
+
+                                @if ($errors->has('curso'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('curso') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
