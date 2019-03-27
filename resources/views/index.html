@@ -18,7 +18,7 @@
 			border-radius: 8px;
 		}
 		#post-info:hover{
-			background-color: #efefef;
+			background-color: #fafbfc;
 			transition: 0.3s;
 		}
 	</style>
@@ -62,7 +62,7 @@
 	</div>
 </div>
 
-<div class="jumbotron" style="font-family: 'Verdana'; padding: 20px;">
+<div class="jumbotron" style="font-family: 'Impact'; padding: 20px;">
 	<div class="container">
 		<h1>Bem-vindo ao Sistema de Gerenciamento de Monitorias!</h1>
 		<h5>Feito por alunos para auxiliar alunos!</h5>
@@ -70,77 +70,56 @@
 </div>
 
 <div class="container">
-	<div class="row">
-		<div class="col-md-9 bg-light shadow">
+	<div class="row justify-content-center">
+		<div class="col-md-10 border rounded">
 			<br>
-			<h3 class="ml-3">Fórum</h3>
-			<hr><br>
+			<h3 class="ml-3">Explore nossas perguntas
+				<form action="" class="float-right form-inline mr-3">
+					<label class="h5 mr-2">Filtrar postagens: </label>
+					<input type="text" class="form-control d-inline mr-2" placeholder="Palavra, tag ou curso...">
+					<button type="submit" class="btn btn-success">Buscar</button>
+				</form>
+			</h3>
+			<hr>
 			<div id="posts">
 				<div id="post-info" class="border-bottom">
 					<a href="#" class="text-dark">
 						<h4 class="d-inline">Título da postagem</h4>
 					</a>
-						<span class="text-secondary ml-2">Autor: Nome da Bênça</span>
+						<span class="text-secondary ml-2">Postado em 00/00/0000</span>
 						<span id="curso" class="badge badge-secondary float-right">LOG</span>
 						<span id="estado" class="badge badge-info float-right mr-2">Aberto</span>
-						<span class="d-block text-secondary">Postado em 00/00/0000</span>
-						<br>
-					<a href="#">
-						<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua.</p>
-					</a>
+						<h6>
+							<a href="#" class="badge badge-secondary">tag</a>
+							<a href="#" class="badge badge-secondary">tag</a>
+							<a href="#" class="badge badge-secondary">tag</a>
+						</h6>
 				</div>
 				<div id="post-info" class="border-bottom">
 					<a href="#" class="text-dark">
 						<h4 class="d-inline">Título da postagem</h4>
 					</a>
-						<span class="text-secondary ml-2">Autor: Nome da Bênça</span>
+						<span class="text-secondary ml-2">Postado em 00/00/0000</span>
 						<span id="curso" class="badge badge-secondary float-right">IPI</span>
 						<span id="estado" class="badge badge-success float-right mr-2">Resolvido</span>
-						<span class="d-block text-secondary">Postado em 00/00/0000</span>
-						<br>
-					<a href="#">
-						<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua.</p>
-					</a>
+						<h6>
+							<a href="#" class="badge badge-secondary">tag</a>
+							<a href="#" class="badge badge-secondary">tag</a>
+							<a href="#" class="badge badge-secondary">tag</a>
+						</h6>
 				</div>
 				<div id="post-info" class="border-bottom">
 					<a href="#" class="text-dark">
 						<h4 class="d-inline">Título da postagem</h4>
 					</a>
-						<span class="text-secondary ml-2">Autor: Nome da Bênça</span>
-						<span id="curso" class="badge badge-secondary float-right">IPI</span>
-						<span id="estado" class="badge badge-info float-right mr-2">Aberto</span>
-						<span class="d-block text-secondary">Postado em 00/00/0000</span>
-						<br>
-					<a href="#">
-						<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua.</p>
-					</a>
-				</div>
-				<div id="post-info" class="border-bottom">
-					<a href="#" class="text-dark">
-						<h4 class="d-inline">Título da postagem</h4>
-					</a>
-						<span class="text-secondary ml-2">Autor: Nome da Bênça</span>
+						<span class="text-secondary ml-2">Postado em 00/00/0000</span>
 						<span id="curso" class="badge badge-secondary float-right">LOG</span>
 						<span id="estado" class="badge badge-info float-right mr-2">Aberto</span>
-						<span class="d-block text-secondary">Postado em 00/00/0000</span>
-						<br>
-					<a href="#">
-						<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua.</p>
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="card">
-				<div class="card-header">
-					<button class="btn btn-link" data-toggle="collapse" data-target="#filtro">Filtrar posts</button>
-				</div>
-				<div id="filtro" class="card-body collapse">
-					filtro
+						<h6>
+							<a href="#" class="badge badge-secondary">tag</a>
+							<a href="#" class="badge badge-secondary">tag</a>
+							<a href="#" class="badge badge-secondary">tag</a>
+						</h6>
 				</div>
 			</div>
 		</div>
