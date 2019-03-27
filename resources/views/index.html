@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fórum - SGM</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<style type="text/css">
+		.shadow{
+			box-shadow: 0px 0px 20px #e3e3e3;
+		}
+		#posts span{
+			font-size: 12px;
+		}
+		#post-info{
+			padding: 20px;
+			margin-bottom: 15px;
+			border-radius: 8px;
+		}
+		#post-info:hover{
+			background-color: #efefef;
+			transition: 0.3s;
+		}
+	</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-success">
+	<div class="container">
+		<h3 class="navbar-brand text-light">SGM - IFPE</h3>
+		<div class="navbar-nav ml-auto">
+			<a href="#" class="nav-item nav-link text-light">Option</a>
+			<a href="#" class="nav-item nav-link text-light">Option</a>
+			<a href="#cadastro" class="nav-item nav-link text-light" data-toggle="collapse">Cadastre-se</a>
+			<a href="#" class="nav-item nav-link text-light"></a>
+			<a href="#" class="nav-item nav-link text-light btn btn-danger" data-toggle="modal" data-target="#login">Login</a>
+		</div>
+	</div>
+</nav>
+
+<div class="modal fade" id="login">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title">Login SGM</h3>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Matrícula">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="Senha">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success btn-block">Entrar</button>
+						<button type="reset" class="btn btn-danger btn-block">Cancelar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="jumbotron" style="font-family: 'Verdana'; padding: 20px;">
+	<div class="container">
+		<h1>Bem-vindo ao Sistema de Gerenciamento de Monitorias!</h1>
+		<h5>Feito por alunos para auxiliar alunos!</h5>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9 bg-light shadow">
+			<br>
+			<h3 class="ml-3">Fórum</h3>
+			<hr><br>
+			<div id="posts">
+				<div id="post-info" class="border-bottom">
+					<a href="#" class="text-dark">
+						<h4 class="d-inline">Título da postagem</h4>
+					</a>
+						<span class="text-secondary ml-2">Autor: Nome da Bênça</span>
+						<span id="curso" class="badge badge-secondary float-right">LOG</span>
+						<span id="estado" class="badge badge-info float-right mr-2">Aberto</span>
+						<span class="d-block text-secondary">Postado em 00/00/0000</span>
+						<br>
+					<a href="#">
+						<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</p>
+					</a>
+				</div>
+				<div id="post-info" class="border-bottom">
+					<a href="#" class="text-dark">
+						<h4 class="d-inline">Título da postagem</h4>
+					</a>
+						<span class="text-secondary ml-2">Autor: Nome da Bênça</span>
+						<span id="curso" class="badge badge-secondary float-right">IPI</span>
+						<span id="estado" class="badge badge-success float-right mr-2">Resolvido</span>
+						<span class="d-block text-secondary">Postado em 00/00/0000</span>
+						<br>
+					<a href="#">
+						<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</p>
+					</a>
+				</div>
+				<div id="post-info" class="border-bottom">
+					<a href="#" class="text-dark">
+						<h4 class="d-inline">Título da postagem</h4>
+					</a>
+						<span class="text-secondary ml-2">Autor: Nome da Bênça</span>
+						<span id="curso" class="badge badge-secondary float-right">IPI</span>
+						<span id="estado" class="badge badge-info float-right mr-2">Aberto</span>
+						<span class="d-block text-secondary">Postado em 00/00/0000</span>
+						<br>
+					<a href="#">
+						<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</p>
+					</a>
+				</div>
+				<div id="post-info" class="border-bottom">
+					<a href="#" class="text-dark">
+						<h4 class="d-inline">Título da postagem</h4>
+					</a>
+						<span class="text-secondary ml-2">Autor: Nome da Bênça</span>
+						<span id="curso" class="badge badge-secondary float-right">LOG</span>
+						<span id="estado" class="badge badge-info float-right mr-2">Aberto</span>
+						<span class="d-block text-secondary">Postado em 00/00/0000</span>
+						<br>
+					<a href="#">
+						<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card">
+				<div class="card-header">
+					<button class="btn btn-link" data-toggle="collapse" data-target="#filtro">Filtrar posts</button>
+				</div>
+				<div id="filtro" class="card-body collapse">
+					filtro
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br><br><br>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
