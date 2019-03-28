@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<div class="wrapper">
+  <form class="c-login">
+    <h2>Crie sua conta</h2>
+    <input placeholder="Nome" type="text" name="firstname" />
+    <input placeholder="Sobrenome" type="text" name="lastname"/>
+    
+    <input placeholder="Matrícula" type="text" name="matricula"/>
+    
+    <input placeholder="Email" type="text" name="email"/>
+    
+    <input placeholder="Senha" type="password" name="pass"  />
+    
+    <input placeholder="Repetir Senha" type="password" name="pass"  />
+    
+    <div class="btn-group">
+  <form action="Cadastrar" method="GET">
+      <input type="hidden" name="item_id" value="${item.id}">
+      <button class="button">Cadastrar</button>
+  </form> 
+  <form action="Cancelar" method="GET">
+      <input type="hidden" name="item_id" value="${item.id }">
+      <button class="rightbutton">Cancelar</button>
+  </form>
+</div>
+  </form>
+</div>
+  
+  
+
+</body>
+
+</html>
