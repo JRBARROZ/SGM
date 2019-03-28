@@ -1,0 +1,57 @@
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(to right, #11998e, #38ef7d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-login {
+  border-radius:10px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  color:#139e8d;
+}
+h2 { 
+  text-align: center;
+  color:#139e8d;
+}
+
+select,
+option,
+input[type="text"],
+input[type="password"] {
+  background-color:white;
+  border: 1px solid #eee;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 50px;
+  color:#00000099;
+
+  &::placeholder {
+    color: #999999;
+  }
+}
+
+.button{
+  border: 0;
+  color: #000000b3;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color:#31e07f;
+}
+.rightbutton {
+  border: 0;
+  color: #000000b3;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color:#00000b3;
+  border: 2px solid #00000;
+}
