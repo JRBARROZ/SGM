@@ -36,7 +36,7 @@ class AddPerguntasRespostasIdOnVotos extends Migration
         Schema::table('votos', function (Blueprint $table) {
             //Drop perguntas and cadeiras foreign key, and column.
             $table->dropForeign(['perguntas_id'], ['respostas_id']);
-            $table->dropColumns(['pergunstas_id'], ['respostas_id']);
+            $table->dropColumn(['perguntas_id'], ['respostas_id']);
         });
     }
 }
