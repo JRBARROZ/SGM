@@ -29,7 +29,7 @@ class AddFkCursoToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('fk_curso');
+            $table->dropForeign(['fk_curso']);
             $table->dropColumn('fk_curso');
         });
     }
