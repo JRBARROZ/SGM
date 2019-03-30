@@ -39,11 +39,13 @@ class AddColumnsCadeirasCursando extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            
-            $table->dropForeign(['fk_user', 'fk_curso', 'fk_cadeira']);
-            $table->dropColumn(['fk_user', 'fk_curso', 'fk_cadeira']);
-
+        Schema::table('cadeiras_cursando', function (Blueprint $table) {
+            $table->dropForeign(['fk_user']);
+            $table->dropForeign(['fk_curso']);
+            $table->dropForeign(['fk_cadeira']);
+            $table->dropColumn('fk_user');
+            $table->dropColumn('fk_curso');
+            $table->dropColumn('fk_cadeira');
         });
     }
 }
