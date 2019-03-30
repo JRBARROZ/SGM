@@ -28,6 +28,7 @@ class AddUsersCadeirasCursosIdOnMonitorias extends Migration
             //Foreign-key --> (Cursos) <--
             $table->integer('cursos_id')->unsigned();
             $table->foreign('cursos_id')->references('id')->on('cursos');
+            
         });
     }
 
