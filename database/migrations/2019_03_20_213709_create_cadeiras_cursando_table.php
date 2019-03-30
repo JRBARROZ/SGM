@@ -26,7 +26,7 @@ class CreateCadeirasCursandoTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('cadeiras_cursando');
+		Schema::dropIfExists('cadeiras_cursando');
 	}
 
 }

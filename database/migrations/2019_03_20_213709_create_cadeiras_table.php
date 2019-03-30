@@ -29,7 +29,7 @@ class CreateCadeirasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('cadeiras');
+		Schema::dropIfExists('cadeiras');
 	}
 
 }
