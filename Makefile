@@ -28,9 +28,10 @@ git-silvio:
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
 	@git config --global user.name
 	@git config --global user.email
+
 git-eduardo:
-	@git config --global user.name "eduardobispof"
-	@git config --global user.email "eduardobispof@gmail.com"
+	@git config user.name "eduardobispof"
+	@git config user.email "eduardobispof@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
 	@git config --global user.name
 	@git config --global user.email
@@ -40,8 +41,8 @@ git-naadabe:
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!"
 	@git config --global user.name
 	@git config --global user.email
+
 conf:
-	
 	composer install --no-scripts
 	cp .env.example	.env
 	php artisan key:generate
@@ -54,4 +55,3 @@ db:
 	@sed -i 's/DB_USERNAME=homestead/DB_USERNAME=master/' .env
 	@sed -i 's/DB_PASSWORD=secret/DB_PASSWORD=origin/' .env
 	php artisan migrate:refresh --seed
-
