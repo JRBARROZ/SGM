@@ -28,6 +28,9 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style type="text/css">
+        html, body{
+            height: 95%;
+        }
         .shadow{
             box-shadow: 0px 0px 20px #e3e3e3;
         }
