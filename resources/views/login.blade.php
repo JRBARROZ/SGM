@@ -12,18 +12,18 @@
 
   <div class="grid">
 
-    <form action="#" method="POST" class="form login">
+    <form action="{{ route('login') }}" method="POST" class="form login">
 
       <img class="displayed" src="{{asset('imagens/ifpe.png')}}">
 
       <div class="form__field">
-        <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">Nome</span></label>
-        <input id="login__username" type="text" name="username" class="form__input" placeholder="Nome" required>
+        <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">{{ __('E-Mail Address') }}</span></label>
+        <input id="login__username" type="text" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="E-mail" value="{{ old('email') }}" required autofocus>
       </div>
 
       <div class="form__field">
         <label for="login__password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span class="hidden">Senha</span></label>
-        <input id="login__password" type="password" name="password" class="form__input" placeholder="Senha" required>
+        <input id="login__password" type="password" name="password" class="form-control" placeholder="Senha" required>
       </div>
 
       <div class="form__field">
