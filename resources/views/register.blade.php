@@ -1,24 +1,6 @@
-  <!DOCTYPE html>
-  <html lang="en" >
+@extends('layouts.app')
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Cadastro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css'>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
-
-
-        <link rel="stylesheet" href="{{asset('css/register.css')}}">
-
-    
-  </head>
-
-  <body>
+@section('content')
 
     <div class="signup__container" style="width: 100%;height: 100%;">
     <div class="container__child signup__thumbnail">
@@ -37,29 +19,47 @@
       <div class="signup__overlay"></div>
     </div>
     <div class="container__child signup__form">
-      <form action="#">
+      <form action="{{route('register')}}" method="POST">
+        @csrf
 
         <div class="row">
           <div class="col-md-6 col-xs-6">
             <div class="form-group">
             <label for="name">Nome</label>
-            <input class="form-control" data-width="100%" type="text" name="name" id="name" required/>
+            <input class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" data-width="100%" type="text" name="name" value="{{ old('name') }}" id="name" required autofocus/>
+              @if ($errors->has('name'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('name') }}</strong>
+                </span>
+              @endif
+
           </div>
         </div>
 
         <div class="row">
            <div class="col-md-6 col-xs-6">
-          <div class="form-group">
-          <label for="lastname">Sobrenome</label>
-          <input class="form-control" type="text" name="lastname" id="lastname" required/>
+              <div class="form-group">
+                <label for="sobrenome">{{ __('sobrenome') }}</label>
+                <input class="form-control {{ $errors->has('sobrenome') ? ' is-invalid' : '' }}" type="text" name="sobrenome" value="{{ old('sobrenome') }}" id="sobrenome" required autofocus/>
+                @if ($errors->has('sobrenome'))
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('sobrenome') }}</strong>
+                  </span>
+                @endif
+              </div>
+            </div>
           </div>
-          </div>
-        </div>
         </div>
 
         <div class="form-group">
-          <label for="matricula">Matrícula</label>
-          <input class="form-control" type="text" name="matricula" id="matricula" required />
+          <label for="matricula">{{ __('matricula') }}</label>
+          <input class="form-control {{ $errors->has('matricula') ? ' is-invalid' : '' }}" type="text" name="matricula" id="matricula" required autofocus/>
+          @if ($errors->has('matricula'))
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('matricula') }}</strong>
+            </span>
+          @endif
+
         </div>
 
         <div class="row">
@@ -68,26 +68,16 @@
         <label for="Cursos">Curso</label>
         <select class="form-control" data-size="5" data-live-search="true" data-width="100%" name="Cursos" required>
               <option selected disabled>Selecionar</option>
-              <option>Informática para Internet</option>
-              <option>Logística</option>
-              <option>Gestão da Qualidade</option>
+              <option value="0">Informática para Internet</option>
+              <option value="1">Logística</option>
+              <option value="2">Gestão da Qualidade</option>
           </select>
       </div>
     </div>
     <div class="col-md-4 col-xs-4">
       <div class="form-group">
-        <label for="Periodo">Período</label>
-        <select class="form-control" data-sizer="5" data-live-search="true" data-width="100%" name="Período" required>
-              <option selected disabled>Selecionar</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>  
-              <option>7</option>
-              <option>8</option>  
-        </select>
+        <label for="periodo">Período</label>
+        <input type="number" class="form-control" data-width="100%" name="periodo" required>
       </div>
     </div>
     <div class="col-md-4 col-xs-4">
@@ -103,23 +93,34 @@
   </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
-          <input class="form-control" type="text" name="email" id="email" required />
+          <label for="email">{{ __('E-Mail') }}</label>
+          <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" type="text" name="email" id="email" required autofocus/>
+          @if ($errors->has('email'))
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('email') }}</strong>
+            </span>
+          @endif
+
         </div>
 
         <div class="row">
           <div class="col-md-6 col-xs-6">
             <div class="form-group">
-            <label for="passwordRepeat">Senha</label>
-            <input class="form-control" data-width="100%" type="password" name="password" id="password" required/>
+            <label for="passwordRepeat">{{ __('Senha') }}</label>
+            <input class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" data-width="100%" type="password" name="password" id="password" required autofocus/>
+            @if ($errors->has('password'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+            @endif
           </div>
         </div>
 
         <div class="row">
         	 <div class="col-md-6 col-xs-6">
       	  <div class="form-group">
-          <label for="passwordRepeat">Repetir Senha</label>
-          <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" required/>
+          <label for="password-confirm">{{ __('Confirm Password') }}</label>
+          <input class="form-control" type="password" name="password_confirmation" required autofocus/>
           </div>
           </div>
         </div>
@@ -138,8 +139,4 @@
       </form>  
     </div>
   </div>
-
-
-  </body>
-
-  </html>
+@endsection

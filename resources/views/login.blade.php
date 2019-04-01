@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" >
+@extends('layouts.app')
 
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-  
-  
-      <link rel="stylesheet" href="{{asset('css/login.css')}}">
+@section('content')
 
-
-</head>
-
-  <body>
-  <div class="fundo"></div>
+<div class="fundo"></div>
 
 
      <div class="container">
@@ -51,10 +40,4 @@
 
 </div>
 
-</body>
-  
-  
-
-</body>
-
-</html>
+@endsection
