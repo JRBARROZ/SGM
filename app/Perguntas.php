@@ -12,4 +12,7 @@ class Perguntas extends Model
     protected $fillable = [
         'titulo', 'texto', 'users_id'
     ];
+
+    public $timestamps = false;
+
 }
