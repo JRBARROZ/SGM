@@ -14,8 +14,9 @@ class PerguntaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('index');
+    {   
+        $perguntas = Perguntas::all();
+        return view('index', compact('perguntas'));
     }
 
     /**
