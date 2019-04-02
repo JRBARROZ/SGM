@@ -13,7 +13,7 @@
 			<div class="col-md-10 border rounded">
 				<br>
 
-				<form method="POST" action="{{route('adicionar-pergunta')}}" class="form-group">
+				<form method="POST" action="#" class="form-group">
 					@csrf
 					
 					<label for="">Titulo da pergunta</label>
