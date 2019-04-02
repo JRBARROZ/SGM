@@ -12,6 +12,18 @@
 		<div class="row justify-content-center">
 			<div class="col-md-10 border rounded">
 				<br>
+
+				<form method="POST" action="{{route('adicionar-pergunta')}}" class="form-group">
+					@csrf
+					
+					<label for="">Titulo da pergunta</label>
+					<input type="text" name="titulo" maxlength="200" class="form-control">
+					<label for="">Descrição da pergunta:</label>
+					<textarea class="form-control" name="descricao" aria-label="With textarea" placeholder="descreva aqui sua dúvida"></textarea>
+					<br>
+					<button type="submit" class="btn btn-success">postar</button>
+				</form>
+
 				<h3 class="ml-3">Explore nossas perguntas
 					<form action="" class="float-right form-inline mr-3">
 						<label class="h5 mr-2">Filtrar postagens: </label>
