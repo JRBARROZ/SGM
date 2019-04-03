@@ -41,7 +41,7 @@
 							</a>
 								<span class="text-secondary ml-2">{{$pergunta->data}}</span>
 								@if($pergunta->users_id == Auth::id())
-								<a href="{{route('delete')}}"></a><span id="curso" class="badge badge-secondary float-right">DEL</span>
+								<a href="{{route('delete',$pergunta->id)}}"><span id="curso" class="badge badge-secondary float-right">DEL</span></a>
 								@endif
 								<span id="curso" class="badge badge-secondary float-right">LOG</span>
 								<span id="estado" class="badge badge-info float-right mr-2">{{$pergunta->estado}}</span>

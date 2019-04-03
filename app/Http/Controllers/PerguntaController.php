@@ -89,10 +89,9 @@ class PerguntaController extends Controller
     public function destroy($id)
     {
         $idUser = Perguntas::findOrFail($i);
-        var_dump($idUser);
         if ($idUser == Auth::id()) {
             $pergunta = Perguntas::findOrFail($id)->delete();
         }
-        // return redirect('/');
+        return view('index');
     }
 }
