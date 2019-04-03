@@ -18,6 +18,7 @@ class AddPerguntasTable extends Migration
             $table->string('titulo');
             $table->enum('estado', ['aberta', 'respondida'])->default('aberta');
             $table->mediumText('texto');
+            $table->timestamp('data')->nullable();
         });
     }
 
