@@ -16,6 +16,7 @@ class CreateCursosTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('nome');
+			$table->string('sigla');
 			$table->enum('tipo', ['tecnico', 'superior']);
 		});
 	}
