@@ -43,7 +43,7 @@ class PerguntaController extends Controller
         $pergunta->users_id = Auth::id();
         $pergunta->save();
 
-        return view('index');
+        return redirect('/');
     }
 
     /**
