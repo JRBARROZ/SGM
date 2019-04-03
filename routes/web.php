@@ -16,7 +16,9 @@ Route::get('/', function () {
 });
 */
 
-Route::resource('/', 'PerguntaController');
+Route::store('/', 'PerguntaController');
+
+Route::post('/pergunta/adiciona', 'PerguntaController@store');
 
 Auth::routes();
 
