@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 */
 
-Route::store('/', 'PerguntaController');
+Route::get('/', 'PerguntaController@index');
 
 Route::post('/pergunta/adiciona', 'PerguntaController@store')->name('adicionar-pergunta');
 
