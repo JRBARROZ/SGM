@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Route::store('/', 'PerguntaController');
 
-Route::post('/pergunta/adiciona', 'PerguntaController@store');
+Route::post('/pergunta/adiciona', 'PerguntaController@store')->name('adicionar-pergunta');
 
 Auth::routes();
 
