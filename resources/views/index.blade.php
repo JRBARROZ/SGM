@@ -24,19 +24,6 @@
 							<button type="submit" class="btn btn-success">postar</button>
 						</form>
 					@endauth
-				<table>
-					<tr>
-						<th>titulo</th>
-						<th>descricao</th>
-					</tr>
-					@foreach($perguntas as $pergunta)
-						<tr>
-							<td>{{$pergunta->titulo}}</td>
-							<td>{{$pergunta->texto}}</td>
-							<td>{{$pergunta->estado}}</td>
-						</tr>
-					@endforeach
-				</table>
 
 				<h3 class="ml-3">Explore nossas perguntas
 					<form action="" class="float-right form-inline mr-3">
@@ -46,20 +33,22 @@
 					</form>
 				</h3>
 				<hr>
-				<div id="posts">
-					<div id="post-info" class="border-bottom">
-						<a href="#" class="text-dark">
-							<h4 class="d-inline">Título da postagem</h4>
-						</a>
-							<span class="text-secondary ml-2">Postado em 00/00/0000</span>
-							<span id="curso" class="badge badge-secondary float-right">LOG</span>
-							<span id="estado" class="badge badge-info float-right mr-2">Aberto</span>
-							<h6>
-								<a href="#" class="badge badge-secondary">tag</a>
-								<a href="#" class="badge badge-secondary">tag</a>
-								<a href="#" class="badge badge-secondary">tag</a>
-							</h6>
-					</div>
+					<div id="posts">
+				@foreach($perguntas as $pergunta)
+						<div id="post-info" class="border-bottom">
+							<a href="#" class="text-dark">
+								<h4 class="d-inline">{{$pergunta->titulo}}</h4>
+							</a>
+								<span class="text-secondary ml-2">{{$pergunta->data}}</span>
+								<span id="curso" class="badge badge-secondary float-right">LOG</span>
+								<span id="estado" class="badge badge-info float-right mr-2">{{$pergunta->estado}}</span>
+								<h6>
+									<a href="#" class="badge badge-secondary">tag</a>
+									<a href="#" class="badge badge-secondary">tag</a>
+									<a href="#" class="badge badge-secondary">tag</a>
+								</h6>
+						</div>
+				@endforeach
 					<div id="post-info" class="border-bottom">
 						<a href="#" class="text-dark">
 							<h4 class="d-inline">Título da postagem</h4>

@@ -10,7 +10,7 @@ class Perguntas extends Model
 	protected $table = 'perguntas';
 
     protected $fillable = [
-        'titulo', 'texto', 'users_id', 'estado'
+        'titulo', 'texto', 'users_id', 'estado', 'data'
     ];
 
     public $timestamps = false;
