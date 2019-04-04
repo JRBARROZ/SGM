@@ -28,8 +28,8 @@ class AddFkCursoToPerguntas extends Migration
     public function down()
     {
         Schema::table('perguntas', function (Blueprint $table) {
+            $table->dropForeign(['fk_curso']);
             $table->dropColumn('fk_curso');
-            $table->dropForeign('fk_curso');
         });
     }
 }
