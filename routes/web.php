@@ -20,6 +20,7 @@ Route::get('/', 'PerguntaController@index');
 Route::get('/pergunta/{id}', 'PerguntaController@show')->name('exibir-pergunta');
 
 Route::post('/pergunta/adiciona', 'PerguntaController@store')->name('adicionar-pergunta');
+Route::post('/pergunta/filtrar', 'PerguntaController@filter')->name('filtrar-pergunta');
 Route::get('/pergunta/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
 Auth::routes();
