@@ -58,32 +58,7 @@
 								</h6>
 						</div>
 				@endforeach
-					<div id="post-info" class="border-bottom">
-						<a href="#" class="text-dark">
-							<h4 class="d-inline">Título da postagem</h4>
-						</a>
-							<span class="text-secondary ml-2">Postado em 00/00/0000</span>
-							<span id="curso" class="badge badge-secondary float-right">IPI</span>
-							<span id="estado" class="badge badge-success float-right mr-2">Resolvido</span>
-							<h6>
-								<a href="#" class="badge badge-secondary">tag</a>
-								<a href="#" class="badge badge-secondary">tag</a>
-								<a href="#" class="badge badge-secondary">tag</a>
-							</h6>
-					</div>
-					<div id="post-info" class="border-bottom">
-						<a href="#" class="text-dark">
-							<h4 class="d-inline">Título da postagem</h4>
-						</a>
-							<span class="text-secondary ml-2">Postado em 00/00/0000</span>
-							<span id="curso" class="badge badge-secondary float-right">LOG</span>
-							<span id="estado" class="badge badge-info float-right mr-2">Aberto</span>
-							<h6>
-								<a href="#" class="badge badge-secondary">tag</a>
-								<a href="#" class="badge badge-secondary">tag</a>
-								<a href="#" class="badge badge-secondary">tag</a>
-							</h6>
-					</div>
+					
 				</div>
 			</div>
 		</div>
