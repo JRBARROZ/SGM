@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Cursos;
 use App\Perguntas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
 class PerguntaController extends Controller
 {
     /**
@@ -17,7 +17,7 @@ class PerguntaController extends Controller
     public function index()
     {   
         $perguntas = DB::table('perguntas')
-            ->join('cursos', 'perguntas.fk_curso', '= ', 'cursos.id')
+            ->join('cursos', 'perguntas.fk_curso', '=', 'cursos.id')
             ->select('perguntas.*', 'cursos.sigla')
             ->orderBy('perguntas.created_at', 'desc')
             ->get();
