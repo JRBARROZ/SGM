@@ -42,7 +42,7 @@
 					<div id="posts">
 				@foreach($perguntas as $pergunta)
 						<div id="post-info" class="border-bottom">
-							<a href="#" class="text-dark">
+							<a href="{{route('exibir-pergunta', $pergunta->id)}}" class="text-dark">
 								<h4 class="d-inline">{{$pergunta->titulo}}</h4>
 							</a>
 								<span class="text-secondary ml-2">{{$pergunta->created_at}}</span>
