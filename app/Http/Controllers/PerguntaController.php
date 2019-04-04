@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cursos;
 use App\Perguntas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,8 +16,12 @@ class PerguntaController extends Controller
      */
     public function index()
     {   
-        $perguntas = Perguntas::all();
-        return view('index', compact('perguntas'));
+        $perguntas = DB::table('perguntas')
+            ->join('cursos', 'perguntas.fk_curso', '= ', 'cursos.id')
+            ->select('perguntas.*', 'cursos.sigla')
+            ->get();
+        $cursos = Cursos::all();
+        return view('index', compact('perguntas', 'cursos'));
     }
 
     /**
