@@ -17,6 +17,7 @@ Route::get('/', function () {
 */
 
 Route::get('/', 'PerguntaController@index');
+Route::get('/pergunta/{id}', 'PerguntaController@show')->name('exibir-pergunta');
 
 Route::post('/pergunta/adiciona', 'PerguntaController@store')->name('adicionar-pergunta');
 Route::put('/pergunta/delete/{$id}', 'PerguntaController@destroy')->name('delete');

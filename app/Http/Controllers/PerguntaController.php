@@ -61,7 +61,12 @@ class PerguntaController extends Controller
      */
     public function show($id)
     {
-        //
+        $pergunta = DB::table('perguntas')
+            ->join('cursos', 'perguntas.fk_curso', '=', 'cursos.id')
+                ->where('perguntas.id', '=', $id)
+            ->select('perguntas.*', 'cursos.sigla')
+            ->get();
+        return view('pergunta', compact('pergunta'));
     }
 
     /**
