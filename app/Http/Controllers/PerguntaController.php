@@ -46,6 +46,7 @@ class PerguntaController extends Controller
         $pergunta = new Perguntas();
         $pergunta->titulo = $request->titulo;
         $pergunta->texto = $request->descricao;
+        $pergunta->fk_curso = $request->curso;
         $pergunta->users_id = Auth::id();
         $pergunta->save();
 

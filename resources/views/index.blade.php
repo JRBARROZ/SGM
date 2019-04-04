@@ -20,6 +20,12 @@
 							<input type="text" name="titulo" maxlength="200" class="form-control">
 							<label for="">Descrição da pergunta:</label>
 							<textarea class="form-control" name="descricao" aria-label="With textarea" placeholder="descreva aqui sua dúvida"></textarea>
+							<label for="">Curso:</label>
+							<select class="form-control" name="curso">
+								@foreach ($cursos as $curso)
+									<option value="{{$curso->id}}"> {{$curso->nome}} - ({{$curso->sigla}})</option>
+								@endforeach
+							</select>
 							<br>
 							<button type="submit" class="btn btn-success">postar</button>
 						</form>
