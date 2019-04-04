@@ -19,6 +19,7 @@ class PerguntaController extends Controller
         $perguntas = DB::table('perguntas')
             ->join('cursos', 'perguntas.fk_curso', '= ', 'cursos.id')
             ->select('perguntas.*', 'cursos.sigla')
+            ->orderBy('perguntas.created_at', 'desc')
             ->get();
         $cursos = Cursos::all();
         return view('index', compact('perguntas', 'cursos'));

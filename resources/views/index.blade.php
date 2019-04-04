@@ -39,7 +39,7 @@
 							<a href="#" class="text-dark">
 								<h4 class="d-inline">{{$pergunta->titulo}}</h4>
 							</a>
-								<span class="text-secondary ml-2">{{$pergunta->data}}</span>
+								<span class="text-secondary ml-2">{{$pergunta->created_at}}</span>
 								@if($pergunta->users_id == Auth::id())
 								<a href="{{route('delete',$pergunta->id)}}"><span id="curso" class="badge badge-secondary float-right">DEL</span></a>
 								@endif
