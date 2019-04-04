@@ -100,10 +100,15 @@ class PerguntaController extends Controller
      */
     public function destroy($id)
     {
-        $idUser = Perguntas::findOrFail($i);
-        if ($idUser == Auth::id()) {
-            $pergunta = Perguntas::findOrFail($id)->delete();
+        $pergunta = Perguntas::findOrFail($id);
+        if ($pergunta->users_id == Auth::id()) {
+            $pergunta->delete();
         }
-        return view('index');
+        return redirect('/');
+    }
+
+    public function filter(Request $request)
+    {
+
     }
 }
