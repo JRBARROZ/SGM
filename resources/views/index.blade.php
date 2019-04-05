@@ -48,6 +48,7 @@
 								<span class="text-secondary ml-2">{{$pergunta->created_at}}</span>
 								@if($pergunta->users_id == Auth::id())
 								<a href="{{route('delete',$pergunta->id)}}"><span id="curso" class="badge badge-secondary float-right">DEL</span></a>
+								<a href="{{route('editar-pergunta',$pergunta->id)}}"><span id="curso" class="badge badge-secondary float-right">editar</span></a>
 								@endif
 								<span id="curso" class="badge badge-secondary float-right">{{$pergunta->sigla}}</span>
 								<span id="estado" class="badge badge-info float-right mr-2">{{$pergunta->estado}}</span>
