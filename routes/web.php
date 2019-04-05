@@ -28,7 +28,7 @@ Route::post('/pergunta/adiciona', 'PerguntaController@store')->name('adicionar-p
 Route::get('/pergunta/editar/{id}', 'PerguntaController@edit')->name('editar-pergunta');
 
 // salva pergunta editada pelo usuario
-Route::put('pergunta/saltar', 'PerguntaController@update')->name('saltar-pergunta');
+Route::put('pergunta/salvar/{id}', 'PerguntaController@update')->name('salvar-pergunta');
 
 // 
 Route::post('/pergunta/filtrar', 'PerguntaController@filter')->name('filtrar-pergunta');

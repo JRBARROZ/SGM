@@ -86,9 +86,9 @@ class PerguntaController extends Controller
             ->get();
 
             $cursoAtual = Curso::find($pergunta->fk_curso);
-            return view('editar-pergunta', compact('pergunta', 'cursos', 'cursoAtual'));
+            return view('editar-pergunta', compact('pergunta', 'cursos', 'cursoAtual', 'id'));
         }
-        return view('/');
+        return redirect('/');
     }
 
     /**
@@ -100,7 +100,14 @@ class PerguntaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        var_dump($Request);
+        DB::table('perguntas')
+            ->where('id', '=', $id)
+        ->update(
+            ['titulo' => $request->titulo],
+            ['texto' => $request->descricao],
+            ['fk_curso' => $request->curso]
+        );
+        return redirect('/');
     }
 
     /**
