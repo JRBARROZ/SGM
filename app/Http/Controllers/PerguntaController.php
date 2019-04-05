@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Cursos;
-use App\Perguntas;
+use App\Curso;
+use App\Pergunta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +21,7 @@ class PerguntaController extends Controller
             ->select('perguntas.*', 'cursos.sigla')
             ->orderBy('perguntas.created_at', 'desc')
             ->get();
-        $cursos = Cursos::all();
+        $cursos = Curso::all();
         return view('index', compact('perguntas', 'cursos'));
     }
 
@@ -43,7 +43,7 @@ class PerguntaController extends Controller
      */
     public function store(Request $request)
     {
-        $pergunta = new Perguntas();
+        $pergunta = new Pergunta();
         $pergunta->titulo = $request->titulo;
         $pergunta->texto = $request->descricao;
         $pergunta->fk_curso = $request->curso;
@@ -100,7 +100,7 @@ class PerguntaController extends Controller
      */
     public function destroy($id)
     {
-        $pergunta = Perguntas::findOrFail($id);
+        $pergunta = Pergunta::findOrFail($id);
         if ($pergunta->users_id == Auth::id()) {
             $pergunta->delete();
         }
