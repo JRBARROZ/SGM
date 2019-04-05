@@ -16,11 +16,8 @@ class PerguntaController extends Controller
      */
     public function index()
     {   
-        $perguntas = DB::table('perguntas')
-            ->join('cursos', 'perguntas.fk_curso', '=', 'cursos.id')
-            ->select('perguntas.*', 'cursos.sigla')
-            ->orderBy('perguntas.created_at', 'desc')
-            ->get();
+        $queryPerguntas = new Pergunta();
+        $perguntas = $queryPerguntas->listaPerguntas();        
         $cursos = Curso::all();
         return view('index', compact('perguntas', 'cursos'));
     }
@@ -61,11 +58,8 @@ class PerguntaController extends Controller
      */
     public function show($id)
     {
-        $pergunta = DB::table('perguntas')
-            ->join('cursos', 'perguntas.fk_curso', '=', 'cursos.id')
-                ->where('perguntas.id', '=', $id)
-            ->select('perguntas.*', 'cursos.sigla')
-            ->get();
+        $queryPergunta = new Pergunta();
+        $pergunta = $queryPergunta->exibirPergunta($id);
         return view('pergunta', compact('pergunta'));
     }
 
