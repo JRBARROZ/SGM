@@ -2,9 +2,9 @@
 
 @section('content')
 
-<form method="put" action="{{route('saltar-pergunta')}}" class="form-group">
+<form method="POST" action="{{route('salvar-pergunta', $id)}}" class="form-group">
 	@csrf
-	
+	@method('PUT')
 	<label for="">Titulo da pergunta</label>
 	<input type="text" name="titulo" maxlength="200" value="{{ $pergunta->titulo }}" class="form-control">
 	<label for="">Descrição da pergunta:</label>
