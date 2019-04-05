@@ -78,14 +78,17 @@ class PerguntaController extends Controller
      */
     public function edit($id)
     {
-        /*
-        if ($id == Auth::id()) {
-            $queryPergunta = new Pergunta();
-            $pergunta = $queryPergunta->exibirPergunta($id);
-            return view('editar/pergunta', compact('pergunta'));
+        $pergunta = Pergunta::findOrFail($id);
+        if ($pergunta->users_id == Auth::id()) {
+
+            $cursos = DB::table('cursos')
+                ->where('id', '<>', $pergunta->fk_curso)
+            ->get();
+
+            $cursoAtual = Curso::find($pergunta->fk_curso);
+            return view('editar-pergunta', compact('pergunta', 'cursos', 'cursoAtual'));
         }
         return view('/');
-        */
     }
 
     /**
@@ -97,7 +100,7 @@ class PerguntaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        var_dump($Request);
     }
 
     /**

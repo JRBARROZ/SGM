@@ -1,0 +1,24 @@
+@extends('layouts.app')
+
+@section('content')
+
+<form method="put" action="{{route('saltar-pergunta')}}" class="form-group">
+	@csrf
+	
+	<label for="">Titulo da pergunta</label>
+	<input type="text" name="titulo" maxlength="200" value="{{ $pergunta->titulo }}" class="form-control">
+	<label for="">Descrição da pergunta:</label>
+	<textarea class="form-control" name="descricao" aria-label="With textarea" placeholder="descreva aqui sua dúvida">{{ $pergunta->texto }}</textarea>
+	<label for="">Curso:</label>
+	<select class="form-control" name="curso">
+			<option value="{{$cursoAtual['id']}}"> {{$cursoAtual['nome']}} - ({{$cursoAtual['sigla']}})</option>
+		@foreach ($cursos as $curso)
+			<option value="{{$curso->id}}"> {{$curso->nome}} - ({{$curso->sigla}})</option>
+		@endforeach
+	</select>
+	<br>
+	<button type="submit" class="btn btn-success">salvar</button>
+</form>
+
+
+@endsection
