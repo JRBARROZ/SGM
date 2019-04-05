@@ -14,6 +14,13 @@ class PerguntaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
+
     public function index()
     {   
         $queryPerguntas = new Pergunta();
@@ -71,7 +78,14 @@ class PerguntaController extends Controller
      */
     public function edit($id)
     {
-        //
+        /*
+        if ($id == Auth::id()) {
+            $queryPergunta = new Pergunta();
+            $pergunta = $queryPergunta->exibirPergunta($id);
+            return view('editar/pergunta', compact('pergunta'));
+        }
+        return view('/');
+        */
     }
 
     /**
