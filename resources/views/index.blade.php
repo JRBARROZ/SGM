@@ -42,7 +42,7 @@
 									<div class="m-3">
 										<a href="{{route('exibir-pergunta', $pergunta->id)}}" class="h4 text-dark">{{$pergunta->titulo}}</a>
 										<span class="badge badge-secondary  float-right mr-2">{{$pergunta->cursos[0]->sigla}}</span>
-										@if($pergunta->estado == "Aberto")
+										@if($pergunta->estado == "aberta")
 											<span class="badge badge-info text-light float-right mr-2">{{$pergunta->estado}}</span>
 										@else
 											<span class="badge badge-success text-light float-right mr-2">{{$pergunta->estado}}</span>
