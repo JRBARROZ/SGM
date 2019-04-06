@@ -50,7 +50,7 @@
 								<a href="{{route('delete',$pergunta->id)}}"><span id="curso" class="badge badge-secondary float-right">DEL</span></a>
 								<a href="{{route('editar-pergunta',$pergunta->id)}}"><span id="curso" class="badge badge-secondary float-right">editar</span></a>
 								@endif
-								<span id="curso" class="badge badge-secondary float-right">{{$pergunta->sigla}}</span>
+								<span id="curso" class="badge badge-secondary float-right">{{$pergunta->cursos[0]->sigla}}</span>
 								<span id="estado" class="badge badge-info float-right mr-2">{{$pergunta->estado}}</span>
 								<h6>
 									<a href="#" class="badge badge-secondary">tag</a>

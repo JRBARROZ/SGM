@@ -23,9 +23,20 @@ class PerguntaController extends Controller
 
     public function index()
     {   
-        $queryPerguntas = new Pergunta();
-        $perguntas = $queryPerguntas->listaPerguntas();        
+        // $queryPerguntas = new Pergunta();
+        // $perguntas = $queryPerguntas->listaPerguntas();        
+        $perguntas = Pergunta::with('cursos')->get();
+        // $listCurso = $perguntas->cursos;
         $cursos = Curso::all();
+        /*
+        foreach ($perguntas as $pergunta) {
+            echo $pergunta->titulo . '<br>';
+            echo $pergunta->users_id . '<br>';
+            echo $pergunta->texto . '<br>';
+            echo $pergunta->estado . '<br>';
+            echo $pergunta->cursos[0]->sigla . '<br>';
+        }
+        */
         return view('index', compact('perguntas', 'cursos'));
     }
 
@@ -80,13 +91,8 @@ class PerguntaController extends Controller
     {
         $pergunta = Pergunta::findOrFail($id);
         if ($pergunta->users_id == Auth::id()) {
-
-            $cursos = DB::table('cursos')
-                ->where('id', '<>', $pergunta->fk_curso)
-            ->get();
-
-            $cursoAtual = Curso::find($pergunta->fk_curso);
-            return view('editar-pergunta', compact('pergunta', 'cursos', 'cursoAtual', 'id'));
+            $cursos = Curso::all();
+            return view('editar-pergunta', compact('pergunta', 'cursos', 'id'));
         }
         return redirect('/');
     }
