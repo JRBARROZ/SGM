@@ -14,7 +14,7 @@ class Curso extends Model
 
     public function post()
     {
-        return $this->belongsTo('App\Pergunta');
+        return $this->hasOne('App\Pergunta');
     }
 
 }

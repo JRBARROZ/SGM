@@ -14,7 +14,7 @@ class Pergunta extends Model
         'titulo', 'texto', 'users_id', 'estado'
     ];
     
-
+/*
     public function listaPerguntas(){
         $perguntas = DB::table('perguntas')
             ->join('cursos', 'perguntas.fk_curso', '=', 'cursos.id')
@@ -31,5 +31,10 @@ class Pergunta extends Model
             ->select('perguntas.*', 'cursos.sigla')
         ->get();
         return $pergunta;
+    }
+*/
+    public function cursos()
+    {
+        return $this->hasMany('App\Curso', 'id', 'fk_curso');
     }
 }

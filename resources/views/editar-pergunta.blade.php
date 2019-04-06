@@ -11,7 +11,6 @@
 	<textarea class="form-control" name="descricao" aria-label="With textarea" placeholder="descreva aqui sua dúvida">{{ $pergunta->texto }}</textarea>
 	<label for="">Curso:</label>
 	<select class="form-control" name="curso">
-			<option value="{{$cursoAtual['id']}}"> {{$cursoAtual['nome']}} - ({{$cursoAtual['sigla']}})</option>
 		@foreach ($cursos as $curso)
 			<option value="{{$curso->id}}"> {{$curso->nome}} - ({{$curso->sigla}})</option>
 		@endforeach
