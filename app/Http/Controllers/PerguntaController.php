@@ -76,9 +76,9 @@ class PerguntaController extends Controller
      */
     public function show($id)
     {
-        $queryPergunta = new Pergunta();
-        $pergunta = $queryPergunta->exibirPergunta($id);
-        return view('pergunta', compact('pergunta'));
+        $pergunta = Pergunta::find($id);
+        $curso = $pergunta->cursos;
+        return view('pergunta', compact('pergunta', 'curso'));
     }
 
     /**

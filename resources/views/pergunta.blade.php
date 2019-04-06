@@ -2,9 +2,9 @@
 
 @section('content')
 
-{{$pergunta[0]->titulo}}
-{{$pergunta[0]->texto}}
-{{$pergunta[0]->sigla}}
-{{$pergunta[0]->created_at}}
+{{$pergunta->titulo}}
+{{$pergunta->texto}}
+{{$pergunta->cursos[0]->sigla}}
+{{$pergunta->created_at}}
 
 @endsection
