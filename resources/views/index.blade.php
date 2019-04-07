@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="jumbotron" style="padding: 20px; width: 100%;">
+
+<div class="jumbotron" style="padding: 20px; width: 100%;">
 		<div class="container text-center">
 			<h2 class="text-success">Sistema de Gerenciamento de Monitorias</h2>
 			<h5 class="text-secondary">Feito por alunos para auxiliar alunos!</h5>

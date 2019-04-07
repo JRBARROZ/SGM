@@ -36,7 +36,14 @@ Route::post('/pergunta/filtrar', 'PerguntaController@filter')->name('filtrar-per
 // deletar pergunta feita pelo usuario
 Route::get('/pergunta/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
+//Index de atas
+Route::get('/atas', 'AtasController@index')->name('index-atas');
+
+//Adicionar
+Route::post('/atas', 'AtasController@store')->name('salvar-dados');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/pdf', 'pdf');
+
+
