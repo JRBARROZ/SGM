@@ -15,7 +15,6 @@ class CreateCadeirasTable extends Migration {
 		Schema::create('cadeiras', function(Blueprint $table)
 		{
 			$table->increments('id');
-
 			$table->string('nome');
 			$table->integer('periodo');
 		});

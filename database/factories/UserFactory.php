@@ -16,11 +16,23 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $tipo = $faker->randomElement($array= array ('aluno', 'monitor'));
+    if($tipo == 'monitor'){
+        $cargo = $faker->randomElement($array= array ('bolsista', 'voluntario'));
+    }else{
+        $cargo = null;
+    }
     return [
         'name' => $faker->name,
+        'sobrenome'=> $faker->lastName,
+        'cargo'=> $cargo,
+        'matricula'=> $faker->numberBetween($min = 0, $max = 10000),
+        'periodo'=> $faker->numberBetween($min = 1, $max = 4),
+        'tipo'=>$tipo,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
+        'fk_curso'=>$faker->numberBetween($min = 1, $max = 3),
     ];
 });
