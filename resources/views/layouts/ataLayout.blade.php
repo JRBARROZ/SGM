@@ -21,12 +21,15 @@
         .table{
             cursor:pointer;
         }
+        tr:hover{
+            background-color: #F0F0F0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2 class="title-background text-center">
-             Ata - NomeCurso - {{date('d/m/Y')}}
+             Ata - {{$sigla[0]['nome']}} - {{date('d/m/Y')}}
         </h2>
         @hasSection ('body')
             @yield('body')
@@ -34,5 +37,15 @@
             Não chegou nenhum dado!
         @endif
     </div>
+    <script src="{{asset('js/app.js')}}" type="text/javascript"></script>
+    <script>
+        $(function(){
+            $('#atas tr').click(function(event) {
+                if (event.target.type !== 'checkbox') {
+                    $(':checkbox', this).trigger('click');
+                }
+            });
+        }); 
+    </script>
 </body>
 </html>
