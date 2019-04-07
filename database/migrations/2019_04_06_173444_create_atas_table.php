@@ -17,8 +17,8 @@ class CreateAtasTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('curso');
-            $table->enum('frequencia' ,['P', 'F'])->default('F');
-            $table->timestamps();
+            $table->string('frequencia')->default('Presente');
+            $table->string('data');
             $table->integer('id_user')->unsigned();
             $table->foreign('id_user')->references('id')->on('users');
             $table->integer('id_curso')->unsigned();
