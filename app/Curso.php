@@ -17,4 +17,7 @@ class Curso extends Model
         return $this->hasOne('App\Pergunta');
     }
 
+    public function user(){
+        return $this->hasOne('App\User');
+    }
 }
