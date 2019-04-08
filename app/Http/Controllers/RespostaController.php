@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Resposta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class RespostaController extends Controller
 {
@@ -32,9 +35,15 @@ class RespostaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $resposta = new Resposta();
+        $resposta->texto = $request->resposta;
+        $resposta->users_id = Auth::id();
+        $resposta->perguntas_id = $id;
+        $resposta->save();
+
+        return redirect('/pergunta/' . $id);
     }
 
     /**

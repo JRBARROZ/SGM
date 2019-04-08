@@ -42,6 +42,9 @@ Route::get('/atas', 'AtasController@index')->name('index-atas');
 //Adicionar
 Route::post('/atas', 'AtasController@store')->name('salvar-dados');
 
+// adiciona respostas
+Route::put('/resposta/adicionar/{id}', 'RespostaController@store')->name('adicionar-resposta');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
