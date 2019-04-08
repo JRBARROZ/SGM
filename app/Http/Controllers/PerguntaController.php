@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Curso;
 use App\Pergunta;
 use App\Resposta;
@@ -80,6 +81,7 @@ class PerguntaController extends Controller
         $pergunta = Pergunta::find($id);
         $curso = $pergunta->cursos;
         $respostas = Resposta::with('users')->where('respostas.perguntas_id', '=', $id)->orderBy('created_at', 'desc')->get();
+
 
         return view('pergunta', compact('respostas', 'pergunta'));
     }
