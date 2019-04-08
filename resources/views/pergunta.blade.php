@@ -4,7 +4,7 @@
 
 <div class="container mt-5 mb-5 p-0">
 	<div class="row justify-content-center">
-		<div class="col-md-8 m-3 p-0" style="box-shadow: 0px 0px 10px #dadada;">
+		<div class="col-md-8 m-3 p-0 border">
 			<h3 class="m-auto p-3 bg-success text-light text-center" style="width: 100%;">Discussão</h3>
 			<br>
 			<div class="m-4">
