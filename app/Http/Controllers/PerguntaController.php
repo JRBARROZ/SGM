@@ -27,7 +27,7 @@ class PerguntaController extends Controller
     {   
         // $queryPerguntas = new Pergunta();
         // $perguntas = $queryPerguntas->listaPerguntas();        
-        $perguntas = Pergunta::with('cursos')->get();
+        $perguntas = Pergunta::with('cursos')->orderBy('created_at', 'desc')->get();
         // $listCurso = $perguntas->cursos;
         $cursos = Curso::all();
         /*
