@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use App\Pergunta;
+use App\Resposta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -78,7 +79,9 @@ class PerguntaController extends Controller
     {
         $pergunta = Pergunta::find($id);
         $curso = $pergunta->cursos;
-        return view('pergunta', compact('pergunta', 'curso'));
+        $respostas = Resposta::with('users')->where('respostas.perguntas_id', '=', $id)->orderBy('created_at', 'desc')->get();
+
+        return view('pergunta', compact('respostas', 'pergunta'));
     }
 
     /**

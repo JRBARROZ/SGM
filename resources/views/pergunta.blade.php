@@ -15,7 +15,7 @@
 					</div>
 					<div class="col m-auto">
 						<h4 class="badge badge-danger float-right">{{$pergunta->cursos[0]->sigla}}</h4>
-						@if($pergunta->estado == "aberta")
+						@if($respostas[0]->estado == "aberta")
 							<span class="badge badge-info float-right text-light mr-2">{{$pergunta->estado}}</span>
 						@else
 							<span class="badge badge-success float-right text-light mr-2">{{$pergunta->estado}}</span>
@@ -30,47 +30,35 @@
 				<table class="table mt-4">
 					<tbody>
 						<!--FOREACH LISTANDO RESPOSTAS-->
+						@forelse($respostas as $resposta)
 						<tr>
 							<td>
 								<div class="m-3">
-									<h4 class="text-success">Dono Pergunta - <span class="h6 text-secondary">00/00/0000</span></h4>
+									<h4 class="text-primary">{{ $resposta->users[0]->name }} - <span class="h6 text-secondary">{{ $resposta->created_at }}</span></h4>
 									<br>
-									<p class="text-secondary">Dono da pergunta, quando logado, tem seu nome em cor success e é adicionado o botão deletar.</p>
-									<a href="#" class="text-danger">Deletar</a>
+									<p class="text-secondary">{{ $resposta->texto }}</p>
+									@auth
+										@if($resposta->users_id == Auth::id())
+										<a href="#" class="text-danger">Deletar</a>
+										@endif
+									@endauth
 								</div>
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<div class="m-3">
-									<h4 class="text-primary">Fulano de tal - <span class="h6 text-secondary">00/00/0000</span></h4>
-									<br>
-									<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat.</p>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="m-3">
-									<h4 class="text-primary">Fulano de tal - <span class="h6 text-secondary">00/00/0000</span></h4>
-									<br>
-									<p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat.</p>
-								</div>
-							</td>
+						@empty
+							<h1>NINGÉM VAI TE RESPONDER, SEU COCÔ!</h1>
+						@endforelse
+						
 						</tr>
 						<br>
 						<tr>
 							<td>
-								<form class="m-3">
+								<form class="m-3" method="POST" action="{{route('adicionar-resposta', $pergunta->id)}}">
+									@csrf
+									@method('PUT')
 									<div class="form-group">
 										<label>Adicionar comentário:</label>
-										<textarea class="form-control" required></textarea>
+										<textarea class="form-control" name="resposta" required></textarea>
 									</div>
 									<button class="btn btn-success" type="submit">Publicar</button>
 									<button class="btn btn-danger" type="reset">Cancelar</button>
