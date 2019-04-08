@@ -15,7 +15,11 @@
 					</div>
 					<div class="col m-auto">
 						<h4 class="badge badge-danger float-right">{{$pergunta->cursos[0]->sigla}}</h4>
-						<h4 class="badge badge-info float-right text-light mr-2">Aberta</h4>
+						@if($pergunta->estado == "aberta")
+							<span class="badge badge-info float-right text-light mr-2">{{$pergunta->estado}}</span>
+						@else
+							<span class="badge badge-success float-right text-light mr-2">{{$pergunta->estado}}</span>
+						@endif
 					</div>
 				</div>
 				<br><br>
