@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="fundo"></div>
 
 
      <div class="container">
@@ -17,7 +16,7 @@
       <img class="displayed" src="{{asset('imagens/ifpe.png')}}">
 
       <div class="form__field">
-        <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">{{ __('E-Mail Address') }}</span></label>
+        <label for="login__username"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use></svg><span class="hidden">{{ __('E-Mail dale') }}</span></label>
         <input id="login__username" type="text" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="E-mail" value="{{ old('email') }}" required autofocus>
       </div>
 
