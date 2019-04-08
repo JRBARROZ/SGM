@@ -131,6 +131,7 @@ class PerguntaController extends Controller
     {
         $pergunta = Pergunta::findOrFail($id);
         if ($pergunta->users_id == Auth::id()) {
+            $respostas = DB::table('respostas')->where('perguntas_id', '=', $id)->delete();
             $pergunta->delete();
         }
         return redirect('/');
