@@ -26,27 +26,6 @@
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style type="text/css">
-        html, body{
-            height: 95%;
-        }
-        .shadow{
-            box-shadow: 0px 0px 20px #e3e3e3;
-        }
-        #posts span{
-            font-size: 12px;
-        }
-        #post-info{
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-        }
-        #post-info:hover{
-            background-color: #fafbfc;
-            transition: 0.3s;
-        }
-        
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-success">
@@ -64,7 +43,7 @@
                     @endif
                     @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
@@ -109,7 +88,7 @@
         </div>
     </div>
 
-    <main class="container-fluid">
+    <main>
         @yield('content')
     </main>
     <script src="{{asset('js/app.js')}}" type="text/javascript"></script>
