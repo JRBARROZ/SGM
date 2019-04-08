@@ -15,7 +15,7 @@
 					</div>
 					<div class="col m-auto">
 						<h4 class="badge badge-danger float-right">{{$pergunta->cursos[0]->sigla}}</h4>
-						@if($respostas[0]->estado == "aberta")
+						@if($pergunta->estado == "aberta")
 							<span class="badge badge-info float-right text-light mr-2">{{$pergunta->estado}}</span>
 						@else
 							<span class="badge badge-success float-right text-light mr-2">{{$pergunta->estado}}</span>
@@ -30,7 +30,7 @@
 				<table class="table mt-4">
 					<tbody>
 						<!--FOREACH LISTANDO RESPOSTAS-->
-						@forelse($respostas as $resposta)
+						@foreach($respostas as $resposta)
 						<tr>
 							<td>
 								<div class="m-3">
@@ -39,17 +39,14 @@
 									<p class="text-secondary">{{ $resposta->texto }}</p>
 									@auth
 										@if($resposta->users_id == Auth::id())
-										<a href="#" class="text-danger">Deletar</a>
+										<a href="{{ route('remover-resposta', [$resposta->id, $pergunta->id]) }}" class="text-danger">Deletar</a>
 										@endif
 									@endauth
 								</div>
 							</td>
 						</tr>
-						@empty
-							<h1>NINGÉM VAI TE RESPONDER, SEU COCÔ!</h1>
-						@endforelse
+						@endforeach
 						
-						</tr>
 						<br>
 						<tr>
 							<td>

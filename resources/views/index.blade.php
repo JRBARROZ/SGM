@@ -33,7 +33,7 @@
 				</div>
 			@endauth
 			<div class="col-md-8 mb-5">
-				<table class="table" style="box-shadow: 0px 0px 10px #dadbdc;">
+				<table class="table" >
 					<thead class="bg-success">
 						<tr class="text-center">
 							<th><h3 class="text-light">Expore nossas postagens</h3></th>

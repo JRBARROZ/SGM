@@ -45,6 +45,9 @@ Route::post('/atas', 'AtasController@store')->name('salvar-dados');
 // adiciona respostas
 Route::put('/resposta/adicionar/{id}', 'RespostaController@store')->name('adicionar-resposta');
 
+// remove respostas
+Route::get('resposta/deletar/{id}/{perg}', 'RespostaController@destroy')->name('remover-resposta');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
