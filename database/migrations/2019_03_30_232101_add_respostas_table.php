@@ -16,6 +16,9 @@ class AddRespostasTable extends Migration
         Schema::create('respostas', function (Blueprint $table) {
             $table->increments('id');
             $table->mediumText('texto');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+
         });
     }
 
