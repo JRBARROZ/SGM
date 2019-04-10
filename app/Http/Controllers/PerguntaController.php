@@ -112,11 +112,8 @@ class PerguntaController extends Controller
     public function update(Request $request, $id)
     {
         DB::table('perguntas')
-            ->where('id', '=', $id)
-        ->update(
-            ['titulo' => $request->titulo],
-            ['texto' => $request->descricao],
-            ['fk_curso' => $request->curso]
+            ->where('id', $id)
+        ->update( ['titulo' => $request->titulo, 'texto' => $request->descricao, 'fk_curso' => $request->curso]
         );
         return redirect('/');
     }
