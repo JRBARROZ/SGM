@@ -40,6 +40,7 @@
 									@auth
 										@if($resposta->users_id == Auth::id())
 										<a href="{{ route('remover-resposta', [$resposta->id, $pergunta->id]) }}" class="text-danger">Deletar</a>
+										<a href="{{ route('editar-resposta', [$resposta->id, $pergunta->id]) }}" class="text-info">Editar</a>
 										@endif
 									@endauth
 								</div>

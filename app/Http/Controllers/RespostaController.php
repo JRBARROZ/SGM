@@ -63,9 +63,14 @@ class RespostaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $perg)
     {
-        //
+        $resposta = Resposta::findOrFail($id);
+        if ($resposta->users_id == Auth::id()) {
+            return view('editar-resposta', compact('resposta', 'perg'));
+        }
+
+        return redirect('/');
     }
 
     /**
@@ -75,9 +80,13 @@ class RespostaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $perg)
     {
-        //
+        DB::table('respostas')
+            ->where('id', $id)
+        ->update(['texto' => $request->texto]);
+
+        return redirect('/pergunta/' . $perg);
     }
 
     /**

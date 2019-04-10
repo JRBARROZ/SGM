@@ -48,6 +48,12 @@ Route::put('/resposta/adicionar/{id}', 'RespostaController@store')->name('adicio
 // remove respostas
 Route::get('resposta/deletar/{id}/{perg}', 'RespostaController@destroy')->name('remover-resposta');
 
+// edita respostas
+Route::get('resposta/editar/{id}/{perg}', 'RespostaController@edit')->name('editar-resposta');
+
+// salva edição da resposta
+Route::put('/resposta/salvar/{id}/{perg}', 'RespostaController@update')->name('salvar-resposta');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
