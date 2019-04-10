@@ -15,7 +15,7 @@
 					</div>
 					<div class="form-group">
 						<label for="">Descrição da pergunta:</label>
-						<input type="text" name="descricao" value="{{ $pergunta->texto }}">
+						<textarea class="form-control" name="descricao" aria-label="With textarea" placeholder="descreva aqui sua dúvida">{{ $pergunta->texto }}</textarea>
 					</div>
 					<div class="form-group">
 						<label for="">Curso:</label>
