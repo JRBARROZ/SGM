@@ -54,6 +54,11 @@ Route::get('resposta/editar/{id}/{perg}', 'RespostaController@edit')->name('edit
 // salva edição da resposta
 Route::put('/resposta/salvar/{id}/{perg}', 'RespostaController@update')->name('salvar-resposta');
 
+
+// lista e exibe as monitorias
+Route::get('/monitorias', function(){
+	return view('monitoria');
+})->name('monitorias');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
