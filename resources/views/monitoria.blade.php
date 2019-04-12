@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="jumbotron" style="padding: 20px; width: 100%;">
 
-	<div class="container">
+	<div class="container" style="padding: 20px; width: 100%;">
 		<div class="row justify-content-center">
 			@auth
 				@if(Auth::user()->tipo == "monitor")
@@ -14,7 +13,7 @@
 								Titulo da atividade
 								<input type="text" class="form-group form-control" name="titulo" placeholder="assunto da monitoria">
 								Descrição da atividade
-								<input type="text" class="form-group form-control" name="descricao" placeholder="descrição da monitoria">
+								<textarea class="form-group form-control" name="descricao" placeholder="descrição da monitoria"></textarea>
 							</label>
 
 							<label for="">
@@ -36,12 +35,35 @@
 			@endauth
 			<div class="col-md-8 mb-5">
 				<table class="table table-bordered">
-					<tr align="center">
-						<th>Data</th>
-						<th>Horário</th>
-						<th>Titulo</th>
-						<th>Descrição</th>
-					</tr>
+					<thead class="bg-success">
+						<tr align="center">
+							<th colspan="4">Monitorias agendadas por você</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr align="center">
+							<th>Data</th>
+							<th>Horário</th>
+							<th>Titulo</th>
+							<th>Descrição</th>
+						</tr>
+
+						<tr>
+							<td>
+								10/06/2018
+							</td>
+							<td>
+								08:00 / 10:00
+							</td>
+							<td>
+								Aula de monitoria
+							</td>
+
+							<td>
+								Subquery e outras coisas toppen
+							</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 		</div>
