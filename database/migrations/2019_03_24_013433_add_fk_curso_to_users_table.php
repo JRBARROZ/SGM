@@ -14,7 +14,6 @@ class AddFkCursoToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-
             //fk da coluna cursos para users
             $table->integer('fk_curso')->unsigned();
 			$table->foreign('fk_curso')->references('id')->on('cursos')->onDelete('cascade')->nullable()->change();
