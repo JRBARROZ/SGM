@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .hover:hover{cursor:pointer;background-color:#F0F0F0;}
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-success">
