@@ -36,11 +36,21 @@ Route::post('/pergunta/filtrar', 'PerguntaController@filter')->name('filtrar-per
 // deletar pergunta feita pelo usuario
 Route::get('/pergunta/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
-//Index de atas
-Route::get('/atas', 'AtasController@index')->name('index-atas');
+//Atas
 
-//Adicionar
-Route::post('/atas', 'AtasController@store')->name('salvar-dados');
+Route::prefix('ata')->group(function(){
+    //Index
+    Route::get('/','AtaController@index')->name('ataIndex');
+    //Store
+    Route::post('/store','AtaController@store')->name('ataStore');
+    //Edit
+    Route::get('/edit/{id}','AtaController@edit')->name('ataEdit');
+    //Update
+    Route::post('/update/{id}','AtaController@update')->name('ataUpdate');
+    //Destroy
+    Route::get('/destroy/{id}','AtaController@destroy')->name('ataDestroy');
+
+});
 
 // adiciona respostas
 Route::put('/resposta/adicionar/{id}', 'RespostaController@store')->name('adicionar-resposta');
