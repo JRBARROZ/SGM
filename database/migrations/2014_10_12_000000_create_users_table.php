@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->integer('periodo');
             $table->enum('cargo', ['bolsista', 'voluntario'])->nullable();
+            $table->string('cadeira_monitor')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
