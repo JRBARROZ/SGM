@@ -33,6 +33,8 @@ then
 else
     echo -e "${CORES['WHITE']}Não foi possível adicionar o arquivo ${CORES['RED']}'${1}'${CORES['FINAL']}"
 fi   
+clear
+git status
 # Limpando 
 
 #
