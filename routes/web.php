@@ -39,7 +39,7 @@ Route::get('/pergunta/delete/{id}', 'PerguntaController@destroy')->name('delete'
 
 //Dashboard
 Route::get('/user', function(){
-    return view('user.painelUser');
+    return view('user.painelHome');
 })->name('painel');
 //Atas
 
