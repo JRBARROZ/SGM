@@ -57,6 +57,8 @@ Route::prefix('ata')->group(function(){
 
 });
 
+Route::get('/home/perfil', 'PerfilController@index')->name('perfil');
+
 // adiciona respostas
 Route::put('/resposta/adicionar/{id}', 'RespostaController@store')->name('adicionar-resposta');
 
