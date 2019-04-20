@@ -36,6 +36,11 @@ Route::post('/pergunta/filtrar', 'PerguntaController@filter')->name('filtrar-per
 // deletar pergunta feita pelo usuario
 Route::get('/pergunta/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
+
+//Dashboard
+Route::get('/user', function(){
+    return view('user.painelUser');
+})->name('painel');
 //Atas
 
 Route::prefix('ata')->group(function(){
