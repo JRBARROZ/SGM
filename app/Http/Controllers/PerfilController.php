@@ -7,6 +7,7 @@ use App\User;
 use App\Pergunta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+
 class PerfilController extends Controller
 {
     /**
@@ -111,6 +112,9 @@ class PerfilController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Auth::user('attributes');
+        $perguntas = Pergunta::where('users_id', Auth::id())->orderBy('created_at', 'desc')->get();
+
+        return view('perfil', compact('perguntas','user'));
     }
 }
