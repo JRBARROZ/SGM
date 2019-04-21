@@ -25,6 +25,8 @@ class CreateUsersTable extends Migration
             $table->enum('cargo', ['bolsista', 'voluntario'])->nullable();
             $table->string('cadeira_monitor')->nullable();
             $table->string('password');
+            $table->string('avatar')->default('/storage/avatar/avatar.png');
+            $table->string('capa')->default('/storage/capa/capa.jpg');
             $table->rememberToken();
             $table->timestamps();
         });
