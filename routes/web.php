@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 */
 // index
-Route::get('/', 'PerguntaController@index');
+Route::get('/', 'PerguntaController@index')->name('index');
 
 // exbir pergunta selecionada pelo usuario
 Route::get('/pergunta/{id}', 'PerguntaController@show')->name('exibir-pergunta');
@@ -36,11 +36,6 @@ Route::post('/pergunta/filtrar', 'PerguntaController@filter')->name('filtrar-per
 // deletar pergunta feita pelo usuario
 Route::get('/pergunta/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
-
-//Dashboard
-Route::get('/user', function(){
-    return view('user.painelHome');
-})->name('painel');
 //Atas
 
 Route::prefix('ata')->group(function(){
@@ -57,7 +52,8 @@ Route::prefix('ata')->group(function(){
 
 });
 
-Route::get('/home/perfil', 'PerfilController@index')->name('perfil');
+//Perfil
+Route::resource('user',  'PerfilController');
 
 // adiciona respostas
 Route::put('/resposta/adicionar/{id}', 'RespostaController@store')->name('adicionar-resposta');
