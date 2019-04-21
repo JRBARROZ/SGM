@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Pergunta;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
 
 class PerfilController extends Controller
 {
@@ -23,6 +26,8 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $perguntas = Pergunta::where('users_id', Auth::id())->orderBy('created_at', 'desc')->get();
+
+        return view('perfil', compact('perguntas'));
     }
 }
