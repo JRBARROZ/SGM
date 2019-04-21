@@ -7,6 +7,7 @@ use App\User;
 use App\Pergunta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+
 class PerfilController extends Controller
 {
     /**
@@ -95,8 +96,9 @@ class PerfilController extends Controller
         $user->email = $request->email;
         $user->save();
         if(Input::file('principal')){
-            File::move($imagem, public_path()."/storage/avatar/img".$user->id.'.'.$ext);
-            $user->avatar = "storage/avatar/img".$user->id.'.'.$ext;
+            $nomeArq = "img".$user->id.'.'.$ext;
+            $upload = $imagem->storeAs('avatar', $nomeArq);
+            $user->avatar = $nomeArq;
             $user->save();
         }
         return redirect()->route('user.index');
@@ -110,6 +112,9 @@ class PerfilController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Auth::user('attributes');
+        $perguntas = Pergunta::where('users_id', Auth::id())->orderBy('created_at', 'desc')->get();
+
+        return view('perfil', compact('perguntas','user'));
     }
 }
