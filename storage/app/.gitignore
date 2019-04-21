@@ -1,7 +1,6 @@
 !public/
-<<<<<<< HEAD
 public/avatar/*
 public/capa/*
 !public/avatar/avatar.png
 !public/capa/capa.jpg
-!.gitignore
+
