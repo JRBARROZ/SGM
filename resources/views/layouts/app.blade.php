@@ -53,7 +53,7 @@
 
 
                         <div id='app' class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('perfil') }}">
+                            <a class="dropdown-item" href="{{ route('user.index') }}">
                             {{ __('Perfil') }}
                             </a>
                              <a class="dropdown-item" href="{{ route('logout') }}"
