@@ -23,21 +23,6 @@ $factory->define(User::class, function (Faker $faker) {
     if($tipo == 'monitor'){
         $cargo = $faker->randomElement($array= array ('bolsista', 'voluntario')); 
         $fk = Cadeira::select('id')->where('fk_curso', '=', $curso)->get()->random();
-        /*        switch ($curso) {
-            case 1:
-                $fk = 1;
-                $cadeira = $faker->randomElement([1, 2]);
-                break;
-            case 2:
-                $fk = 2;
-                $cadeira = $faker->randomElement([3, 4]);
-                break;
-            case 3:
-                $fk = 3;
-                $cadeira = $faker->randomElement([5, 6]);
-                break;
-  */
-            // }
     }else{
         $cargo = null;
         $cadeira = null;
