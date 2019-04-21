@@ -1,3 +1,5 @@
 *
 !public/
+!avatar/avatar.png
+!capa/capa.jpg
 !.gitignore
