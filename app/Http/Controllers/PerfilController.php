@@ -26,8 +26,9 @@ class PerfilController extends Controller
      */
     public function index()
     {
+        $user = Auth::user('attributes');
         $perguntas = Pergunta::where('users_id', Auth::id())->orderBy('created_at', 'desc')->get();
 
-        return view('perfil', compact('perguntas'));
+        return view('perfil', compact('perguntas','user'));
     }
 }
