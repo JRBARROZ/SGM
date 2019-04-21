@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\User;
+use App\Pergunta;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 class PerfilController extends Controller
 {
     /**
@@ -17,9 +19,10 @@ class PerfilController extends Controller
         $this->middleware('auth');
     }
     public function index()
-    {
+    {   
+        $perguntas = Pergunta::with('users')->where('users_id', Auth::id())->get();
         $user = User::with('cursos')->where('id', Auth::id())->first();
-        return view('user.painelHome', compact('user'));
+        return view('user.painelHome', compact('user', 'perguntas'));
     }
 
     /**
@@ -28,8 +31,9 @@ class PerfilController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        $perguntas = Pergunta::with('users')->where('users_id', Auth::id())->get();
+        return view('user.perguntasUser', compact('perguntas'));
     }
 
     /**
@@ -76,6 +80,13 @@ class PerfilController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
+        if(Input::file('principal')){
+            $imagem = Input::file('principal');
+            $ext = $imagem->getClientOriginalExtension();
+            if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png'){
+                return back()->with('erro', 'Erro: O formato'.' " '.$ext.' " '.'não é suportado pelo sistema.');
+            }
+        }
         $user->name = $request->nome;
         $user->sobrenome = $request->sNome;
         $user->matricula = $request->matricula;
@@ -83,6 +94,11 @@ class PerfilController extends Controller
         $user->fk_curso = $request->curso;
         $user->email = $request->email;
         $user->save();
+        if(Input::file('principal')){
+            File::move($imagem, public_path()."/storage/avatar/img".$user->id.'.'.$ext);
+            $user->avatar = "storage/avatar/img".$user->id.'.'.$ext;
+            $user->save();
+        }
         return redirect()->route('user.index');
     }
 
