@@ -1,45 +1,65 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Bem vindo, Jhonatas!</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top " id="mainNav" >
+    <a class="navbar-brand" href="{{route('index')}}"><h1 class="badge badge-success">SGM</h1></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCurso" aria-control="navbarCurso" aria-expanded="false" aria-label="Navegação Toggle">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbarCurso" class="collapse navbar-collapse">
-        <ul class="navbar-nav navbar-sidenav" id="linksaccordion">
-            <li class="nav-item" data-toggle="tooltip" data-placement="right">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-fw fa-home"></i>
-                    <span class="nav-link-text">Principal</span>
-                </a>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-fw fa-user"></i>
-                    <span class="nav-link-text">Perfil</span>
+        <ul class="navbar-nav navbar-sidenav" id="linksaccordion" >
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" style="border-top:2px solid green;margin-top:8px;">
+                <a class="nav-link" href="{{route('index')}}">
+                    <i class="fa fa-fw fa-home" style="font-size:20px;"></i>
+                    <span class="nav-link-text" >Principal</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right">
                 <a class="nav-link nav-link-collapse collapse" href="#linkscomponentes" data-toggle="collapse" data-parent="#linksaccordion">
-                    <i class="fa fa-fw fa-file"></i>
+                    <i class="fa fa-fw fa-file" style="font-size:20px;"></i>
                     <span class="nav-link-text">Documentos</span>
                 </a>
                 <ul class="sidenav-second-level collapse" id="linkscomponentes">
                     <li>
-                        <a href="login.html">Gerar Atas</a>
+                        <a href="#">Gerar Atas</a>
                     </li>
                     <li>
-                        <a href="recuperar.html">Gerar Relatório</a>
+                        <a href="#">Gerar Relatório</a>
                     </li>
                 </ul>
             </li>
+            {{-- <li class="nav-item" data-toggle="tooltip" data-placement="right">
+                <a @if($current == "user") class="nav-link text-dark" @else class="nav-link" @endif href="{{route('user.edit', Auth::id())}}">
+                    <i class="fa fa-fw fa-wrench" style="font-size:20px;"></i>
+                    <span class="nav-link-text">Editar Perfil</span>
+                </a>
+            </li> --}}
+            <li class="nav-item" data-toggle="tooltip" data-placement="right">
+                    <a class="nav-link nav-link-collapse collapse" href="#linkPerfil" data-toggle="collapse" data-parent="#linksaccordion">
+                        <i class="fa fa-fw fa-user-circle" style="font-size:20px;"></i>
+                        <span class="nav-link-text">Perfil</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="linkPerfil">
+                        <li>
+                            <a href="{{route('user.index')}}">
+                                <i class="fa fa-fw fa-user"></i>
+                                Visualizar Perfil
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('user.edit', Auth::id())}}">
+                                <i class="fa fa-fw fa-wrench"></i>
+                                Editar Perfil
+                            </a>
+                        </li>
+                    </ul>
+                </li>
         </ul>
         <ul class="navbar-nav sidenav-toggler">
             <li class="nav-item">
-                <a id="sidenavToggler" class="nav-link text-center">
+                <a id="sidenavToggler" class="nav-link text-center" style="background:	#E0E0E0;">
                     <i class="fa fa-fw fa-angle-left"></i>
                 </a>
             </li>
         </ul>
-        <ul class="navbar-nav ml">
+        {{-- <ul class="navbar-nav ml">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-bell"></i>
@@ -57,8 +77,7 @@
                     <a  class="dropdown-item" href="#">
                         <span class="text-success">
                             <strong>
-                                <i class="fa fa-fw fa-long-arrow-up"></i>
-                                Atualização de Estado
+                                Alguém respondeu seu tópico!
                             </strong>
                         </span>
                         <span class="small float-left text-muted">14:30</span>
@@ -70,13 +89,19 @@
                     </a>
                 </div>    
             </li>   
-        </ul>
+        </ul> --}}
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fa fa-sign-out"></i>
-                    Logout
-                </a>
+                {!! Form::open(['route'=>'logout']) !!}
+                <div class="nav-link" href="{{ route('logout') }}">
+                    <label for="id" style="cursor:pointer;" class="text-success">
+                        <i class="fa fa-sign-out">
+                            {!! Form::submit('Logout', ['class'=>'badge badge-success', 'id'=>'id']) !!}
+                        </i>
+                        Sair
+                    </label>
+                </div>
+                {!! Form::close() !!}
             </li>
         </ul>
     </div>
