@@ -7,10 +7,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('bibliotecas/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bibliotecas/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="{{ asset('css/sb-admin.min.css') }}">
     <style>
         .user-img{
-            background:transparent url('{{asset('imagens/imgcadastro.jpg')}}') no-repeat center center;
+            background:transparent url('{{asset('/storage/capa/capa.jpg')}}') no-repeat center center;
             height:200px;
             margin-top:-50px;
             position:relative;
@@ -35,12 +36,41 @@
             background-size: cover;
         }
         hr{ 
-            border: 0; 
-            height: 1px; 
-            background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-            background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-            background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-            background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+            height: 10px;
+            border: 0;
+            box-shadow: 0 10px 10px -10px #8c8b8b inset;
+        }
+        .box-card{
+            background: #fff;
+            border-radius: 2px;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            margin:10px;
+        }
+        .box-card:hover{
+            cursor: pointer;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            
+        }
+        .box-card a{
+            text-decoration:none; 
+            color: green;
+            border-bottom:2px solid green;
+        }
+        .input, .form-group select{
+            outline: none;
+            border: none;
+            border-bottom: 2px solid green;
+        }
+        .input:focus, .form-group select:focus{
+            box-shadow: 0 0 0 0;
+            border-bottom: 2px solid green;
+        }
+        .inputup input[type="file"] {
+           color:gray;
+           border:none;
+           border-bottom: 2px solid green;
         }
     </style>
     <title>Dashboard</title>
@@ -49,13 +79,13 @@
     @component('components.dsNavbar', ['current'=>$current])   
     
     @endcomponent
-    <div class="container-fluid" >
-        <div class="content-wrapper">
-            @yield('content') 
-        </div>
-        @component('components.dsFooter')
-            
-        @endcomponent    
+    <div class="content-wrapper" style="background: #F0F0F0;">
+        <div class="container-fluid" >
+            @yield('content')
+            @component('components.dsFooter')
+                
+            @endcomponent
+        </div>    
     </div>
     <script type="text/javascript" src="{{ asset('bibliotecas/jquery/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bibliotecas/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
