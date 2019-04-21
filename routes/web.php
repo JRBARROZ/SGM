@@ -55,6 +55,7 @@ Route::prefix('ata')->group(function(){
 //Perfil
 Route::resource('user',  'PerfilController');
 
+Route::get('/perfil', 'PerfilController@index')->name('perfil');
 // adiciona respostas
 Route::put('/resposta/adicionar/{id}', 'RespostaController@store')->name('adicionar-resposta');
 

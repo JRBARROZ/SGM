@@ -4,7 +4,7 @@
     <div class="row user-img"></div>
     <div class="row">
         <div class="col-12 text-center">
-            <img src="{{asset($user->avatar)}}" alt="..." class="img-thumbnail rounded-circle user-profile-img">
+            <img src="{{asset('storage/avatar/'.$user->avatar)}}" alt="..." class="img-thumbnail rounded-circle user-profile-img">
             <h2>{{Auth::user()->name}} {{Auth::user()->sobrenome}}</h2>
             @switch(Auth::user()->tipo)
                 @case('monitor')
