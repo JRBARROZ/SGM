@@ -95,8 +95,9 @@ class PerfilController extends Controller
         $user->email = $request->email;
         $user->save();
         if(Input::file('principal')){
-            File::move($imagem, public_path()."/storage/avatar/img".$user->id.'.'.$ext);
-            $user->avatar = "storage/avatar/img".$user->id.'.'.$ext;
+            $nomeArq = "img".$user->id.'.'.$ext;
+            $upload = $imagem->storeAs('avatar', $nomeArq);
+            $user->avatar = $nomeArq;
             $user->save();
         }
         return redirect()->route('user.index');
