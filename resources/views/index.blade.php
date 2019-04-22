@@ -36,7 +36,7 @@
 				<table class="table table-bordered" >
 					<thead class="bg-success">
 						<tr class="text-center">
-							<th><h3 class="text-light">Expore nossas postagens</h3></th>
+							<th><h3 class="text-light">Explore nossas postagens</h3></th>
 						</tr>
 					</thead>
 					<tbody>

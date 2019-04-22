@@ -95,6 +95,38 @@
     <main>
         @yield('content')
     </main>
+    <br>
+    <footer id="myFooter" class=" container-fluid bg-success">
+            <div class="row justify-content-between">
+                <div class="col-sm">
+                    <h5>Vamos começar</h5>
+                    <ul>
+                        <li><a href="#" class="text-light">Página Inicial</a></li>
+                        <li><a href="#" class="text-light">Entrar</a></li>
+                        <li><a href="#" class="text-light">Cadastrar</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm">
+                    <h5>Sobre o IFPE</h5>
+                    <ul>
+                        <li><a href="#" class="text-light">Informações</a></li>
+                        <li><a href="#" class="text-light">Valores</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm">
+                    <h5>Suporte</h5>
+                    <ul>
+                        <li><a href="#" class="text-light">FAQ</a></li>
+                        <li><a href="#" class="text-light">Ajuda</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm info">
+                    <h5 class="text-light">Informações</h5>
+                    <p class="text-light"> Lorem ipsum dolor amet, consectetur adipiscing elit. Etiam consectetur aliquet aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="{{asset('js/app.js')}}" type="text/javascript"></script>
 </body>
 </html>
