@@ -46,6 +46,7 @@ conf:
 	composer install --no-scripts
 	cp .env.example	.env
 	php artisan key:generate
+	php artisan storage:link
 	$(MAKE) db
 
 # Configuração do DB	
