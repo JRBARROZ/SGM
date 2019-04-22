@@ -47,22 +47,18 @@
 							<th>Titulo</th>
 							<th>Descrição</th>
 						</tr>
-
-						<tr>
-							<td>
-								10/06/2018
-							</td>
-							<td>
-								08:00 / 10:00
-							</td>
-							<td>
-								Aula de monitoria
-							</td>
-
-							<td>
-								Subquery e outras coisas toppen
-							</td>
-						</tr>
+						@forelse ($monitorias as $monitoria)
+							<tr>
+								<td>{{$monitoria->data}}</td>
+								<td>{{$monitoria->hora_inicio}} // {{$monitoria->hora_fim}}</td>
+								<td>{{$monitoria->titulo}}</td>
+								<td>{{$monitoria->descricao}}</td>
+							</tr>
+						@empty
+							<tr>
+								<td colspan="4">Nenhuma monitoria agendada</td>
+							</tr>
+						@endforelse
 					</tbody>
 				</table>
 			</div>
