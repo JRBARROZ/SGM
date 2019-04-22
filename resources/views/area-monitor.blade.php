@@ -4,11 +4,13 @@
 {{$curso->nome}}
 </br>
 @forelse ($monitorias as $monitoria)
+    {{$monitoria->id}}
     {{$monitoria->data}}
     {{$monitoria->hora_inicio}}
     {{$monitoria->hora_fim}}
     {{$monitoria->titulo}}
     {{$monitoria->descricao}}
+    {{$monitoria->periodo}}
 @empty
     algo caso n tenha nenhuma monitoria agendada por ele
 @endforelse
