@@ -25,7 +25,7 @@ class PerguntaController extends Controller
 
     public function index()
     {   
-        $perguntas = Pergunta::with('cursos')->orderBy('created_at', 'desc')->get();
+        $perguntas = Pergunta::with('cursos')->with('users')->orderBy('created_at', 'desc')->get();
         $cursos = Curso::all();
         return view('index', compact('perguntas', 'cursos'));
     }

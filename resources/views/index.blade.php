@@ -47,6 +47,7 @@
 										<div class="row">
 											<div class="col-8">
 												<a href="{{route('exibir-pergunta', $pergunta->id)}}" class="h4 text-dark">{{$pergunta->titulo}}</a>
+												<span class="h6 text-secondary d-block mt-2" style="font-size: 12px;">{{$pergunta->users[0]->name}}</span>
 												<span class="h6 text-secondary d-block mt-2" style="font-size: 12px;">{{$pergunta->created_at}}</span>
 											</div>
 											<div class="col m-auto text-right">
