@@ -39,7 +39,7 @@
 									<br>
 									<p class="text-secondary">{{ $resposta->texto }}</p>
 									@auth
-										@if($resposta[0]->users_id == Auth::id())
+										@if($resposta->users_id == Auth::id())
 										<a href="{{ route('remover-resposta', [$resposta->id, $pergunta[0]->id]) }}" class="text-danger">Deletar</a>
 										<a href="{{ route('editar-resposta', [$resposta->id, $pergunta[0]->id]) }}" class="text-info">Editar</a>
 										@endif

@@ -67,7 +67,6 @@ class PerguntaController extends Controller
     public function show($id)
     {
         $pergunta = Pergunta::find($id)->with('users')->get();
-        //$curso = $pergunta->cursos;
         $respostas = Resposta::with('users')->where('respostas.perguntas_id', '=', $id)->orderBy('created_at', 'desc')->get();
         
         return view('pergunta', compact('respostas', 'pergunta'));
