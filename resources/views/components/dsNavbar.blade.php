@@ -91,18 +91,18 @@
             </li>   
         </ul> --}}
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                {!! Form::open(['route'=>'logout']) !!}
-                <div class="nav-link" href="{{ route('logout') }}">
-                    <label for="id" style="cursor:pointer;" class="text-success">
-                        <i class="fa fa-sign-out">
-                            {!! Form::submit('Logout', ['class'=>'badge badge-success', 'id'=>'id']) !!}
-                        </i>
-                        Sair
-                    </label>
-                </div>
-                {!! Form::close() !!}
-            </li>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <img src="{{asset('storage/avatar/'. Auth::user()->avatar)}}" style="width:32px;height:32px;border-radius:50%;border:2px solid green;"> {{ Auth::user()->name }} <span class="caret"></span>
+            </a>
+            <div id='app' class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out"></i>
+                {{ __('Sair') }}
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
         </ul>
     </div>
 </nav>
