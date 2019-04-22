@@ -5,7 +5,7 @@
                 <h4>{{ $nome }}</h4>
             </div>
             <h2>{{ $valor }}</h2>
-            <a href="#">Detalhes</a>
+            <a href="{{$slot}}">Detalhes</a>
         </div>
     </a>
 </div>
