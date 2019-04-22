@@ -28,6 +28,7 @@ $factory->define(User::class, function (Faker $faker) {
         $cargo = null;
         $cadeira = null;
         $fk = null;
+        $curso_monitoria = null;
     }
     
     return [
