@@ -7,6 +7,7 @@ use App\User;
 use App\Pergunta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Carbon;
 
 class PerfilController extends Controller
 {
@@ -34,7 +35,10 @@ class PerfilController extends Controller
     public function create()
     {   
         $perguntas = Pergunta::with('users')->where('users_id', Auth::id())->get();
-        return view('user.perguntasUser', compact('perguntas'));
+        foreach($perguntas as $item){
+            $data = Carbon::parse($item->created_at)->format('d/m/Y');
+        }
+        return view('user.perguntasUser', compact('perguntas', 'data'));
     }
 
     /**
