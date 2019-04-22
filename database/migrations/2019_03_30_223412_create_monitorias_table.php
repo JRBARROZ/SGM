@@ -19,6 +19,7 @@ class CreateMonitoriasTable extends Migration
             $table->time('hora_inicio');
             $table->time('hora_fim');
             $table->string('titulo');
+            $table->integer('periodo');
             $table->mediumText('descricao');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
