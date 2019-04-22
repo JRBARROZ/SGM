@@ -2,81 +2,97 @@
 
 @section('content')
 
-	<div class="container" style="padding: 20px; width: 100%;">
+	<div class="container mt-4">
 		<div class="row justify-content-center">
 			@auth
 				@if(Auth::user()->tipo == "monitor")
-					<div class="col-md-3 col-6 mr-3 mb-5 mt-0 p-0">
-						<h3>Agendar Monitoria</h3>
-						<form action="">
-							<label for="">
-								Titulo da atividade
-								<input type="text" class="form-group form-control" name="titulo" placeholder="assunto da monitoria">
-								Descrição da atividade
-								<textarea class="form-group form-control" name="descricao" placeholder="descrição da monitoria"></textarea>
-							</label>
-
-							<label for="">
-								Horário
-								inicio:
-								<input class="form-group form-control" type="time" name="hora_inicio">
-								termino:
-								<input class="form-group form-control" type="time" name="hora_termino">
-							</label>
-							<label for="">
-								Data
-								<input type="date" name="data" class="form-group form-control">
-							</label>
-							<br>
-							<button class="btn btn-success">Salvar</button>
-						</form>
+					<div class="col-md-4 p-0">
+						<div class="m-2">
+							<h3 class="bg-success text-center text-light p-3">Agendar Monitoria</h3>
+							<form action="">
+								<div class="form-group">
+								<label for="">
+									Titulo da atividade:
+								</label>
+									<input type="text" class="form-control" name="titulo" placeholder="assunto da monitoria">
+								</div>
+								<div class="form-group">
+									<label>
+										Descrição da atividade:
+									</label>
+									<textarea class="form-control" name="descricao" placeholder="descrição da monitoria"></textarea>
+								</div>
+								<div class="form-group">
+									<label for="">
+										Início:
+									</label>
+									<input class="form-group form-control" type="time" name="hora_inicio">
+								</div>
+								<div>
+									<label>
+										Término:
+									</label>
+									<input class="form-control" type="time" name="hora_termino">
+								</div>
+								<div class="form-group">
+									<label for="">
+										Data
+									</label>
+									<input type="date" name="data" class="form-control">
+								</div>
+								<div class="form-group">
+									<button class="btn btn-success">Salvar</button>
+								</div>
+							</form>
+						</div>
 					</div>
 				@endif
 			@endauth
-			<div class="col-md-8 mb-5">
-				<table>
-					<tr>
-						<th>Nome</th>
-						<th>email</th>
-					</tr>
-					@forelse ($monitores as $monitor)
-						<tr>
-							<td>{{$monitor->nome}}</td>
-							<td>{{$monitor->email}}</td>
-						</tr>
-					@empty
-						<tr>
-							<td>Nenhum monitor no seu período ; -;</td>
-						</tr>
-					@endforelse
-				</table>
-				<table class="table table-bordered">
-					<thead class="bg-success">
-						<tr align="center">
-							<th colspan="4">Monitorias agendadas por você</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr align="center">
-							<th>Data</th>
-							<th>Horário</th>
-							<th>Titulo</th>
-							<th>Descrição</th>
-						</tr>
-						@forelse ($monitorias as $monitoria)
+			<div class="col-md-8">
+				<div class="m-2 mb-5 p-0">
+					<table class="table table-bordered text-center">
+						<thead>
 							<tr>
-								<td>{{$monitoria->data}}</td>
-								<td>{{$monitoria->hora_inicio}} // {{$monitoria->hora_fim}}</td>
-								<td>{{$monitoria->titulo}}</td>
-								<td>{{$monitoria->descricao}}</td>
+								<th class="bg-success text-light p-3 h3">Monitorias Agendadas por Você</th>
 							</tr>
-						@empty
+						</thead>
+						<tbody>
+							@forelse ($monitorias as $monitoria)
+								<tr>
+									<td>{{$monitoria->data}}</td>
+									<td>{{$monitoria->hora_inicio}} // {{$monitoria->hora_fim}}</td>
+									<td>{{$monitoria->titulo}}</td>
+									<td>{{$monitoria->descricao}}</td>
+								</tr>
+							@empty
+								<tr>
+									<td class="text-center">Nenhuma monitoria agendada</td>
+								</tr>
+							@endforelse
+						</tbody>
+					</table>
+				</div>
+				<div class="m-2 p-0">
+					<table class="table table-bordered text-center">
+						<thead>
 							<tr>
-								<td colspan="4">Nenhuma monitoria agendada</td>
+								<th class="bg-success text-light p-3 h3">Seus Monitores</th>
 							</tr>
-						@endforelse
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							@forelse ($monitores as $monitor)
+								<tr>
+									<td>{{$monitor->name}}</td>
+									<td>{{$monitor->email}}</td>
+								</tr>
+							@empty
+								<tr>
+									<td>Nenhum monitor no seu período ; -;</td>
+								</tr>
+							@endforelse
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
