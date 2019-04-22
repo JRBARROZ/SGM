@@ -25,20 +25,8 @@ class PerguntaController extends Controller
 
     public function index()
     {   
-        // $queryPerguntas = new Pergunta();
-        // $perguntas = $queryPerguntas->listaPerguntas();        
         $perguntas = Pergunta::with('cursos')->orderBy('created_at', 'desc')->get();
-        // $listCurso = $perguntas->cursos;
         $cursos = Curso::all();
-        /*
-        foreach ($perguntas as $pergunta) {
-            echo $pergunta->titulo . '<br>';
-            echo $pergunta->users_id . '<br>';
-            echo $pergunta->texto . '<br>';
-            echo $pergunta->estado . '<br>';
-            echo $pergunta->cursos[0]->sigla . '<br>';
-        }
-        */
         return view('index', compact('perguntas', 'cursos'));
     }
 
