@@ -24,11 +24,14 @@ $factory->define(User::class, function (Faker $faker) {
         $cargo = $faker->randomElement($array= array ('bolsista', 'voluntario')); 
         $curso_monitoria = $faker->randomElement([1,2,3]);
         $fk = Cadeira::select('id')->where('fk_curso', '=', $curso_monitoria)->get()->random();
+        $periodo_monitoria = Cadeira::find($fk);
+        $periodo_monitoria = $periodo_monitoria[0]->periodo;
     }else{
         $cargo = null;
         $cadeira = null;
         $fk = null;
         $curso_monitoria = null;
+        $periodo_monitoria = null;
     }
     
     return [
@@ -44,6 +47,7 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
         'fk_curso'=>$curso,
         'curso_monitoria'=>$curso_monitoria,
+        'periodo_monitoria'=>$periodo_monitoria,
         'cadeira_id'=>$fk
     ];
 });
