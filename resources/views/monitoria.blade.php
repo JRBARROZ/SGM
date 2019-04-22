@@ -2,38 +2,16 @@
 
 @section('content')
 
-	<div class="container" style="padding: 20px; width: 100%;">
+	<div class="container mt-4">
 		<div class="row justify-content-center">
 			<div class="col-md-8 mb-5">
-				<table>
-					<tr>
-						<th>Nome</th>
-						<th>email</th>
-					</tr>
-					@forelse ($monitores as $monitor)
-						<tr>
-							<td>{{$monitor->nome}}</td>
-							<td>{{$monitor->email}}</td>
-						</tr>
-					@empty
-						<tr>
-							<td>Nenhum monitor no seu período ; -;</td>
-						</tr>
-					@endforelse
-				</table>
 				<table class="table table-bordered">
 					<thead class="bg-success">
-						<tr align="center">
-							<th colspan="4">Monitorias agendadas para você</th>
+						<tr>
+							<th class="bg-success text-light p-3 h3">Monitorias Agendadas por Você</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr align="center">
-							<th>Data</th>
-							<th>Horário</th>
-							<th>Titulo</th>
-							<th>Descrição</th>
-						</tr>
 						@forelse ($monitorias as $monitoria)
 							<tr>
 								<td>{{$monitoria->data}}</td>
@@ -43,11 +21,32 @@
 							</tr>
 						@empty
 							<tr>
-								<td colspan="4">Nenhuma monitoria agendada</td>
+								<td class="text-center">Nenhuma monitoria agendada</td>
 							</tr>
 						@endforelse
 					</tbody>
 				</table>
+				<div class="m-2 p-0">
+					<table class="table table-bordered text-center">
+						<thead>
+							<tr>
+								<th class="bg-success text-light p-3 h3">Seus Monitores</th>
+							</tr>
+						</thead>
+						<tbody>
+							@forelse ($monitores as $monitor)
+								<tr>
+									<td>{{$monitor->name}}</td>
+									<td>{{$monitor->email}}</td>
+								</tr>
+							@empty
+								<tr>
+									<td>Nenhum monitor no seu período ; -;</td>
+								</tr>
+							@endforelse
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
