@@ -46,10 +46,10 @@
         </div>
         <div class="col-md-8">
             <div class="m-2">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th class="bg-success text-light text-center p-3 h3">{{$curso->nome}}</th>
+                            <th class="bg-success text-light text-center p-3 h3" colspan="5">{{$curso->nome}}</th>
                         </tr>
                     </thead>
                     <tbody>

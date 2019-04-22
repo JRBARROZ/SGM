@@ -33,10 +33,10 @@
 				</div>
 			@endauth
 			<div class="col-md-8 mb-5">
-				<table class="table table-bordered" >
+				<table class="table table-bordered table-hover" >
 					<thead class="bg-success">
 						<tr class="text-center">
-							<th><h3 class="text-light">Expore nossas postagens</h3></th>
+							<th><h3 class="text-light">Explore nossas postagens</h3></th>
 						</tr>
 					</thead>
 					<tbody>
