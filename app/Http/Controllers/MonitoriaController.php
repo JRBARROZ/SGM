@@ -30,9 +30,9 @@ class MonitoriaController extends Controller
      */
 
     public function monitor(){
-        $curso = Curso::find(Auth::user()->fk_curso);
+        $curso = Curso::find(Auth::user()->curso_monitoria);
         $monitorias = Monitoria::where('users_id', '=', Auth::id())->orderBy('created_at', 'desc')->get();
-        return view('area-monitor');
+        return view('area-monitor', compact('monitorias', 'curso'));
     } 
 
     public function create()
@@ -56,6 +56,10 @@ class MonitoriaController extends Controller
         $monitoria->descricao = $request->descricao;
         $monitoria->users_id = Auth::id();
         $monitoria->cadeiras_id = Auth::user()->cadeira_id;
+        $monitoria->cursos_id = Auth::user()->curso_monitoria;
+        $monitoria->save();
+
+        return redirect('/monitoria/area-do-monitor');
     }
 
     /**

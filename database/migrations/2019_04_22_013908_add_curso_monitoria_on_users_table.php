@@ -15,7 +15,7 @@ class AddCursoMonitoriaOnUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //fk do curso em que o aluno é monitor
-            $table->integer('curso_monitoria')->unsigned();
+            $table->integer('curso_monitoria')->unsigned()->nullable();
             $table->foreign('curso_monitoria')->references('id')->on('cursos')->onDelete('cascade')->nullable()->change();
         });
     }

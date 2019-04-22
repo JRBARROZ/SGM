@@ -39,7 +39,7 @@ Route::get('/pergunta/delete/{id}', 'PerguntaController@destroy')->name('delete'
 Route::prefix('monitoria')->group(function(){
     Route::get('/', 'MonitoriaController@index')->name('monitoria-index');
     Route::get('/area-do-monitor', 'MonitoriaController@monitor')->name('monitoria-monitor');
-    Route::get('/agendar', 'MonitoriaController@store')->name('monitoria-agendar');
+    Route::post('/agendar', 'MonitoriaController@store')->name('monitoria-agendar');
 });
 
 
