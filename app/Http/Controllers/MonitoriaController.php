@@ -20,7 +20,8 @@ class MonitoriaController extends Controller
     public function index()
     {
         $monitorias = Monitoria::where('periodo', '=', Auth::user()->periodo)->orderBy('created_at', 'desc')->get();
-        return view('monitoria', compact('monitorias'));
+        $monitores = User::where('periodo_monitoria', '=', Auth::user()->periodo)->get();
+        return view('monitoria', compact('monitorias', 'monitores'));
     }
 
     /**
