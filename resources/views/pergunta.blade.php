@@ -10,21 +10,22 @@
 			<div class="m-4">
 				<div class="row">
 					<div class="col-8">
-						<span class="h3 text-success bold d-block">{{$pergunta->titulo}}</span>
-						<span class="h6 text-secondary font-italic">{{$pergunta->created_at}}</span>
+						<span class="h3 text-success bold d-block">{{$pergunta[0]->titulo}}</span>
+						<span class="h6 text-secondary font-italic">{{$pergunta[0]->created_at}}</span>
+						<span class="h6 text-secondary font-italic">{{$pergunta[0]->users[0]->name}}</span>
 					</div>
 					<div class="col m-auto">
-						<h4 class="badge badge-danger float-right">{{$pergunta->cursos[0]->sigla}}</h4>
-						@if($pergunta->estado == "aberta")
-							<span class="badge badge-info float-right text-light mr-2">{{$pergunta->estado}}</span>
+						<h4 class="badge badge-danger float-right">{{$pergunta[0]->cursos[0]->sigla}}</h4>
+						@if($pergunta[0]->estado == "aberta")
+							<span class="badge badge-info float-right text-light mr-2">{{$pergunta[0]->estado}}</span>
 						@else
-							<span class="badge badge-success float-right text-light mr-2">{{$pergunta->estado}}</span>
+							<span class="badge badge-success float-right text-light mr-2">{{$pergunta[0]->estado}}</span>
 						@endif
 					</div>
 				</div>
 				<br><br>
 				<h5 class="text-secondary font-italic">
-					{{$pergunta->texto}}
+					{{$pergunta[0]->texto}}
 				</h5>
 				<br>
 				<table class="table mt-4">
@@ -38,9 +39,9 @@
 									<br>
 									<p class="text-secondary">{{ $resposta->texto }}</p>
 									@auth
-										@if($resposta->users_id == Auth::id())
-										<a href="{{ route('remover-resposta', [$resposta->id, $pergunta->id]) }}" class="text-danger">Deletar</a>
-										<a href="{{ route('editar-resposta', [$resposta->id, $pergunta->id]) }}" class="text-info">Editar</a>
+										@if($resposta[0]->users_id == Auth::id())
+										<a href="{{ route('remover-resposta', [$resposta->id, $pergunta[0]->id]) }}" class="text-danger">Deletar</a>
+										<a href="{{ route('editar-resposta', [$resposta->id, $pergunta[0]->id]) }}" class="text-info">Editar</a>
 										@endif
 									@endauth
 								</div>
@@ -51,7 +52,7 @@
 						<br>
 						<tr>
 							<td>
-								<form class="m-3" method="POST" action="{{route('adicionar-resposta', $pergunta->id)}}">
+								<form class="m-3" method="POST" action="{{route('adicionar-resposta', $pergunta[0]->id)}}">
 									@csrf
 									@method('PUT')
 									<div class="form-group">

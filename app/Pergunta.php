@@ -12,7 +12,7 @@ class Pergunta extends Model
 	protected $table = 'perguntas';
 
     protected $fillable = [
-        'titulo', 'texto', 'users_id', 'estado', 'fk_curso'
+        'titulo', 'texto', 'estado', 'users_id', 'estado', 'fk_curso'
     ];
 
     public function cursos()
