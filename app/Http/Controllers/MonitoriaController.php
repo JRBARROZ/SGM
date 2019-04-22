@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Curso;
+use App\Cadeira;
+use App\Monitoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class MonitoriaController extends Controller
 {
@@ -22,6 +28,12 @@ class MonitoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function monitor(){
+        $curso = Curso::find(Auth::user()->fk_curso);
+        $monitorias = Monitoria::where('users_id', '=', Auth::id())->orderBy('created_at', 'desc')->get();
+    } 
+
     public function create()
     {
         //
