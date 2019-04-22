@@ -26,6 +26,7 @@
 						@endforelse
 					</tbody>
 				</table>
+				<br>
 				<div class="m-2 p-0">
 					<table class="table table-bordered text-center">
 						<thead>
