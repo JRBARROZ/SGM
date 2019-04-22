@@ -45,7 +45,7 @@
                         </li>
                     @endif
                     @else
-                    <a class="nav-item nav-link text-light" href="{{ route('monitorias') }}">monitoria</a>
+                    <a class="nav-item nav-link text-light" href="{{ route('monitoria-index') }}">monitoria</a>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>

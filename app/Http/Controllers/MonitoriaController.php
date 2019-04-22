@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class MonitoriasController extends Controller
+class MonitoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +14,7 @@ class MonitoriasController extends Controller
     public function index()
     {
         //
+        return view('monitoria');
     }
 
     /**

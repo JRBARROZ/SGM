@@ -36,6 +36,11 @@ Route::post('/pergunta/filtrar', 'PerguntaController@filter')->name('filtrar-per
 // deletar pergunta feita pelo usuario
 Route::get('/pergunta/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
+Route::prefix('monitoria')->group(function(){
+    Route::get('/', 'MonitoriaController@index')->name('monitoria-index');
+});
+
+
 //Atas
 
 Route::prefix('ata')->group(function(){
@@ -68,11 +73,6 @@ Route::get('resposta/editar/{id}/{perg}', 'RespostaController@edit')->name('edit
 // salva edição da resposta
 Route::put('/resposta/salvar/{id}/{perg}', 'RespostaController@update')->name('salvar-resposta');
 
-
-// lista e exibe as monitorias
-Route::get('/monitorias', function(){
-	return view('monitoria');
-})->name('monitorias');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
