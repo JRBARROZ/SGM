@@ -34,6 +34,22 @@
 				@endif
 			@endauth
 			<div class="col-md-8 mb-5">
+				<table>
+					<tr>
+						<th>Nome</th>
+						<th>email</th>
+					</tr>
+					@forelse ($monitores as $monitor)
+						<tr>
+							<td>{{$monitor->nome}}</td>
+							<td>{{$monitor->email}}</td>
+						</tr>
+					@empty
+						<tr>
+							<td>Nenhum monitor no seu período ; -;</td>
+						</tr>
+					@endforelse
+				</table>
 				<table class="table table-bordered">
 					<thead class="bg-success">
 						<tr align="center">
