@@ -25,7 +25,16 @@ class PerguntaController extends Controller
 
     public function index()
     {   
-        $perguntas = Pergunta::with('cursos')->with('users')->orderBy('created_at', 'desc')->get();
+    }
+    
+    public function filtroCurso($id){
+        $perguntas = Pergunta::with('cursos')->with('users')->where('fk_curso', '=', $id)->orderBy('created_at', 'desc')->get();
+        $cursos = Curso::all();
+        return view('index', compact('perguntas', 'cursos'));
+    }
+    
+    public function filtroEstado($estado){
+        $perguntas = Pergunta::with('cursos')->with('users')->where('estado', '=', $estado)->orderBy('created_at', 'desc')->get();
         $cursos = Curso::all();
         return view('index', compact('perguntas', 'cursos'));
     }
