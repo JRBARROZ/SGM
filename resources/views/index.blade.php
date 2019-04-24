@@ -51,11 +51,11 @@
 												<span class="h6 text-secondary d-block mt-2" style="font-size: 12px;">{{$pergunta->created_at}}</span>
 											</div>
 											<div class="col m-auto text-right">
-												<span class="badge badge-secondary  float-right mr-2">{{$pergunta->cursos[0]->sigla}}</span>
+												<a href="{{ route('pergunta-curso', $pergunta->cursos[0]->id) }}">  <span class="badge badge-secondary  float-right mr-2">{{$pergunta->cursos[0]->sigla}}</span> </a>
 												@if($pergunta->estado == "aberta")
-													<span class="badge badge-info text-light mr-2">{{$pergunta->estado}}</span>
+													<a href="{{ route('pergunta-estado', $pergunta->estado) }}"> <span class="badge badge-info text-light mr-2">{{$pergunta->estado}}</span> </a>
 												@else
-													<span class="badge badge-success text-light mr-2">{{$pergunta->estado}}</span>
+													<a href="{{ route('pergunta-estado', $pergunta->estado) }}"> <span class="badge badge-success text-light mr-2">{{$pergunta->estado}}</span> </a>
 												@endif
 											</div>
 										</div>

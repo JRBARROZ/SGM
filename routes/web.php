@@ -18,23 +18,30 @@ Route::get('/', function () {
 // index
 Route::get('/', 'PerguntaController@index')->name('index');
 
+Route::prefix('pergunta')->group(function(){
+   
+    Route::get('/{id}', 'PerguntaController@show')->name('exibir-pergunta');
+    
+    // adicionar nova pergunta
+    Route::post('/adiciona', 'PerguntaController@store')->name('adicionar-pergunta');
+    
+    // editar pergunta feita pelo usuario
+    Route::get('/editar/{id}', 'PerguntaController@edit')->name('editar-pergunta');
+    
+    // salva pergunta editada pelo usuario
+    Route::put('pergunta/salvar/{id}', 'PerguntaController@update')->name('salvar-pergunta');
+        
+    // filtra perguntas por curso
+    Route::get('/filtro/curso/{id}', 'PerguntaController@filtroCurso')->name('pergunta-curso');
+
+    // filtra perguntas por curso
+    Route::get('/filtro/estado/{estado}', 'PerguntaController@filtroEstado')->name('pergunta-estado');
+    
+    // deletar pergunta feita pelo usuario
+    Route::get('/delete/{id}', 'PerguntaController@destroy')->name('delete');
+
+});
 // exbir pergunta selecionada pelo usuario
-Route::get('/pergunta/{id}', 'PerguntaController@show')->name('exibir-pergunta');
-
-// adicionar nova pergunta
-Route::post('/pergunta/adiciona', 'PerguntaController@store')->name('adicionar-pergunta');
-
-// editar pergunta feita pelo usuario
-Route::get('/pergunta/editar/{id}', 'PerguntaController@edit')->name('editar-pergunta');
-
-// salva pergunta editada pelo usuario
-Route::put('pergunta/salvar/{id}', 'PerguntaController@update')->name('salvar-pergunta');
-
-// 
-Route::post('/pergunta/filtrar', 'PerguntaController@filter')->name('filtrar-pergunta');
-
-// deletar pergunta feita pelo usuario
-Route::get('/pergunta/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
 Route::prefix('monitoria')->group(function(){
     Route::get('/', 'MonitoriaController@index')->name('monitoria-index');
