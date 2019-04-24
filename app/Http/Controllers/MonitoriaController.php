@@ -19,8 +19,14 @@ class MonitoriaController extends Controller
      */
     public function index()
     {
-        $monitorias = Monitoria::where('periodo', '=', Auth::user()->periodo)->orderBy('created_at', 'desc')->get();
-        $monitores = User::where('periodo_monitoria', '=', Auth::user()->periodo)->get();
+        $monitorias = Monitoria::where([
+            ['periodo', '=', Auth::user()->periodo],
+            ['cursos_id' , '=', Auth::user()->fk_curso]
+            ])->orderBy('created_at', 'desc')->get();
+        $monitores = User::where([
+            ['periodo_monitoria', '=', Auth::user()->periodo],
+            ['curso_monitoria', '=', Auth::user()->fk_curso]
+        ])->get();
         return view('monitoria', compact('monitorias', 'monitores'));
     }
 
