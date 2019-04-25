@@ -9,7 +9,7 @@
             </div>
             <div class="col text-center">
                 <img src="{{asset('storage/avatar/'.$user->avatar)}}" alt="..." class="img-thumbnail rounded-circle user-profile-img">
-                <h2>{{Auth::user()->name}} {{Auth::user()->sobrenome}}</h2>
+                <h2 class="text-dark">{{Auth::user()->name}} {{Auth::user()->sobrenome}}</h2>
                 @switch(Auth::user()->tipo)
                     @case('monitor')
                         <h3 class="text-secondary"><i>Monitor de (Redes de Computadores)</i></h3>          
