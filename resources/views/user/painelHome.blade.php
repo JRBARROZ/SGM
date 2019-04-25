@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="card text-center max" style="height:480px;">
+        <div class="card text-center max">
             <div class="col user-img">
                 <img src="" alt="">
             </div>
@@ -12,21 +12,21 @@
                 <h2 class="text-dark">{{Auth::user()->name}} {{Auth::user()->sobrenome}}</h2>
                 @switch(Auth::user()->tipo)
                     @case('monitor')
-                        <h3 class="text-secondary"><i>Monitor de (Redes de Computadores)</i></h3>          
+                        <h3 class="text-secondary"><i>Monitor de (Redes de Computadores)</i></h3>
                     @break
                 @case('aluno')
                     @foreach($user->cursos as $item)
-                        <h3 class="text-secondary"><i>Aluno do {{Auth::user()->periodo}}° Periodo - {{$item->sigla}}  </i></h3>          
+                        <h3 class="text-secondary"><i>Aluno do {{Auth::user()->periodo}}° Periodo - {{$item->sigla}}  </i></h3>
                     @endforeach
                 @break
-                
+
                 @default
-                    <h3 class="text-secondary"><i>Staff</i></h3>          
+                    <h3 class="text-secondary"><i>Staff</i></h3>
                 @endswitch
                     <h4 class="text-secondary"><i> IFPE - Instituto Federal de Pernambuco</i></h4>
                 <hr>
             </div>
-        </div>     
+        </div>
         <hr>
         <div class="col">
             <div class="card" style="margin-top:3%;">
@@ -59,28 +59,28 @@
                                             <label for="curso">CURSO :</label>
                                             {{Form::select('curso', array(
                                                  null => "Informática para a Internet",
-                                                 2 => 'Logística', 
-                                                 3 =>'Gestão da Qualidade'), 
+                                                 2 => 'Logística',
+                                                 3 =>'Gestão da Qualidade'),
                                                  null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}
                                         @break
                                         @case(2)
                                             <label for="curso">CURSO :</label>
                                             {{Form::select('curso', array(
                                                 null => "Logística",
-                                                2 => 'Informática para a Internet', 
-                                                3 =>'Gestão da Qualidade'), 
+                                                2 => 'Informática para a Internet',
+                                                3 =>'Gestão da Qualidade'),
                                                 null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}
                                         @break
                                         @case(3)
                                             <label for="curso">CURSO :</label>
                                             {{Form::select('curso', array(
                                                 null => "Gestão da Qualidade",
-                                                2 => 'Informática para a Internet', 
-                                                3 =>'Logística'), 
-                                                null,['id'=>'curso','class'=>'form-control', 'required'=>true])}} 
-                                        @break                                                   
+                                                2 => 'Informática para a Internet',
+                                                3 =>'Logística'),
+                                                null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}
+                                        @break
                                     @endswitch
-                                @endforeach    
+                                @endforeach
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="turno">TURNO :</label>
@@ -94,7 +94,7 @@
                                 <label for="prImg">IMAGEM PRINCIPAL :</label>
                                 <div class="input-group">
                                         <div class="custom-file">
-                                            {{Form::file('principal', ['id'=>'inputGroupFile04', 'class'=>'custom-file-input', 'files' => true])}}            
+                                            {{Form::file('principal', ['id'=>'inputGroupFile04', 'class'=>'custom-file-input', 'files' => true])}}
                                             <label class="custom-file-label" for="inputGroupFile04">Enviar Imagem</label>
                                         </div>
                                     </div>
@@ -134,7 +134,7 @@
             @endslot
                 {{route('user.create')}}
         @endcomponent
-    
+
         @component('components.dsCard')
             @slot('nome')
                 Tópicos Resolvidos
@@ -144,7 +144,7 @@
             @endslot
                 Catraca
         @endcomponent
-   
+
         @component('components.dsCard')
             @slot('nome')
                 Votos
@@ -154,7 +154,7 @@
             @endslot
                 Catraca
         @endcomponent
-    </div> 
-    <br>   
+    </div>
+    <br>
 </div>
 @endsection
