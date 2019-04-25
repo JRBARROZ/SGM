@@ -2,17 +2,17 @@
 
 @section('content')
 <div class="container">
+    <br><br>
     <div class="row">
-        <div class="card text-center max">
+        <div class="card text-center max" style="width:100%;max-width:500px;border:none;margin-left:10px;margin-right:10px;">
             <div class="col user-img">
-                <img src="" alt="">
             </div>
-            <div class="col text-center">
+            <div class="col text-center" >
                 <img src="{{asset('storage/avatar/'.$user->avatar)}}" alt="..." class="img-thumbnail rounded-circle user-profile-img">
                 <h2 class="text-dark">{{Auth::user()->name}} {{Auth::user()->sobrenome}}</h2>
                 @switch(Auth::user()->tipo)
                     @case('monitor')
-                        <h3 class="text-secondary"><i>Monitor de (Redes de Computadores)</i></h3>
+                        <h3 class="text-secondary"><i>Monitor de ()</i></h3>
                     @break
                 @case('aluno')
                     @foreach($user->cursos as $item)
@@ -29,7 +29,7 @@
         </div>
         <hr>
         <div class="col">
-            <div class="card" style="margin-top:3%;">
+            <div class="card" style="margin-top:3%;border:none;">
                 <div class="card-title bg-success" style="padding:11px;">
                     <h3 class="text-light text-center"><i class="fa fa-fw fa-user"></i> Seus dados</h3>
                 </div>
@@ -58,7 +58,7 @@
                                         @case(1)
                                             <label for="curso">CURSO :</label>
                                             {{Form::select('curso', array(
-                                                 null => "Informática para a Internet",
+                                                 1 => "Informática para a Internet",
                                                  2 => 'Logística',
                                                  3 =>'Gestão da Qualidade'),
                                                  null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}
@@ -66,17 +66,17 @@
                                         @case(2)
                                             <label for="curso">CURSO :</label>
                                             {{Form::select('curso', array(
-                                                null => "Logística",
-                                                2 => 'Informática para a Internet',
+                                                2 => "Logística",
+                                                1 => 'Informática para a Internet',
                                                 3 =>'Gestão da Qualidade'),
                                                 null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}
                                         @break
                                         @case(3)
                                             <label for="curso">CURSO :</label>
                                             {{Form::select('curso', array(
-                                                null => "Gestão da Qualidade",
-                                                2 => 'Informática para a Internet',
-                                                3 =>'Logística'),
+                                                3 => "Gestão da Qualidade",
+                                                1 => 'Informática para a Internet',
+                                                2 =>'Logística'),
                                                 null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}
                                         @break
                                     @endswitch
@@ -124,7 +124,7 @@
         </div>
     </div>
     <br>
-    <div class="row" style="background-color:#F0F0F0;border-radius:10px;">
+    <div class="row">
         @component('components.dsCard')
             @slot('nome')
                 Tópicos
