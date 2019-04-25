@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <button class="btn btn-success">Salvar</button>
-                        </div>                    
+                        </div>
                 </form>
             </div>
         </div>

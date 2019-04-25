@@ -7,9 +7,14 @@
 		<div class="col-md-8 m-3 p-0 border">
 			<h3 class="m-auto p-3 bg-success text-light text-center" style="width: 100%;">Discussão</h3>
 			<br>
+            @if($pergunta[0]->users_id == Auth::id())
+                <a href="{{ route('delete', $pergunta[0]->id) }}" class="float-right mr-2 text-danger"><span>Apagar</span></a>
+                <a href="{{route('editar-pergunta', $pergunta[0]->id)}}}" class="float-right mr-2 text-info"><span>Editar</span></a>
+            @endif
 			<div class="m-4">
 				<div class="row">
 					<div class="col-8">
+
 						<span class="h3 text-success bold d-block">{{$pergunta[0]->titulo}}</span>
 						<span class="h6 text-secondary font-italic">{{$pergunta[0]->created_at}}</span>
 						<span class="h6 text-secondary font-italic">{{$pergunta[0]->users[0]->name}}</span>
@@ -48,7 +53,7 @@
 							</td>
 						</tr>
 						@endforeach
-						
+
 						<br>
 						<tr>
 							<td>
