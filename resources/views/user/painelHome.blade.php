@@ -1,56 +1,134 @@
-@extends('layouts.dashboard', ['current'=>'home'])
+@extends('layouts.app', ['current'=>'home'])
 
 @section('content')
-    <div class="row user-img"></div>
+<div class="container">
     <div class="row">
-        <div class="col-12 text-center">
-            <img src="{{asset('storage/avatar/'.$user->avatar)}}" alt="..." class="img-thumbnail rounded-circle user-profile-img">
-            <h2>{{Auth::user()->name}} {{Auth::user()->sobrenome}}</h2>
-            @switch(Auth::user()->tipo)
-                @case('monitor')
-                    <h3 class="text-secondary"><i>Monitor de (Redes de Computadores)</i></h3>          
+        <div class="card text-center max" style="height:480px;">
+            <div class="col user-img">
+                <img src="" alt="">
+            </div>
+            <div class="col text-center">
+                <img src="{{asset('storage/avatar/'.$user->avatar)}}" alt="..." class="img-thumbnail rounded-circle user-profile-img">
+                <h2>{{Auth::user()->name}} {{Auth::user()->sobrenome}}</h2>
+                @switch(Auth::user()->tipo)
+                    @case('monitor')
+                        <h3 class="text-secondary"><i>Monitor de (Redes de Computadores)</i></h3>          
                     @break
                 @case('aluno')
                     @foreach($user->cursos as $item)
                         <h3 class="text-secondary"><i>Aluno do {{Auth::user()->periodo}}° Periodo - {{$item->sigla}}  </i></h3>          
                     @endforeach
-                    @break
+                @break
+                
                 @default
                     <h3 class="text-secondary"><i>Staff</i></h3>          
-            @endswitch
+                @endswitch
+                    <h4 class="text-secondary"><i> IFPE - Instituto Federal de Pernambuco</i></h4>
+                <hr>
+            </div>
+        </div>     
+        <hr>
+        <div class="col">
+            <div class="card" style="margin-top:3%;">
+                <div class="card-title bg-success" style="padding:11px;">
+                    <h3 class="text-light text-center"><i class="fa fa-fw fa-user"></i> Seus dados</h3>
+                </div>
+                <div class="card-body">
+                    {{Form::open(['route'=>['user.update', 'id'=>Auth::id()], 'method'=>'PUT','enctype'=>'multipart/form-data'])}}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nome">NOME :</label>
+                                {{Form::text('nome', $user->name, ['id'=>'nome', 'class'=>'form-control input', 'placeholder'=>'Seu Nome', 'required'])}}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="sobreNome" class="">SOBRENOME :</label>
+                                {{Form::text('sNome', $user->sobrenome, ['id'=>'sobreNome','class'=>'form-control input', 'placeholder'=>'Seu Segundo Nome', 'required'])}}
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="matricula">MATRICULA :</label>
+                                {{Form::text('matricula', $user->matricula, ['id'=>'matricula','class'=>'form-control input', 'placeholder'=>'Sua Matrícula ', 'required'])}}
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="periodo">PERÍODO:</label>
+                                {{Form::number('periodo', $user->periodo, ['id'=>'periodo','class'=>'form-control input', 'placeholder'=>'Seu Período ', 'required', 'min'=>0,'max'=>'4'])}}
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="curso">CURSO :</label>
+                                {{Form::select('curso', array(null => "Por favor Selecione", 1 => 'Informática para a Internet', 2 => 'Logística', 3 =>'Gestão da Qualidade'), null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}    
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="turno">TURNO :</label>
+                                {{Form::select('turno', array(null => "Por favor Selecione", 'M' => 'Manhã', 'T' => 'Tarde'),null,['id'=>'turno','class'=>'form-control', 'required'=>true])}}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="">E-MAIL :</label>
+                                {{Form::text('email', $user->email, ['class'=>'form-control input', 'placeholder'=>'Seu E-mail','required'])}}
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="prImg">IMAGEM PRINCIPAL :</label>
+                                <div class="input-group">
+                                        <div class="custom-file">
+                                            {{Form::file('principal', ['id'=>'inputGroupFile04', 'class'=>'custom-file-input', 'files' => true])}}            
+                                            <label class="custom-file-label" for="inputGroupFile04">Enviar Imagem</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="form-group col-md-6">
+                                <label for="capImg">IMAGEM DE CAPA :</label>
+                                {{Form::file('capa', ['id'=>'capImg', 'class'=>'form-control', 'files' => true])}}
+                            </div> --}}
+                            @if(session('erro'))
+                                <div class="alert alert-danger col-12">
+                                    {{ session('erro')}}
+                                </div>
+                            @endif
+                            {{-- <div class="form-group col-md-6">
+                                <label for="">PASSWORD :</label>
+                                {{Form::text('nome', null, ['class'=>'form-control input', 'placeholder'=>'Senha'])}}
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="">PASSWORD :</label>
+                                {{Form::text('nome', null, ['class'=>'form-control input', 'placeholder'=>'Repita a Senha'])}}
+                            </div> --}}
+                            {{Form::submit('Salvar Perfil', ['class'=>'btn btn-success','style="cursor:pointer;"'])}}
+                    {{Form::close()}}
+                </div>
+            </div>
         </div>
     </div>
-    <hr>
     <br>
-    <div class="row">
-        {{-- Tópicos Fórum --}}
+    <div class="row" style="background-color:#F0F0F0;border-radius:10px;">
         @component('components.dsCard')
             @slot('nome')
-                Tópicos no Fórum
-            @endslot 
-            @slot('valor')
-                {{sizeof($perguntas)}}
+                Tópicos
             @endslot
-            {{route('user.create')}}
+            @slot('valor')
+                20
+            @endslot
+                Catraca
         @endcomponent
-        {{-- Tópicos Resolvidos --}}
+    
         @component('components.dsCard')
             @slot('nome')
                 Tópicos Resolvidos
-            @endslot 
-            @slot('valor')
-                0
             @endslot
+            @slot('valor')
+                20
+            @endslot
+                Catraca
         @endcomponent
-        {{-- Votos --}}
+   
         @component('components.dsCard')
             @slot('nome')
                 Votos
-            @endslot 
-            @slot('valor')
-                0
             @endslot
+            @slot('valor')
+                20
+            @endslot
+                Catraca
         @endcomponent
-    </div>
-    <br><br>
+    </div> 
+    <br>   
+</div>
 @endsection
