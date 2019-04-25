@@ -53,12 +53,38 @@
                                 {{Form::number('periodo', $user->periodo, ['id'=>'periodo','class'=>'form-control input', 'placeholder'=>'Seu Período ', 'required', 'min'=>0,'max'=>'4'])}}
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="curso">CURSO :</label>
-                                {{Form::select('curso', array(null => "Por favor Selecione", 1 => 'Informática para a Internet', 2 => 'Logística', 3 =>'Gestão da Qualidade'), null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}    
+                                @foreach($user->cursos as $item)
+                                    @switch($item->id)
+                                        @case(1)
+                                            <label for="curso">CURSO :</label>
+                                            {{Form::select('curso', array(
+                                                 null => "Informática para a Internet",
+                                                 2 => 'Logística', 
+                                                 3 =>'Gestão da Qualidade'), 
+                                                 null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}
+                                        @break
+                                        @case(2)
+                                            <label for="curso">CURSO :</label>
+                                            {{Form::select('curso', array(
+                                                null => "Logística",
+                                                2 => 'Informática para a Internet', 
+                                                3 =>'Gestão da Qualidade'), 
+                                                null,['id'=>'curso','class'=>'form-control', 'required'=>true])}}
+                                        @break
+                                        @case(3)
+                                            <label for="curso">CURSO :</label>
+                                            {{Form::select('curso', array(
+                                                null => "Gestão da Qualidade",
+                                                2 => 'Informática para a Internet', 
+                                                3 =>'Logística'), 
+                                                null,['id'=>'curso','class'=>'form-control', 'required'=>true])}} 
+                                        @break                                                   
+                                    @endswitch
+                                @endforeach    
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="turno">TURNO :</label>
-                                {{Form::select('turno', array(null => "Por favor Selecione", 'M' => 'Manhã', 'T' => 'Tarde'),null,['id'=>'turno','class'=>'form-control', 'required'=>true])}}
+                                {{Form::select('turno', array('M' => 'Manhã', 'T' => 'Tarde'),null,['id'=>'turno','class'=>'form-control', 'required'=>true])}}
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="">E-MAIL :</label>
@@ -104,9 +130,9 @@
                 Tópicos
             @endslot
             @slot('valor')
-                20
+                {{sizeof($perguntas)}}
             @endslot
-                Catraca
+                {{route('user.create')}}
         @endcomponent
     
         @component('components.dsCard')
@@ -114,7 +140,7 @@
                 Tópicos Resolvidos
             @endslot
             @slot('valor')
-                20
+                0
             @endslot
                 Catraca
         @endcomponent
@@ -124,7 +150,7 @@
                 Votos
             @endslot
             @slot('valor')
-                20
+                0
             @endslot
                 Catraca
         @endcomponent
