@@ -4,7 +4,7 @@
             <div class="title">
                 <h4>{{ $nome }}</h4>
             </div>
-            <h2>{{ $valor }}</h2>
+            <h2 class="text-dark">{{ $valor }}</h2>
             <a href="{{$slot}}">Detalhes</a>
         </div>
     </a>
