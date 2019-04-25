@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container mt-5 mb-5 p-0">
 	<div class="row justify-content-center">
 		<div class="col-md-8 m-3 p-0 border">
@@ -15,7 +14,11 @@
 				<div class="row">
 					<div class="col-8">
 
-						<span class="h3 text-success bold d-block">{{$pergunta[0]->titulo}}</span>
+						<span class="h3 text-success bold d-block">
+                            @php
+                                echo nl2br($pergunta[0]->titulo);
+                            @endphp
+                        </span>
 						<span class="h6 text-secondary font-italic">{{$pergunta[0]->created_at}}</span>
 						<span class="h6 text-secondary font-italic">{{$pergunta[0]->users[0]->name}}</span>
 					</div>
@@ -30,7 +33,9 @@
 				</div>
 				<br><br>
 				<h5 class="text-secondary font-italic">
-					{{$pergunta[0]->texto}}
+                    @php
+                        echo nl2br($pergunta[0]->texto);
+                    @endphp
 				</h5>
 				<br>
 				<table class="table mt-4">
