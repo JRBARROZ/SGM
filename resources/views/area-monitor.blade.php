@@ -49,7 +49,15 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th class="bg-success text-light text-center p-3 h3" colspan="5">{{$curso->nome}}</th>
+                            <th class="bg-success text-light text-center p-3 h3" colspan="6">{{$curso->nome}}</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>Títutlo</th>
+                            <th>Descrição</th>
+                            <th>Início / Termino</th>
+                            <th>Data</th>
+                            <th>Periodo</th>
+                            <th>ID para botões</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,6 +68,7 @@
                                 <td>{{$monitoria->hora_inicio}} / {{$monitoria->hora_fim}}</td>
                                 <td>{{$monitoria->data}}</td>
                                 <td>{{$monitoria->periodo}}</td>
+                                <td>{{$monitoria->id}}</td>
                             </tr>
                         @empty
                         <tr>
