@@ -15,7 +15,6 @@ class CreateAtasTable extends Migration
     {
         Schema::create('atas', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumText('texto')->nullable();
             $table->timestamps();
             //Foreign User
             $table->integer('user_id')->unsigned();
@@ -26,6 +25,10 @@ class CreateAtasTable extends Migration
             //Foreign Cadeira
             $table->integer('cadeira_id')->unsigned();
             $table->foreign('cadeira_id')->references('id')->on('cadeiras');
+
+            //Foreign Monitoria
+            $table->integer('monitoria_id')->unsigned();
+            $table->foreign('monitoria_id')->references('id')->on('monitorias');
 
         });
     }
