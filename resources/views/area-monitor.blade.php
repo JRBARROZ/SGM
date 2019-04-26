@@ -68,7 +68,10 @@
                                 <td>{{$monitoria->hora_inicio}} / {{$monitoria->hora_fim}}</td>
                                 <td>{{$monitoria->data}}</td>
                                 <td>{{$monitoria->periodo}}</td>
-                                <td>{{$monitoria->id}}</td>
+                                <td>{{$monitoria->id}}
+                                    <a href="{{ route('ataIndex', $monitoria->id) }}" class="float-right mr-2 text-info"><span>gerar ata</span></a>
+
+                                </td>
                             </tr>
                         @empty
                         <tr>
