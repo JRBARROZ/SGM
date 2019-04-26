@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CursosSeeder::class);
         $this->call(CadeiraSeeder::class);
-        factory('App\User', 50)->create();
+        factory('App\User', 9999)->create();
     }
 }
