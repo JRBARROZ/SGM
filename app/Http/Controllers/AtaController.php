@@ -20,7 +20,15 @@ class AtaController extends Controller
     public function index()
     {
         $usuario = User::find(Auth::id());
-        $alunos = User::where('tipo', 'aluno')->where('fk_curso', $usuario->fk_curso)->get();
+        $alunos = User::where([
+            ['fk_curso', Auth::user()->curso_monitoria],
+            ['periodo', Auth::user()->periodo_monitoria],
+            ['tipo', 'aluno']
+        ])->orWhere([
+            ['fk_curso', Auth::user()->curso_monitoria],
+            ['periodo', Auth::user()->periodo_monitoria],
+            ['tipo', 'monitor']
+        ])->get();
         $orientador = User::where('tipo', 'professor')->where('fk_curso', $usuario->fk_curso)->get();
         $curso = Curso::where('id', $usuario->fk_curso)->get();
         $cadeira = Cadeira::where('id', $usuario->cadeira_id)->get();
