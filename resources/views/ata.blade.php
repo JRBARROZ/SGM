@@ -11,12 +11,12 @@
     </ul>
     <ul class="list-inline">
         <li class="list-inline-item font-weight-bold text-secondary">Monitor :</li>
-        <li class="list-inline-item">{{$usuario->name}}</li>
+        <li class="list-inline-item">{{Auth::user()->name}}</li>
         <li class="list-inline-item font-weight-bold text-secondary">Orientador :</li>
         <li class="list-inline-item">{{$orientador[0]['name']}}</li>
     </ul>
     <ul class="list-inline">
-        @if($usuario->cargo == 'bolsista')
+        @if(Auth::user()->cargo == 'bolsista')
             <li class="list-inline-item font-weight-bold text-secondary">Bolsista (X)</li>
             <li class="list-inline-item text font-weight-bold text-secondary">Voluntário ( )</li>
         @else
@@ -48,10 +48,6 @@
                     </tbody>
                 </table>
                 <hr>
-                <div class="form-group">
-                    <label for="textarea">Descreva suas atividades :</label>
-                    <textarea name="message" rows="3" cols="3" class="form-control" id="textarea"></textarea>
-                </div>
             </div>
         </div>
         {!! Form::submit('Salvar',['class'=>'btn btn-success'])!!}

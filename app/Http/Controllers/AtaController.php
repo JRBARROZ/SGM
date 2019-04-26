@@ -19,7 +19,6 @@ class AtaController extends Controller
      */
     public function index()
     {
-        $usuario = User::find(Auth::id());
         $alunos = User::where([
             ['fk_curso', Auth::user()->curso_monitoria],
             ['periodo', Auth::user()->periodo_monitoria],
@@ -29,10 +28,10 @@ class AtaController extends Controller
             ['periodo', Auth::user()->periodo_monitoria],
             ['tipo', 'monitor']
         ])->get();
-        $orientador = User::where('tipo', 'professor')->where('fk_curso', $usuario->fk_curso)->get();
-        $curso = Curso::where('id', $usuario->fk_curso)->get();
-        $cadeira = Cadeira::where('id', $usuario->cadeira_id)->get();
-        if($usuario->tipo == 'aluno'){
+        $orientador = User::where('tipo', 'professor')->where('fk_curso', Auth::user()->fk_curso)->get();
+        $curso = Curso::where('id', Auth::user()->fk_curso)->get();
+        $cadeira = Cadeira::where('id', Auth::user()->cadeira_id)->get();
+        if(Auth::user()->tipo == 'aluno'){
             return redirect('/');
         }else{
             return view('ata', compact('usuario', 'alunos', 'curso', 'orientador', 'cadeira'));
