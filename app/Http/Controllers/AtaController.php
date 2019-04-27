@@ -34,9 +34,9 @@ class AtaController extends Controller
         if(Auth::user()->tipo == 'aluno'){
             return redirect('/');
         }else{
-            return view('ata', compact('usuario', 'alunos', 'curso', 'orientador', 'cadeira'));
+            return view('ata', compact('alunos', 'curso', 'orientador', 'cadeira'));
         }
-        return view('ata');
+        // return view('ata');
     }
 
     /**
