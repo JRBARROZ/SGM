@@ -8,8 +8,8 @@
 			@csrf
 			@method('PUT')
 			<div class="form-group">
-				<label>Texto</label>
-				<textarea class="form-control" name="texto">{{ $resposta->texto }}</textarea>
+				<label>Texto: *</label>
+				<textarea class="form-control" name="texto" required>{{ $resposta->texto }}</textarea>
 			</div>
 			<br>
 			<button class="btn btn-success">Salvar</button>

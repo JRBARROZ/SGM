@@ -14,12 +14,12 @@
 						<input type="text" name="titulo" maxlength="200" value="{{ $pergunta->titulo }}" class="form-control">
 					</div>
 					<div class="form-group">
-						<label for="">Descrição da pergunta:</label>
-						<textarea class="form-control" name="descricao" aria-label="With textarea" placeholder="descreva aqui sua dúvida">{{ $pergunta->texto }}</textarea>
+						<label for="">Descrição da pergunta: *</label>
+						<textarea class="form-control" name="descricao" aria-label="With textarea" placeholder="descreva aqui sua dúvida" required>{{ $pergunta->texto }}</textarea>
 					</div>
 					<div class="form-group">
-						<label for="">Curso:</label>
-						<select class="form-control" name="curso">
+						<label for="">Curso: *</label>
+						<select class="form-control" name="curso" required>
 							@foreach ($cursos as $curso)
 								<option value="{{$curso->id}}"> {{$curso->nome}} - ({{$curso->sigla}})</option>
 							@endforeach

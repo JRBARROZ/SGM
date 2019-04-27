@@ -10,33 +10,33 @@
                     @csrf
                         <div class="form-group">
                             <label>
-                                Titulo da atividade:
+                                Titulo da atividade: *
                             </label>
-                            <input type="text"  name="titulo" class="form-control" placeholder="assunto da monitoria">
+                            <input type="text"  name="titulo" class="form-control" placeholder="assunto da monitoria" required>
                         </div>
                         <div class="form-group">
                             <label>
-                                Descrição da atividade:
+                                Descrição da atividade: *
                             </label>
-                            <textarea class="form-control" name="descricao" placeholder="descrição da monitoria"></textarea>
+                            <textarea class="form-control" name="descricao" placeholder="descrição da monitoria" required></textarea>
                         </div>
                         <div class="form-group">
                             <label>
-                                Início:
+                                Início: *
                             </label>
-                            <input class="form-control" type="time" name="hora_inicio">
+                            <input class="form-control" type="time" name="hora_inicio" required>
                         </div>
                         <div class="form-group">
                             <label>
-                                Término:
+                                Término: *
                             </label>
-                        <input class="form-control" type="time" name="hora_fim">
+                        <input class="form-control" type="time" name="hora_fim" required>
                         </div>
                         <div class="form-group">
                             <label>
-                                Data
+                                Data: *
                             </label>
-                        <input type="date" name="data" class="form-control">
+                        <input type="date" name="data" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-success">Salvar</button>
@@ -75,7 +75,7 @@
                             </tr>
                         @empty
                         <tr>
-                            <td>Nenhuma monitoria agendada</td>
+                            <td colspan="6">Você ainda não agendou nenhuma monitoria.</td>
                         </tr>
                         @endforelse
                     </tbody>

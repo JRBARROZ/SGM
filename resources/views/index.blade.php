@@ -16,7 +16,7 @@
 					<br>
 					<form method="POST" action="{{route('adicionar-pergunta')}}">
 						@csrf
-						<input type="text" name="titulo" maxlength="200" class="form-group form-control" required placeholder="Título da pergunta...">
+						<input type="text" name="titulo" maxlength="200" class="form-group form-control" required placeholder="Título da pergunta..." required>
 						<textarea class="form-group form-control" name="descricao" aria-label="With textarea" placeholder="Descreva aqui sua dúvida..." required></textarea>
 						<div class="form-group">
 							<select class="form-control" name="curso" required>
