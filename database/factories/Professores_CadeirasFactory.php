@@ -15,7 +15,7 @@ $factory->define(Professores_Cadeiras::class, function (Faker $faker) {
     $cadeira = DB::select('select id from cadeiras where id not in (select cadeira_id from professores_cadeiras)');
 
     return [
-        'user_id' => $professor,
-        'cadeira_id' => $cadeira
+        'user_id' => $professor[0]->id,
+        'cadeira_id' => $cadeira[0]->id
     ];
 });
