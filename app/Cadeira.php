@@ -12,4 +12,7 @@ class Cadeira extends Model
         'nome', 'periodo', 'fk_curso'
     ];
 
+    public function cursos(){
+        return $this->hasMany('App\Curso', 'id', 'fk_curso');
+    }
 }
