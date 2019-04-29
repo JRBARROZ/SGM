@@ -54,9 +54,9 @@ Route::prefix('monitoria')->group(function(){
 
 Route::prefix('ata')->group(function(){
     //Index
-    Route::get('/','AtaController@index')->name('ataIndex');
+    Route::get('/{id}','AtaController@index')->name('ataIndex');
     //Store
-    Route::post('/store','AtaController@store')->name('ataStore');
+    Route::post('/store/{monitoria_id}','AtaController@store')->name('ataStore');
     //Edit
     Route::get('/edit/{id}','AtaController@edit')->name('ataEdit');
     //Update

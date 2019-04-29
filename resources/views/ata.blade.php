@@ -24,7 +24,7 @@
             <li class="list-inline-item text font-weight-bold text-secondary">Voluntário (X)</li>
         @endif
     </ul>
-    {!! Form::open(['route'=>'ataStore', 'method'=>'post']) !!}
+    {!! Form::open(['route'=>['ataStore', $monitoria_id]]) !!}
         <div class="row">
             <div class="col"> 
                 <table class="table table-borderless text-center">
