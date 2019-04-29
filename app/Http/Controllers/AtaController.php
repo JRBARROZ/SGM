@@ -38,7 +38,7 @@ class AtaController extends Controller
             ['fk_curso', Auth::user()->curso_monitoria],
             ['periodo', Auth::user()->periodo_monitoria],
             ['tipo', 'monitor']
-        ])->get();
+        ])->paginate(10);
 
         // query que seleciona o professor do disciplina
         $orientador = DB::table('users')
@@ -73,21 +73,26 @@ class AtaController extends Controller
      */
     public function store(Request $request, $monitoria_id)
     {
+        //Verificação se monitoria
         $users = $request->get('presente');
+        $check = Ata::where('monitoria_id', $monitoria_id)->get();
         $monitoria = Monitoria::findOrfail($monitoria_id);
-        // var_dump($cadeira[0]['fk_curso']);
-        foreach($users as $item){
-            $ata = new Ata();
-            $ata->user_id = $item;
-            $ata->curso_id = Auth::user()->curso_monitoria;
-            $ata->cadeira_id = Auth::user()->cadeira_id;
-            $ata->monitoria_id = $monitoria_id;
-            $ata->data = $monitoria->data;
-            $ata->save();
+
+        if(sizeof($check) == 0){
+            foreach($users as $item){
+                $ata = new Ata();
+                $ata->user_id = $item;
+                $ata->curso_id = Auth::user()->curso_monitoria;
+                $ata->cadeira_id = Auth::user()->cadeira_id;
+                $ata->monitoria_id = $monitoria_id;
+                $ata->data = $monitoria->data;
+                $ata->save();
+                return redirect()->route('ataIndex', ['id' => $monitoria_id])->with('check', true);
+            }
+        }else{
+            return redirect()->route('ataIndex', ['id' => $monitoria_id])->with('check', false);
         }
-
     }
-
     /**
      * Display the specified resource.
      *
