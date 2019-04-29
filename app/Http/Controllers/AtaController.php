@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Curso;
 use App\Cadeira;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Ata;
@@ -19,7 +20,8 @@ class AtaController extends Controller
      */
     public function index()
     {
-        $alunos = User::where([
+        // query de listagem de alunos
+        $alunos = User::with('cadeiras')->with('cursos')->where([
             ['fk_curso', Auth::user()->curso_monitoria],
             ['periodo', Auth::user()->periodo_monitoria],
             ['tipo', 'aluno']
@@ -28,15 +30,24 @@ class AtaController extends Controller
             ['periodo', Auth::user()->periodo_monitoria],
             ['tipo', 'monitor']
         ])->get();
-        $orientador = User::where('tipo', 'professor')->where('fk_curso', Auth::user()->fk_curso)->get();
-        $curso = Curso::where('id', Auth::user()->fk_curso)->get();
-        $cadeira = Cadeira::where('id', Auth::user()->cadeira_id)->get();
+
+        // query que seleciona o professor do disciplina
+        $orientador = DB::table('users')
+            ->join('professores_cadeiras', 'users.id', 'professores_cadeiras.user_id')
+            ->where('professores_cadeiras.cadeira_id', Auth::user()->cadeira_id)
+            ->select('users.name')
+        ->get();
+
+        // query que seleciona curso e cadeira da monitoria 
+        $dados_monitor = Cadeira::with('cursos')
+            ->where('id', Auth::user()->cadeira_id)
+        ->get();
+
         if(Auth::user()->tipo == 'aluno'){
             return redirect('/');
         }else{
-            return view('ata', compact('alunos', 'curso', 'orientador', 'cadeira'));
+            return view('ata', compact('alunos', 'orientador', 'dados_monitor'));
         }
-        // return view('ata');
     }
 
     /**

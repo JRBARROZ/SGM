@@ -5,7 +5,7 @@
 <div class="container">
     <ul class="list-inline">
         <li class="list-inline-item font-weight-bold text-secondary">Ata : </li>
-        <li class="list-inline-item">{{$cadeira[0]['nome']}}</li>
+        <li class="list-inline-item">{{$dados_monitor[0]->nome}}</li>
         <li class="list-inline-item font-weight-bold text-secondary">Data : </li>
         <li class="list-inline-item">{{date('d/m/Y')}}</li>
     </ul>
@@ -13,7 +13,7 @@
         <li class="list-inline-item font-weight-bold text-secondary">Monitor :</li>
         <li class="list-inline-item">{{Auth::user()->name}}</li>
         <li class="list-inline-item font-weight-bold text-secondary">Orientador :</li>
-        <li class="list-inline-item">{{$orientador[0]['name']}}</li>
+        <li class="list-inline-item">{{$orientador[0]->name}}</li>
     </ul>
     <ul class="list-inline">
         @if(Auth::user()->cargo == 'bolsista')
@@ -35,12 +35,12 @@
                         <th scope="col text-right">Presença</th>
                     </thead>
                     <tbody>
-                        @forelse ($alunos as $item) 
+                        @forelse ($alunos as $aluno) 
                             <tr class="hover">
-                                <td class="text-justify">{{$item->name}}</td>
-                                <td>{{$curso[0]['sigla']}}</td>
+                                <td class="text-justify">{{$aluno->name}}</td>
+                                <td>{{$aluno->cursos[0]->sigla}}</td>
                                 <td>{{date('d/m/Y')}}</td>
-                                <td>{!! Form::checkbox('presente[]', $item->id,false)!!}</td>
+                                <td>{!! Form::checkbox('presente[]', $aluno->id,false)!!}</td>
                             </tr>
                         @empty
                         
