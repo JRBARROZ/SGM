@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Curso;
 use App\Cadeira;
+use App\Monitoria;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -18,8 +19,16 @@ class AtaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+
+        if(Auth::user()->tipo == 'aluno'){
+            return redirect('/');
+        }
+
+        // variavel qur recebe id da monitoria
+        $monitoria_id = $id;
+
         // query de listagem de alunos
         $alunos = User::with('cadeiras')->with('cursos')->where([
             ['fk_curso', Auth::user()->curso_monitoria],
@@ -42,12 +51,8 @@ class AtaController extends Controller
         $dados_monitor = Cadeira::with('cursos')
             ->where('id', Auth::user()->cadeira_id)
         ->get();
-
-        if(Auth::user()->tipo == 'aluno'){
-            return redirect('/');
-        }else{
-            return view('ata', compact('alunos', 'orientador', 'dados_monitor'));
-        }
+        
+        return view('ata', compact('alunos', 'orientador', 'dados_monitor', 'monitoria_id'));
     }
 
     /**
@@ -66,18 +71,18 @@ class AtaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $monitoria_id)
     {
-        $monitor = User::find(Auth::id());
         $users = $request->get('presente');
-        $cadeira = Cadeira::where('id', $monitor->cadeira_id)->get();
+        $monitoria = Monitoria::findOrfail($monitoria_id);
         // var_dump($cadeira[0]['fk_curso']);
         foreach($users as $item){
             $ata = new Ata();
-            $ata->texto = $request->message;
             $ata->user_id = $item;
-            $ata->curso_id = $monitor->fk_curso;
-            $ata->cadeira_id = $cadeira[0]['id'];
+            $ata->curso_id = Auth::user()->curso_monitoria;
+            $ata->cadeira_id = Auth::user()->cadeira_id;
+            $ata->monitoria_id = $monitoria_id;
+            $ata->data = $monitoria->data;
             $ata->save();
         }
 
