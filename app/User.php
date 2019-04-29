@@ -42,6 +42,6 @@ class User extends Authenticatable
     }
 
     public function cadeiras(){
-        return $this->belongsToMany('App\Cadeiras');
+        return $this->belongsToMany('App\Cadeira', 'professores_cadeiras');
     }
 }
