@@ -1,8 +1,11 @@
 @extends('layouts.app')
-
+    @if (session('check'))
+        <div class="alert alert-success">
+            {{ session('check') }}
+        </div>
+    @endif
 @section('content')
-<br>
-<div class="container">
+<div class="container mt-4">
     <ul class="list-inline">
         <li class="list-inline-item font-weight-bold text-secondary">Ata : </li>
         <li class="list-inline-item">{{$dados_monitor[0]->nome}}</li>
@@ -53,5 +56,4 @@
         {!! Form::submit('Salvar',['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
 </div>
-<br><br><br>
 @endsection
