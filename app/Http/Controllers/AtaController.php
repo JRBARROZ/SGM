@@ -47,11 +47,11 @@ class AtaController extends Controller
             ->select('users.name')
         ->get();
 
-        // query que seleciona curso e cadeira da monitoria 
+        // query que seleciona curso e cadeira da monitoria
         $dados_monitor = Cadeira::with('cursos')
             ->where('id', Auth::user()->cadeira_id)
         ->get();
-        
+
         return view('ata', compact('alunos', 'orientador', 'dados_monitor', 'monitoria_id'));
     }
 
@@ -87,10 +87,10 @@ class AtaController extends Controller
                 $ata->monitoria_id = $monitoria_id;
                 $ata->data = $monitoria->data;
                 $ata->save();
-                return redirect()->route('ataIndex', ['id' => $monitoria_id])->with('check', true);
+                return redirect()->route('ataIndex', ['id' => $monitoria_id])->with('true', 'Ata cadastrada com sucesso!');
             }
         }else{
-            return redirect()->route('ataIndex', ['id' => $monitoria_id])->with('check', false);
+            return redirect()->route('ataIndex', ['id' => $monitoria_id])->with('false', 'Já existe uma ata cadastrada para esta monitoria!');
         }
     }
     /**
