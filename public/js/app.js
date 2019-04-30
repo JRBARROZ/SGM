@@ -49438,9 +49438,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/murielson/S/SGM/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/murielson/S/SGM/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/murielson/S/SGM/resources/sass/user.scss */"./resources/sass/user.scss");
+__webpack_require__(/*! /home/alunoifpe/Área de Trabalho/SGM/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/alunoifpe/Área de Trabalho/SGM/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/alunoifpe/Área de Trabalho/SGM/resources/sass/user.scss */"./resources/sass/user.scss");
 
 
 /***/ })
