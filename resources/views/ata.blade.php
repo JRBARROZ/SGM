@@ -40,11 +40,13 @@
                                 <td>{{$aluno->cursos[0]->sigla}}</td>
                                 <td>{{date('d/m/Y')}}</td>
                                 <td>
-                                    {{-- {!! Form::checkbox('presente[]', $aluno->id,false)!!} --}}
-                                    <div class="custom-control custom-checkbox mb-3">
-                                        <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
-                                        <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
-                                        <div class="invalid-feedback">Example invalid feedback text</div>
+                                    <div class="custom-control custom-checkbox">
+                                        {!! Form::checkbox('presente[]', $aluno->id,false, 
+                                        ['class'=>'custom-control-input'
+                                        ,'id'=>"customControlValidation".$loop->iteration
+                                    
+                                        ])!!}
+                                        <label class="custom-control-label" for="customControlValidation{{$loop->iteration}}"> </label>
                                     </div>
                                 </td>
                             </tr>
@@ -66,6 +68,7 @@
                 {{ session('false') }}
             </div>
         @endif
+        {{$alunos->links()}}
         {!! Form::submit('Salvar',['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
 </div>
