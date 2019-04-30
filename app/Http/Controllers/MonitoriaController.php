@@ -112,6 +112,8 @@ class MonitoriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del = Monitoria::find($id);
+        $del->delete();
+        return redirect()->back();  
     }
 }
