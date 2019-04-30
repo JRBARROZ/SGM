@@ -1,9 +1,5 @@
 @extends('layouts.app')
-    @if (session('check'))
-        <div class="alert alert-success">
-            {{ session('check') }}
-        </div>
-    @endif
+
 @section('content')
 <div class="container mt-4">
     <ul class="list-inline">
@@ -27,9 +23,9 @@
             <li class="list-inline-item text font-weight-bold text-secondary">Voluntário (X)</li>
         @endif
     </ul>
-    {!! Form::open(['route'=>['ataStore', $monitoria_id]]) !!}
+    {!! Form::open(['route'=>['ataStore', $monitoria_id]], ['class'=>'was-validated']) !!}
         <div class="row">
-            <div class="col"> 
+            <div class="col">
                 <table class="table table-borderless text-center">
                     <thead class= "table-dark bg-success">
                         <th scope="col text-justify" class="text-justify">Aluno (a)</th>
@@ -38,21 +34,38 @@
                         <th scope="col text-right">Presença</th>
                     </thead>
                     <tbody>
-                        @forelse ($alunos as $aluno) 
+                        @forelse ($alunos as $aluno)
                             <tr class="hover">
                                 <td class="text-justify">{{$aluno->name}}</td>
                                 <td>{{$aluno->cursos[0]->sigla}}</td>
                                 <td>{{date('d/m/Y')}}</td>
-                                <td>{!! Form::checkbox('presente[]', $aluno->id,false)!!}</td>
+                                <td>
+                                    {{-- {!! Form::checkbox('presente[]', $aluno->id,false)!!} --}}
+                                    <div class="custom-control custom-checkbox mb-3">
+                                        <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                        <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
+                                        <div class="invalid-feedback">Example invalid feedback text</div>
+                                    </div>
+                                </td>
                             </tr>
                         @empty
-                        
+
                         @endforelse
                     </tbody>
                 </table>
                 <hr>
             </div>
         </div>
+        @if (session('true'))
+            <div class="alert alert-success">
+                {{ session('true') }}
+            </div>
+        @endif
+        @if(session('false'))
+            <div class="alert alert-danger">
+                {{ session('false') }}
+            </div>
+        @endif
         {!! Form::submit('Salvar',['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
 </div>
