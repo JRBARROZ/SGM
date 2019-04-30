@@ -69,8 +69,8 @@
                                 <td>{{$monitoria->data}}</td>
                                 <td>{{$monitoria->periodo}}</td>
                                 <td>{{$monitoria->id}}
-                                    <a href="{{ route('ataIndex', $monitoria->id) }}" class="float-right mr-2 text-info"><span>gerar ata</span></a>
-
+                                    <a href="{{ route('ataIndex', $monitoria->id) }}">Ata</a>
+                                    <a href="{{ route('monitoria-deletar', $monitoria->id) }}">Deletar</a>
                                 </td>
                             </tr>
                         @empty
