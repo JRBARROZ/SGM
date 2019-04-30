@@ -38,7 +38,7 @@ class AtaController extends Controller
             ['fk_curso', Auth::user()->curso_monitoria],
             ['periodo', Auth::user()->periodo_monitoria],
             ['tipo', 'monitor']
-        ])->paginate(10);
+        ])->paginate(8);
 
         // query que seleciona o professor do disciplina
         $orientador = DB::table('users')
@@ -90,7 +90,7 @@ class AtaController extends Controller
                 return redirect()->route('ataIndex', ['id' => $monitoria_id])->with('true', 'Ata cadastrada com sucesso!');
             }
         }else{
-            return redirect()->route('ataIndex', ['id' => $monitoria_id])->with('false', 'Já existe uma ata cadastrada para esta monitoria!');
+            return redirect()->route('ataIndex', ['id' => $monitoria_id])->with('false', 'Já existe uma ata cadastrada para essa monitoria!');
         }
     }
     /**
