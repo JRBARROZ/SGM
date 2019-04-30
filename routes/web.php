@@ -19,24 +19,24 @@ Route::get('/', function () {
 Route::get('/', 'PerguntaController@index')->name('index');
 
 Route::prefix('pergunta')->group(function(){
-   
+
     Route::get('/{id}', 'PerguntaController@show')->name('exibir-pergunta');
-    
+
     // adicionar nova pergunta
     Route::post('/adiciona', 'PerguntaController@store')->name('adicionar-pergunta');
-    
+
     // editar pergunta feita pelo usuario
     Route::get('/editar/{id}', 'PerguntaController@edit')->name('editar-pergunta');
-    
+
     // salva pergunta editada pelo usuario
     Route::put('pergunta/salvar/{id}', 'PerguntaController@update')->name('salvar-pergunta');
-        
+
     // filtra perguntas por curso
     Route::get('/filtro/curso/{id}', 'PerguntaController@filtroCurso')->name('pergunta-curso');
 
     // filtra perguntas por curso
     Route::get('/filtro/estado/{estado}', 'PerguntaController@filtroEstado')->name('pergunta-estado');
-    
+
     // deletar pergunta feita pelo usuario
     Route::get('/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
@@ -47,6 +47,7 @@ Route::prefix('monitoria')->group(function(){
     Route::get('/', 'MonitoriaController@index')->name('monitoria-index');
     Route::get('/area-do-monitor', 'MonitoriaController@monitor')->name('monitoria-monitor');
     Route::post('/agendar', 'MonitoriaController@store')->name('monitoria-agendar');
+    Route::get('/agendar/{id}', 'MonitoriaController@destroy')->name('monitoria-deletar');
 });
 
 
