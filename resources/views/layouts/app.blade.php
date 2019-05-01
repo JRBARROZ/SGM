@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-
+    {{-- fontes --}}
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>   
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -26,80 +20,58 @@
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/user.css')}}">
-
     <style>
         .hover:hover{cursor:pointer;background-color:#F0F0F0;}
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-success">
-        <div class="container">
-            <h3 class="navbar-brand text-light"><a href="{{url('/')}}" class="text-light">SGM - IFPE</a></h3>
-            <div class="navbar-nav ml-auto">
-                @guest
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{{ route('login') }}">Entrar</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{{route('register')}}">Cadastre-se</a>
-                        </li>
-                    @endif
-                    @else
-                    @if (Auth::user()->tipo == 'monitor')
-                    <a class="nav-item nav-link text-light" href="{{ route('monitoria-monitor') }}">Área do monitor</a>
-                    @endif
-                    <a class="nav-item nav-link text-light" href="{{ route('monitoria-index') }}">Monitorias</a>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-
-                        <div id='app' class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('user.index') }}">
-                            {{ __('Perfil') }}
-                            </a>
-                             <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                @endguest
-            </div>
-        </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-success ">
+        <a href="{{url('/')}}" class="nav-item navbar-brand h4">SGM</a>
+        @guest
+        <ul class="navbar navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="{{ route('login') }}" class="nav-link text-light"><span class="fas fa-sign-in-alt mr-2"></span>Entrar</a>
+            </li>
+            @if (Route::has('register'))
+            <li class="nav-item">
+                <a href="{{route('register')}}" class="nav-link text-light"><span class="fas fa-user-plus mr-2"></span>Cadastre-se</a>
+            </li>
+        </ul>
+        @endif
+        @else
+        @if (Auth::user()->tipo == 'monitor')
+        <a class="nav-item nav-link text-light ml-2" href="{{ route('monitoria-monitor') }}">Área do monitor</a>
+        @endif
+        <ul class="navbar navbar-nav">
+            <li class="nav-item ml-2">
+                <a href="{{url('/')}}" class="nav-link text-light">Início</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-light">Documentação</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-light">Horários</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('monitoria-index') }}" class="nav-link text-light">Monitoria</a>
+            </li>
+        </ul>
+        <ul class="navbar navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="{{ route('user.index') }}" class="nav-link text-light"><span class="fas fa-user mr-2 text-light"></span>{{ Auth::user()->name }}</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('logout') }}" class="nav-link text-light" 
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                <span class="fas fa-sign-out-alt mr-2 text-light"></span>Sair</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        </ul>
+        @endguest
     </nav>
-
-    <div class="modal fade" id="login">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Login SGM</h3>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Matrícula">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Senha">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-block">Entrar</button>
-                            <button type="reset" class="btn btn-danger btn-block">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <main>
         @yield('content')
     </main>
