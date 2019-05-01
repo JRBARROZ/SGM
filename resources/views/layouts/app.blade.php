@@ -39,10 +39,12 @@
         </ul>
         @endif
         @else
-        @if (Auth::user()->tipo == 'monitor')
-        <a class="nav-item nav-link text-light ml-2" href="{{ route('monitoria-monitor') }}">Área do monitor</a>
-        @endif
         <ul class="navbar navbar-nav">
+            @if (Auth::user()->tipo == 'monitor')
+            <li class="nav-item ml-2">
+                <a class="nav-link text-light" href="{{ route('monitoria-monitor') }}">Área do monitor</a>
+            </li>
+            @endif
             <li class="nav-item ml-2">
                 <a href="{{url('/')}}" class="nav-link text-light">Início</a>
             </li>
