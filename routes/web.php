@@ -87,4 +87,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+//Rota para dashboard-admin (ainda sem funcionalidades prontas)
+Route::get('/dashboard-admin', function(){
+    return view('dashboard-adm');
+});
