@@ -7,7 +7,7 @@
             <div class="m-2">
                 <button class="btn btn-primary btn-block mb-1" data-toggle="collapse" data-target="#formCadastro" style="border-radius: 0px;">Agendar Monitoria</button>
 
-                <div id="formCadastro" class="collapse shadow p-3">
+                <div id="formCadastro" class="collapse shadow p-3 ">
                     <form action="{{ route('monitoria-agendar') }}" method="POST">
                         @csrf
                             <div class="form-group">
