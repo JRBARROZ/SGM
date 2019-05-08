@@ -23,6 +23,7 @@
   <style>
     .hover:hover{cursor:pointer;background-color:#F0F0F0;}
   </style>
+  <script src=" {{ asset('js/app.js') }} "></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-success ">
@@ -79,7 +80,7 @@
   </main>
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small bg-success text-light" style="bottom: 0;position: absolute;width: 100%">
+<footer class="page-footer font-small bg-success text-light mt-3 ">
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left ">
