@@ -27,14 +27,16 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-success ">
-    <a href="{{url('/')}}" class="nav-item navbar-brand h4">SGM</a>
+    <a href="{{url('/')}}" class="nav-item navbar-brand h4 btn btn-outline-light mt-auto mb-auto">SGM</a>
+    <!-- Botão de menu para telas mobile com efeito collapse (aparecer e desaparecer algo) -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!-- Div englobando todo o conteúdo que deverá desaparecer ao diminuir a tela -->
     <div class="collapse navbar-collapse" id="navbar">
       @guest
         
-      <ul class="navbar navbar-nav ml-auto">
+      <ul class="navbar navbar-nav mr-auto">
         <li class="nav-item">
           <a href="{{ route('login') }}" class="nav-link text-light"><span class="fas fa-sign-in-alt mr-2"></span>Entrar</a>
         </li>
@@ -45,7 +47,7 @@
       </ul>
       @endif
       @else
-      <ul class="navbar navbar-nav">
+      <ul class="navbar navbar-nav mr-auto">
         @if (Auth::user()->tipo == 'monitor')
         <li class="nav-item ml-2">
           <a class="nav-link text-light" href="{{ route('monitoria-monitor') }}">Área do monitor</a>
@@ -64,7 +66,7 @@
           <a href="{{ route('monitoria-index') }}" class="nav-link text-light">Monitoria</a>
         </li>
       </ul>
-      <ul class="navbar navbar-nav ml-auto">
+      <ul class="navbar navbar-nav mr-0">
         <li class="nav-item">
           <a href="{{ route('user.index') }}" class="nav-link text-light"><span class="fas fa-user mr-2 text-light"></span>{{ Auth::user()->name }}</a>
         </li>

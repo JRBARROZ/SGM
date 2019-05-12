@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			@auth
-				<div class="col-md-3 col-6 mr-3 ml-3 mb-5 mt-0 p-0">
+				<div class="col-md-3 col-10 mr-3 ml-3 mb-5 mt-0 p-0">
 					<h3 class="m-auto text-center text-light p-3 bg-success">Deixe sua dúvida</h3>
 					<br>
 					<form method="POST" action="{{route('adicionar-pergunta')}}">
@@ -52,9 +52,9 @@
 												<span class="h6 text-secondary d-block mt-2" style="font-size: 12px;">{{$pergunta->created_at}}</span>
 											</div>
 											<div class="col m-auto text-right">
-												<a href="{{ route('pergunta-curso', $pergunta->cursos[0]->id) }}">  <span class="badge badge-secondary  float-right mr-2">{{$pergunta->cursos[0]->sigla}}</span> </a>
+												<a href="{{ route('pergunta-curso', $pergunta->cursos[0]->id) }}">  <span class="badge badge-secondary  float-right m-1">{{$pergunta->cursos[0]->sigla}}</span> </a>
 												@if($pergunta->estado == "aberta")
-													<a href="{{ route('pergunta-estado', $pergunta->estado) }}"> <span class="badge badge-info text-light mr-2">{{$pergunta->estado}}</span> </a>
+													<a href="{{ route('pergunta-estado', $pergunta->estado) }}"> <span class="badge badge-info text-light m-1">{{$pergunta->estado}}</span> </a>
 												@else
 													<a href="{{ route('pergunta-estado', $pergunta->estado) }}"> <span class="badge badge-success text-light mr-2">{{$pergunta->estado}}</span> </a>
 												@endif
