@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="jumbotron" style="padding: 20px; width: 100%;">
+<div class="jumbotron p-5" style="height: 20vh">
 		<div class="container text-center">
 			<h2 class="text-success">SGM</h2>
 			<h5 class="text-success">Sistema de Gerenciamento de Monitorias</h5>

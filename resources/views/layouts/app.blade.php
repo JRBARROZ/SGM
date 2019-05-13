@@ -83,16 +83,16 @@
       @endguest
     </div>
   </nav>
-  <main>
+  <main style="min-height: 61.9vh">
     @yield('content')
   </main>
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small bg-success text-light mt-5">
+<footer class="page-footer font-small bg-success text-light mt-5 footer navbar-fixed-bottom">
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-md">
-        <img src="https://image.winudf.com/v2/image/ZGV2Lmlnb3J4cDUuaWZfZXN0dWRhbnRlX2ljb25fMTUyMDc3NTY2MV8wMTI/icon.png?w=170&fakeurl=1" class="card card-link bg-success border-0 ml-0">
+        <img  src="https://image.winudf.com/v2/image/ZGV2Lmlnb3J4cDUuaWZfZXN0dWRhbnRlX2ljb25fMTUyMDc3NTY2MV8wMTI/icon.png?w=170&fakeurl=1" class="card card-link bg-success border-0 m-auto">
       </div>
       <div class="col-md">
         <h5 class="text-uppercase mt-3">SGM</h5> 
