@@ -11,7 +11,7 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300'>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>   
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700,300'>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   <!-- Styles -->
@@ -27,7 +27,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-success ">
-    <a href="{{url('/')}}" class="nav-item navbar-brand h4 btn btn-outline-light mt-auto mb-auto">SGM</a>
+    <a href="{{url('/')}}" class="nav-item h4 btn btn-outline-light mt-auto mb-auto">SGM</a>
     <!-- Botão de menu para telas mobile com efeito collapse (aparecer e desaparecer algo) -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
       <span class="navbar-toggler-icon"></span>
@@ -35,8 +35,8 @@
     <!-- Div englobando todo o conteúdo que deverá desaparecer ao diminuir a tela -->
     <div class="collapse navbar-collapse" id="navbar">
       @guest
-        
-      <ul class="navbar navbar-nav mr-auto">
+
+      <ul class="navbar navbar-nav ml-auto">
         <li class="nav-item">
           <a href="{{ route('login') }}" class="nav-link text-light"><span class="fas fa-sign-in-alt mr-2"></span>Entrar</a>
         </li>
@@ -71,7 +71,7 @@
           <a href="{{ route('user.index') }}" class="nav-link text-light"><span class="fas fa-user mr-2 text-light"></span>{{ Auth::user()->name }}</a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('logout') }}" class="nav-link text-light" 
+          <a href="{{ route('logout') }}" class="nav-link text-light"
           onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
           <span class="fas fa-sign-out-alt mr-2 text-light"></span>Sair</a>
@@ -95,7 +95,7 @@
         <img  src="https://image.winudf.com/v2/image/ZGV2Lmlnb3J4cDUuaWZfZXN0dWRhbnRlX2ljb25fMTUyMDc3NTY2MV8wMTI/icon.png?w=170&fakeurl=1" class="card card-link bg-success border-0 m-auto">
       </div>
       <div class="col-md">
-        <h5 class="text-uppercase mt-3">SGM</h5> 
+        <h5 class="text-uppercase mt-3">SGM</h5>
         <p>O projeto SGM tem como objetivo facilitar o método de integração de monitorias com os alunos nos campus IFPE. Com o intuito de apresentar uma plantaforma inovadora, rápida e dinâmica.</p>
       </div>
       <div class="col-md">
