@@ -2,20 +2,19 @@
 
 @section('content')
 
-<div class="jumbotron p-5" style="height: 20vh">
+<div class="jubotron p-4" style="min-height: 10vh">
 		<div class="container text-center">
 			<h2 class="text-success">SGM</h2>
-			<h5 class="text-success">Sistema de Gerenciamento de Monitorias</h5>
-			<h5 class="text-secondary">Feito por alunos para auxiliar alunos!</h5>
+			<h5 class="text-success d-none d-md-block">Sistema de Gerenciamento de Monitorias</h5>
+			<h5 class="text-secondary d-none d-md-block">Feito por alunos para alunos!</h5>
 		</div>
 	</div>
 	<div class="container">
 		<div class="row justify-content-center">
 			@auth
-				<div class="col-md-3 col-10 mr-3 ml-3 mb-5 mt-0 p-0">
+				<div class="col-md-3 col-10 mr-3 ml-3 mb-5 mt-0 p-0 border">
 					<h3 class="m-auto text-center text-light p-3 bg-success">Deixe sua dúvida</h3>
-					<br>
-					<form method="POST" action="{{route('adicionar-pergunta')}}">
+					<form method="POST" action="{{route('adicionar-pergunta')}}" class="m-2 p-3">
 						@csrf
 						<input type="text" name="titulo" maxlength="200" class="form-group form-control" required placeholder="Título da pergunta..." required>
 						<textarea class="form-group form-control" name="descricao" aria-label="With textarea" placeholder="Descreva aqui sua dúvida..." required></textarea>
