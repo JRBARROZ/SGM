@@ -15,7 +15,7 @@ git-fernanda:
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!\033[00;37m"
 	@git config --global user.name
 	@git config --global user.email
-git-carlos:	
+git-carlos:
 	@git config --global user.name "josecarlosmonteiro"
 	@git config --global user.email "1monteirocarlos@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!\033[00;37m"
@@ -30,8 +30,8 @@ git-silvio:
 	@git config --global user.email
 
 git-eduardo:
-	@git config user.name "eduardobispof"
-	@git config user.email "eduardobispof@gmail.com"
+	@git config --global user.name "eduardobispof"
+	@git config --global user.email "eduardobispof@gmail.com"
 	@echo "\033[01;40mGIT CONFIGURADO COM SUCESSO!\033[00;37m"
 	@git config --global user.name
 	@git config --global user.email
@@ -49,7 +49,7 @@ conf:
 	php artisan storage:link
 	$(MAKE) db
 
-# Configuração do DB	
+# Configuração do DB
 db:
 	@mysql -u root -p --execute="drop database if exists SGM; create database SGM; drop user if exists master; CREATE USER 'master' IDENTIFIED BY 'origin'; GRANT ALL PRIVILEGES ON SGM . * TO master;"
 	@sed -i 's/DB_DATABASE=homestead/DB_DATABASE=SGM/' .env
