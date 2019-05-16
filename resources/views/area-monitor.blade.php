@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-4">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-sm">
             <div class="m-2">
                 <button class="btn btn-primary btn-block mb-1" data-toggle="collapse" data-target="#formCadastro" style="border-radius: 0px;">Agendar Monitoria</button>
 
@@ -82,7 +82,7 @@
                             <th>Início / Termino</th>
                             <th>Data</th>
                             <th>Periodo</th>
-                            <th>ID para botões</th>
+                            <th>Opções</th>
                         </tr>
                     </thead>
                     <tbody>

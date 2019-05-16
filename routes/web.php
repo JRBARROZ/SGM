@@ -18,6 +18,8 @@ Route::get('/', function () {
 // index
 Route::get('/', 'PerguntaController@index')->name('index');
 
+Route::get('/teste', 'AtaController@teste');
+
 Route::prefix('pergunta')->group(function(){
 
     Route::get('/{id}', 'PerguntaController@show')->name('exibir-pergunta');

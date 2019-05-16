@@ -19,7 +19,13 @@ class AtaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+
+    public function teste()
+    {
+        return \PDF::loadView('teste')->stream();
+    }
+
+     public function index($id)
     {
 
         if(Auth::user()->tipo == 'aluno'){
