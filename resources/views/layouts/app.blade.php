@@ -53,9 +53,6 @@
           <a class="nav-link text-light" href="{{ route('monitoria-monitor') }}">Área do monitor</a>
         </li>
         @endif
-        <li class="nav-item ml-2">
-          <a href="{{url('/')}}" class="nav-link text-light">Início</a>
-        </li>
         <li class="nav-item">
           <a href="#" class="nav-link text-light">Documentação</a>
         </li>
