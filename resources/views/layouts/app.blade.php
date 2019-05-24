@@ -25,6 +25,9 @@
   </style>
   <script src=" {{ asset('js/app.js') }} "></script>
 </head>
+<div id="foo">
+      
+    </div>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-success ">
     <a href="{{url('/')}}" class="nav-item h4 btn btn-outline-light mt-auto mb-auto">SGM</a>
@@ -38,11 +41,22 @@
 
       <ul class="navbar navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="{{ route('login') }}" class="nav-link text-light"><span class="fas fa-sign-in-alt mr-2"></span>Entrar</a>
+          <a href="{{ route('login') }}" class="nav-link text-light" 
+          onclick="event.preventDefault();
+          $.get($(this).attr('href'), function(data) {
+            /*optional stuff to do after success */
+            $('main').html(data);
+          });
+          "><span class="fas fa-sign-in-alt mr-2"></span>Entrar</a>
         </li>
         @if (Route::has('register'))
         <li class="nav-item">
-          <a href="{{route('register')}}" class="nav-link text-light"><span class="fas fa-user-plus mr-2"></span>Cadastre-se</a>
+          <a href="#" class="nav-link text-light" onclick="event.preventDefault();
+          $.get('{{route('register')}}', function(data) {
+            /*optional stuff to do after success */
+            $('main').html(data);
+          });
+          "><span class="fas fa-user-plus mr-2"></span>Cadastre-se</a>
         </li>
       </ul>
       @endif
