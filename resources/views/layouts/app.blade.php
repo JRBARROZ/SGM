@@ -25,9 +25,6 @@
   </style>
   <script src=" {{ asset('js/app.js') }} "></script>
 </head>
-<div id="foo">
-      
-    </div>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-success ">
     <a href="{{url('/')}}" class="nav-item h4 btn btn-outline-light mt-auto mb-auto">SGM</a>
