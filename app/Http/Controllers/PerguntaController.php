@@ -132,8 +132,10 @@ class PerguntaController extends Controller
         return redirect('/');
     }
 
-    public function filter(Request $request)
+    public function table(Request $request)
     {
-
+        $perguntas = Pergunta::with('cursos')->with('users')->orderBy('created_at', 'desc')->paginate(5);
+        $cursos = Curso::all();
+        return view('perguntasTable',compact('perguntas', 'cursos'));
     }
 }
