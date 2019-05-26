@@ -43,6 +43,7 @@ Route::prefix('pergunta')->group(function(){
     Route::get('/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
 });
+Route::get('/table', 'PerguntaController@table')->name('table');
 // exbir pergunta selecionada pelo usuario
 
 Route::prefix('monitoria')->group(function(){
