@@ -27,7 +27,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-success ">
-    <a href="{{url('/')}}" class="nav-item h4 btn btn-outline-light mt-auto mb-auto">SGM</a>
+    <a href="{{url('/')}}" class="nav-item h4 btn btn-outline-light mt-auto mb-auto mr-3">SGM</a>
     <!-- Botão de menu para telas mobile com efeito collapse (aparecer e desaparecer algo) -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
       <span class="navbar-toggler-icon"></span>
@@ -59,19 +59,22 @@
       @endif
       @else
       <ul class="navbar navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href=" {{route('index')}} " class="nav-link text-light">Início</a>
+        </li>
         @if (Auth::user()->tipo == 'monitor')
-        <li class="nav-item ml-2">
-          <a class="nav-link text-light" href="{{ route('monitoria-monitor') }}">Área do monitor</a>
+        <li class="nav-item ml-2 dropdown">
+          <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#">Área do monitor</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{ route('monitoria-monitor') }}">Agendar Monitoria</a>
+            <a class="dropdown-item" href="#">Documentação</a>
+            <a class="dropdown-item" href="#">Outra Funcionalidade</a>
+            <a class="dropdown-item" href="#">Outra Funcionalidade</a>
+          </div>
         </li>
         @endif
         <li class="nav-item">
-          <a href="#" class="nav-link text-light">Documentação</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link text-light">Horários</a>
-        </li>
-        <li class="nav-item">
-          <a href="{{ route('monitoria-index') }}" class="nav-link text-light">Monitoria</a>
+          <a href="{{ route('monitoria-index') }}" class="nav-link text-light">Monitorias</a>
         </li>
       </ul>
       <ul class="navbar navbar-nav mr-0">
