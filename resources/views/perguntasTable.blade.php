@@ -11,7 +11,12 @@
 				<div class="col m-auto text-right">
 					<a href="{{ route('pergunta-curso', $pergunta->cursos[0]->id) }}">  <span class="badge badge-secondary  float-right m-1">{{$pergunta->cursos[0]->sigla}}</span> </a>
 					@if($pergunta->estado == "aberta")
-					<a href="{{ route('pergunta-estado', $pergunta->estado) }}"> <span class="badge badge-info text-light m-1">{{$pergunta->estado}}</span> </a>
+					<a href="{{ route('pergunta-estado', $pergunta->estado) }}"> <span class="badge badge-info text-light m-1 " onclick="
+					event.preventDefault();
+					$.get('{{ route('estado', $pergunta->id) }}', function(data) {
+						perguntas();
+					});
+					">{{$pergunta->estado}}</span> </a>
 					@else
 					<a href="{{ route('pergunta-estado', $pergunta->estado) }}"> <span class="badge badge-success text-light mr-2">{{$pergunta->estado}}</span> </a>
 					@endif
