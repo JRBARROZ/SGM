@@ -117,4 +117,9 @@ class RespostaController extends Controller
         Pergunta::findOrFail($id)->update(['estado'=>'respondida']);
 
     }
+    public function table($id){
+        $pergunta = Pergunta::with('users')->where('id', '=', $id)->get();
+        $respostas = Resposta::with('users')->where('respostas.perguntas_id', '=', $id)->orderBy('created_at', 'desc')->get();
+        return view('respostasTable',compact('respostas','pergunta'));
+    }
 }
