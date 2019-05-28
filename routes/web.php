@@ -43,6 +43,8 @@ Route::prefix('pergunta')->group(function(){
     Route::get('/delete/{id}', 'PerguntaController@destroy')->name('delete');
 
 });
+    Route::get('/status/{id}', 'PerguntaController@status')->name('estado');
+
 
 //pegar tabelas necessarias no sistema
 Route::get('/Pergunta-Table', 'PerguntaController@table')->name('Pergunta-Table');
