@@ -80,4 +80,15 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$('.text-danger').on('click', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		var that = $(this);
+		$.get($(this).attr('href'), function(data) {
+			/*optional stuff to do after success */
+			that.parents('tr').remove();
+		});
+	});
+</script>
 @endsection
