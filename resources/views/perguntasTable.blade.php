@@ -27,15 +27,16 @@
 				<a href="#" class="text-success mr-1">tag</a>
 				<a href="#" class="text-success mr-1">tag</a>
 				@if($pergunta->users_id == Auth::id())
-				<a href="{{ route('delete', $pergunta->id) }}" id="apagar" class="float-right mr-2 text-danger"><span>Apagar</span></a>
+				<a href="{{ route('delete', $pergunta->id) }}" class="float-right mr-2 text-danger apagar"><span>Apagar</span></a>
 				<a href="{{route('editar-pergunta', $pergunta->id)}}}" class="float-right mr-2 text-info"><span>Editar</span></a>
 				@endif
 			</h6>
 		</div>
 	</td>
 </tr>
+@endforeach
 <script type="text/javascript">
-	$('#apagar').on('click', function(event) {
+	$('.apagar').on('click', function(event) {
 		event.preventDefault();
 		/* Act on the event */
 		var that = $(this);
@@ -44,4 +45,3 @@
 		});
 	});
 </script>
-@endforeach

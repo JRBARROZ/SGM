@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Resposta;
+use App\Pergunta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -105,9 +106,15 @@ class RespostaController extends Controller
         return redirect('pergunta/' . $perg);
     }
 
-    public function correta($id){
+    public function correta($id,$perg){
         DB::table('respostas')
-            ->where('id', $id)
+            ->update( ['correta' => '0']);
+
+        DB::table('respostas')
+            ->where('id', $perg)
             ->update( ['correta' => '1']);
+
+        Pergunta::findOrFail($id)->update(['estado'=>'respondida']);
+
     }
 }

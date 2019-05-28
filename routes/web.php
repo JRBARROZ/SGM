@@ -88,7 +88,7 @@ Route::get('resposta/deletar/{id}/{perg}', 'RespostaController@destroy')->name('
 // edita respostas
 Route::get('resposta/editar/{id}/{perg}', 'RespostaController@edit')->name('editar-resposta');
 
-Route::get('resposta/correta/{id}', 'RespostaController@correta')->name('resposta-correta');
+Route::get('resposta/correta/{id}/{perg}', 'RespostaController@correta')->name('resposta-correta');
 
 // salva edição da resposta
 Route::put('/resposta/salvar/{id}/{perg}', 'RespostaController@update')->name('salvar-resposta');
