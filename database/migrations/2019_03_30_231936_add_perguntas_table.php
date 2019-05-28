@@ -16,7 +16,7 @@ class AddPerguntasTable extends Migration
         Schema::create('perguntas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
-            $table->enum('estado', ['aberta', 'respondida'])->default('aberta');
+            $table->enum('estado', ['Aberta', 'Respondida'])->default('Aberta');
             $table->mediumText('texto');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
