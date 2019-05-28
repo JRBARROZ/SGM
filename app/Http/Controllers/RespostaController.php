@@ -104,4 +104,10 @@ class RespostaController extends Controller
 
         return redirect('pergunta/' . $perg);
     }
+
+    public function correta($id){
+        DB::table('respostas')
+            ->where('id', $id)
+            ->update( ['correta' => '1']);
+    }
 }

@@ -145,4 +145,6 @@ class PerguntaController extends Controller
         ->update( ['estado' => 'respondida']
         );
     }
+
+    
 }
