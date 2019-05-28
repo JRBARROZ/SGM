@@ -8,42 +8,42 @@
                 <button class="btn btn-primary btn-block mb-1" data-toggle="collapse" data-target="#formCadastro" style="border-radius: 0px;">Agendar Monitoria</button>
 
                 <div id="formCadastro" class="collapse shadow p-3 ">
-                    <form action="{{ route('monitoria-agendar') }}" method="POST">
+                    <form id="agendar" action="{{ route('monitoria-agendar') }}" method="POST">
                         @csrf
-                            <div class="form-group">
-                                <label>
-                                    Titulo da atividade: *
-                                </label>
-                                <input type="text"  name="titulo" class="form-control" placeholder="assunto da monitoria" required autofocus="">
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    Descrição da atividade: *
-                                </label>
-                                <textarea class="form-control" name="descricao" placeholder="descrição da monitoria" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    Início: *
-                                </label>
-                                <input class="form-control" type="time" name="hora_inicio" required>
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    Término: *
-                                </label>
+                        <div class="form-group">
+                            <label>
+                                Titulo da atividade: *
+                            </label>
+                            <input type="text"  name="titulo" class="form-control" placeholder="assunto da monitoria" required autofocus="">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Descrição da atividade: *
+                            </label>
+                            <textarea class="form-control" name="descricao" placeholder="descrição da monitoria" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Início: *
+                            </label>
+                            <input class="form-control" type="time" name="hora_inicio" required>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Término: *
+                            </label>
                             <input class="form-control" type="time" name="hora_fim" required>
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    Data: *
-                                </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Data: *
+                            </label>
                             <input type="date" name="data" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-success" type="submit">Salvar</button>
-                                <button class="btn btn-danger" type="reset" data-toggle="collapse" data-target="#formCadastro">Cancelar</button>
-                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success" type="submit">Salvar</button>
+                            <button class="btn btn-danger" type="reset" data-toggle="collapse" data-target="#formCadastro">Cancelar</button>
+                        </div>
                     </form>
                 </div>
 
@@ -65,49 +65,51 @@
                         <div class="form-group">
                            <button class="btn btn-primary" type="submit">Gerar Relatório</button>
                            <button class="btn btn-danger" type="reset" data-toggle="collapse" data-target="#formRelatorio">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-            <div class="m-2">
-                <table class="table table-bordered table-hover text-center table-responsive m-auto m-2">
-                    <thead>
-                        <tr>
-                            <th class="bg-success text-light text-center p-3 h3" colspan="6">{{$curso->nome}}</th>
-                        </tr>
-                        <tr class="text-center">
-                            <th>Títutlo</th>
-                            <th>Descrição</th>
-                            <th>Início / Termino</th>
-                            <th>Data</th>
-                            <th>Periodo</th>
-                            <th>Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($monitorias as $monitoria)
-                            <tr>
-                                <td>{{$monitoria->titulo}}</td>
-                                <td>{{$monitoria->descricao}}</td>
-                                <td>{{$monitoria->hora_inicio}} / {{$monitoria->hora_fim}}</td>
-                                <td>{{$monitoria->data}}</td>
-                                <td>{{$monitoria->periodo}}</td>
-                                <td>
-                                    <a href="{{ route('ataIndex', $monitoria->id) }}">Ata</a>
-                                    <a href="{{ route('monitoria-deletar', $monitoria->id) }}" class="p-2 btn-link text-danger">Deletar</a>
-                                </td>
-                            </tr>
-                        @empty
-                        <tr>
-                            <td colspan="6">Você ainda não agendou nenhuma monitoria.</td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+       <div class="m-2">
+        <table class="table table-bordered table-hover text-center table-responsive m-auto m-2">
+            <thead>
+                <tr>
+                    <th class="bg-success text-light text-center p-3 h3" colspan="6">{{$curso->nome}}</th>
+                </tr>
+                <tr class="text-center">
+                    <th>Títutlo</th>
+                    <th>Descrição</th>
+                    <th>Início / Termino</th>
+                    <th>Data</th>
+                    <th>Periodo</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody id="monitoria">
+            </tbody>
+        </table>
     </div>
 </div>
+</div>
+</div>
+<script type="text/javascript">
+    $('#agendar').on('submit', function(event) {
+        event.preventDefault();
+        /* Act on the event */
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            /*optional stuff to do after success */
+            $('form').trigger('reset');
+            agenda();
+        });
+    });
+
+    function agenda(){
+        $.get('{{route('Monitoria-Table')}}', function(data) {
+            /*optional stuff to do after success */
+            $('#monitoria').html(data);
+        });        
+    }
+    agenda();
+</script>
 
 @endsection
