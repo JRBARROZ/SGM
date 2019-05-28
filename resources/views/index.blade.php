@@ -51,7 +51,7 @@
 <script type="text/javascript">
 	
 	function perguntas(){
-		$.get('{{route('table')}}', function(data) {
+		$.get('{{route('Pergunta-Table')}}', function(data) {
 			/*optional stuff to do after success */
 			$('#perguntas').html(data);
 		});
@@ -65,14 +65,6 @@
 			$('form').trigger('reset');
 			perguntas();
 		});
-	});
-	$('#apagar').on('click', function(event) {
-		event.preventDefault();
-		/* Act on the event */
-		// $.get($(this).attr('href'), function(data) {
-		// 	optional stuff to do after success 
-		// 	perguntas();
-		// });
 	});
 </script>
 @endsection
