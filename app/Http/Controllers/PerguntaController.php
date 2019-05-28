@@ -138,4 +138,11 @@ class PerguntaController extends Controller
         $cursos = Curso::all();
         return view('perguntasTable',compact('perguntas', 'cursos'));
     }
+
+    public function status($id){
+        DB::table('perguntas')
+            ->where('id', $id)
+        ->update( ['estado' => 'respondida']
+        );
+    }
 }
