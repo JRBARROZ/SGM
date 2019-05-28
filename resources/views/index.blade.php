@@ -43,7 +43,7 @@
 
 				</tbody>
 			</table>
-			{{$perguntas->links()}}
+			
 		</div>
 	</div>
 </div>
