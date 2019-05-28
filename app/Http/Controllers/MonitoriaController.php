@@ -116,4 +116,9 @@ class MonitoriaController extends Controller
         $del->delete();
         return redirect()->back();  
     }
+
+    public function table(){
+        $monitorias = Monitoria::where('users_id', '=', Auth::id())->orderBy('created_at', 'desc')->get();
+        return view('monitoriaTable',compact('monitorias'));
+    }
 }
