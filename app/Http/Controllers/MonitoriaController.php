@@ -17,17 +17,25 @@ class MonitoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+     public function index()
     {
         $monitorias = Monitoria::where([
             ['periodo', '=', Auth::user()->periodo],
             ['cursos_id' , '=', Auth::user()->fk_curso]
-            ])->orderBy('created_at', 'desc')->get();
-        $monitores = User::where([
-            ['periodo_monitoria', '=', Auth::user()->periodo],
-            ['curso_monitoria', '=', Auth::user()->fk_curso]
+            ])->orderBy('created_at', 'desc')
+        ->get();
+        $cadeiras = Cadeira::with('monitores')->where([
+            ['periodo', Auth::user()->periodo],
+            ['fk_curso', Auth::user()->fk_curso]
         ])->get();
-        return view('monitoria', compact('monitorias', 'monitores'));
+        return view('monitoria', compact('monitorias', 'cadeiras'));
     }
 
     /**
@@ -40,7 +48,7 @@ class MonitoriaController extends Controller
         $curso = Curso::find(Auth::user()->curso_monitoria);
         $monitorias = Monitoria::where('users_id', '=', Auth::id())->orderBy('created_at', 'desc')->get();
         return view('area-monitor', compact('monitorias', 'curso'));
-    } 
+    }
 
     public function create()
     {
@@ -114,7 +122,7 @@ class MonitoriaController extends Controller
     {
         $del = Monitoria::find($id);
         $del->delete();
-        return redirect()->back();  
+        return redirect()->back();
     }
 
     public function table(){

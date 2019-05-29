@@ -36,12 +36,25 @@
 							<tr>
 								<td class="bg-success text-center text-light p-3 h3" colspan="2">Seus Monitores</td>
 							</tr>
-							@forelse ($monitores as $monitor)
-								<tr>
-									<td>{{$monitor->name}}</td>
-									<td>{{$monitor->email}}</td>
-								</tr>
-							@empty
+							@forelse ($cadeiras as $cadeira)
+                            <tr>
+									<td class="bg-success text-center text-light p-1 h5" >
+                                        <button class="btn btn-success btn-block mb-1" data-toggle="collapse" data-target="#listaMonitores{{$cadeira->id}}" >{{$cadeira->nome}}</button>
+                                    </td>
+                                </tr>
+                                <div id="listaMonitores{{$cadeira->id}}" class="collapse">
+                                    @forelse ($cadeira->monitores as $monitor)
+                                        <tr>
+                                            <td>{{$monitor->name}}</td>
+                                        </tr>
+
+                                        @empty
+                                            <tr>
+                                                <td>Nenhum monitor nessa cadeira!</td>
+                                            </tr>
+                                    @endforelse
+                                </div>
+                                        @empty
 								<tr>
 									<td>Nenhum monitor no seu período ; -;</td>
 								</tr>
