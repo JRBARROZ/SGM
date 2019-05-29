@@ -41,7 +41,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Curso', 'id', 'fk_curso');
     }
 
-    public function cadeiras(){
-        return $this->belongsToMany('App\Cadeira', 'professores_cadeiras');
+    public function cadeiras_professor(){
+        return $this->hasMany('App\Cadeira', 'professores_cadeiras');
+    }
+
+    public function cadeiras_monitor(){
+        return $this->hasMany('App\Cadeira', 'cadeira_id');
     }
 }
