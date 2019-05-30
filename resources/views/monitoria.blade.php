@@ -30,7 +30,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="m-2 p-0">
+				<div class="m-1 p-0">
 					<table class="table table-bordered table-hover">
 						<tbody>
 							<tr>
@@ -38,7 +38,7 @@
 							</tr>
 							@forelse ($cadeiras as $cadeira)
                                 <tr>
-									<td class="bg-success text-center text-light p-1 h5" >
+									<td class="bg-success text-center text-light p-1 h5" colspan="2" >
                                         <button class="btn btn-block btn-success mb-1" data-toggle="collapse" data-target=".listaMonitores{{ $cadeira->id }}" >{{ $cadeira->nome }}</button>
                                     </td>
                                 </tr>
@@ -46,6 +46,7 @@
                                     @forelse ($cadeira->monitores as $monitor)
                                         <tr class="listaMonitores{{ $cadeira->id }} collapse">
                                             <td>{{ $monitor->name }}</td>
+                                            <td>{{ $monitor->email }}</td>
                                         </tr>
                                     @empty
                                         <tr>
