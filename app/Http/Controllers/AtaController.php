@@ -44,7 +44,7 @@ class AtaController extends Controller
             ['fk_curso', Auth::user()->curso_monitoria],
             ['periodo', Auth::user()->periodo_monitoria],
             ['tipo', 'monitor']
-        ])->paginate(8);
+        ])->get();
 
         // query que seleciona o professor do disciplina
         $orientador = DB::table('users')
