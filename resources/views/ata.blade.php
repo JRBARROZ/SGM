@@ -41,10 +41,10 @@
                                 <td>{{date('d/m/Y')}}</td>
                                 <td>
                                     <div class="custom-control custom-checkbox">
-                                        {!! Form::checkbox('presente[]', $aluno->id,false, 
+                                        {!! Form::checkbox('presente[]', $aluno->id,false,
                                         ['class'=>'custom-control-input'
                                         ,'id'=>"customControlValidation".$loop->iteration
-                                    
+
                                         ])!!}
                                         <label class="custom-control-label" for="customControlValidation{{$loop->iteration}}"> </label>
                                     </div>
@@ -68,7 +68,6 @@
                 {{ session('false') }}
             </div>
         @endif
-        {{$alunos->links()}}
         {!! Form::submit('Salvar',['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
 </div>
