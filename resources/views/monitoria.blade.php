@@ -15,10 +15,10 @@
 						<tbody>
 							@forelse ($monitorias as $monitoria)
 								<tr>
-									<td>{{$monitoria->data}}</td>
-									<td>{{$monitoria->hora_inicio}} / {{$monitoria->hora_fim}}</td>
-									<td>{{$monitoria->titulo}}</td>
-									<td>{{$monitoria->descricao}}</td>
+									<td>{{ $monitoria->data }}</td>
+									<td>{{ $monitoria->hora_inicio }} / {{ $monitoria->hora_fim }}</td>
+									<td>{{ $monitoria->titulo }}</td>
+									<td>{{ $monitoria->descricao }}</td>
 								</tr>
 							@empty
 								<tr>
@@ -37,27 +37,25 @@
 								<td class="bg-success text-center text-light p-3 h3" colspan="2">Seus Monitores</td>
 							</tr>
 							@forelse ($cadeiras as $cadeira)
-                            <tr>
+                                <tr>
 									<td class="bg-success text-center text-light p-1 h5" >
-                                        <button class="btn btn-success btn-block mb-1" data-toggle="collapse" data-target="#listaMonitores{{$cadeira->id}}" >{{$cadeira->nome}}</button>
+                                        <button class="btn btn-block btn-success mb-1" data-toggle="collapse" data-target=".listaMonitores{{ $cadeira->id }}" >{{ $cadeira->nome }}</button>
                                     </td>
                                 </tr>
-                                <div id="listaMonitores{{$cadeira->id}}" class="collapse">
-                                    @forelse ($cadeira->monitores as $monitor)
-                                        <tr>
-                                            <td>{{$monitor->name}}</td>
-                                        </tr>
 
-                                        @empty
-                                            <tr>
-                                                <td>Nenhum monitor nessa cadeira!</td>
-                                            </tr>
+                                    @forelse ($cadeira->monitores as $monitor)
+                                        <tr class="listaMonitores{{ $cadeira->id }} collapse">
+                                            <td>{{ $monitor->name }}</td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td>Nenhum monitor nessa cadeira!</td>
+                                        </tr>
                                     @endforelse
-                                </div>
-                                        @empty
-								<tr>
-									<td>Nenhum monitor no seu período ; -;</td>
-								</tr>
+                                @empty
+                                    <tr>
+                                        <td>Nenhum monitor no seu período ; -;</td>
+                                    </tr>
 							@endforelse
 						</tbody>
 					</table>
