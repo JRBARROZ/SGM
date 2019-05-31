@@ -61,6 +61,7 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Esqueceu sua senha?') }}
                                     </a>
+                                    <a href="/login-adm" class="btn btn-link">Acesso Admin/Professor</a>
                                 @endif
                             </div>
                         </div>
