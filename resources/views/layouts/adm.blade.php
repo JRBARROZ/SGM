@@ -26,45 +26,54 @@
   <script src=" {{ asset('js/app.js') }} "></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-success ">
-    <a href="{{url('/')}}" class="nav-item h4 btn btn-outline-light mt-auto mb-auto mr-3">SGM</a>
-    
-    @guest
-    <ul class="navbar navbar-nav ml-auto">
-      <li class="nav-item">
-        <span class="text-center text-light">Acesso Restrito</span>
-      </li>
-    @else
-    <ul class="navbar navbar-nav mr-auto">
-      <li class="nav-item">
-        <a href=" {{route('index')}} " class="nav-link text-light">Início</a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('monitoria-index') }}" class="nav-link text-light">Monitorias</a>
-      </li>
-    </ul>
-    <ul class="navbar navbar-nav mr-0">
-      <li class="nav-item">
-        <a href="{{ route('user.index') }}" class="nav-link text-light"><span class="fas fa-user mr-2 text-light"></span>{{ Auth::user()->name }}</a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('logout') }}" class="nav-link text-light"
-        onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-        <span class="fas fa-sign-out-alt mr-2 text-light"></span>Sair</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
-      </li>
-    </ul>
-    @endguest
-  </nav>
-  <main style="min-height: 74.2vh">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a href="{{url('/')}}" class="nav-item h4 btn btn-outline-success mt-auto mb-auto mr-3">SGM</a>
+    <!-- Botão de menu para telas mobile com efeito collapse (aparecer e desaparecer algo) -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar">
+      @guest
+      <ul class="navbar navbar-nav ml-auto">
+        <li class="nav-item">
+          <span class="h5 text-center text-success">Acesso Restrito</span>
+        </li>
+      @else
+      <ul class="navbar navbar-nav mr-auto">
+        <li class="nav-item">
+          <a href="/admin" class="nav-link text-success">Início</a>
+        </li>
+        @if (Auth::user()->tipo == 'professor')
+          <li class="nav-item">
+            <a href="#" class="nav-link text-success">Opa</a>
+          </li>
+        @endif
+      </ul>
+
+      <ul class="navbar navbar-nav mr-0">
+        <li class="nav-item">
+          <a href="{{ route('user.index') }}" class="nav-link text-success"><span class="fas fa-user mr-2 "></span>{{ Auth::user()->name }}</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('logout') }}" class="nav-link text-success"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+          <span class="fas fa-sign-out-alt mr-2 "></span>Sair</a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
+        </li>
+      </ul>
+      @endguest
+    </nav>
+  </div>
+  <main style="min-height: 75.3vh">
     @yield('content')
   </main>
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small bg-success text-light mt-5 footer navbar-fixed-bottom">
+<footer class="page-footer font-small bg-dark text-light mt-5 footer navbar-fixed-bottom">
   <div class="container-fluid">
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
       <a href="{{url('/')}}" class="text-light mb-2" style="text-decoration: underline;"> Sistema de Gerenciamento de Monitorias - SGM</a>

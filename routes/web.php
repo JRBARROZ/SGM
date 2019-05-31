@@ -105,5 +105,5 @@ Route::get('/login-adm', function(){
 });
 
 Route::get('/admin', function(){
-    return view('dashboard-adm');
+    return view('admin');
 });
