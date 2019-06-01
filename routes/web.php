@@ -100,14 +100,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Rota para dashboard-admin (ainda sem funcionalidades prontas)
 
+// rota para o inicio da dashboard do adminstrador
+Route::get('/admin', 'AdminController@index');
+
 Route::get('/login-adm', function(){
     return view('login-adm');
 });
 
 Route::get('/register-adm', function(){
     return view('register-adm');
-});
-
-Route::get('/admin', function(){
-    return view('admin');
 });
