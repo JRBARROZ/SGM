@@ -23,6 +23,9 @@ class CreateNotificacoesTable extends Migration
 
             $table->integer('to')->unsigned();
             $table->foreign('to')->references('id')->on('users')->onDelete('cascade');
+
+            $table->integer('mensagem_id')->unsigned();
+            $table->foreign('mensagem_id')->references('id')->on('mensagem_notificacao')->onDelete('cascade');
         });
     }
 
