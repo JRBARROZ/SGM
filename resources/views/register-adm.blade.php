@@ -1,9 +1,13 @@
+@extends('layouts.adm')
+
+@section('content')
+
 
 <div class="container mt-4" >
 	<div class="row d-flex justify-content-center">			
 		<div class="col-md-8">
 			<div class="card">
-				<div class="card-header bg-success text-light h5 text-center">Crie sua conta</div>
+				<div class="card-header bg-success text-light h5 text-center">Criar conta</div>
 				<div class="card-body">
 					<form action="{{route('register')}}" method="POST">
 						@csrf
@@ -27,8 +31,8 @@
 								@endif
 							</div>
 						</div>
-						<div class="form-group row">
-							<div class="col form-group">
+						<div class="form-group">
+							<div class="form-group">
 								<label class="label-form-group">{{ __('E-Mail') }}</label>
 								<input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" type="text" id="email" required autofocus>
 								@if ($errors->has('email'))
@@ -36,34 +40,19 @@
 						<strong>{{ $errors->first('email') }}</strong>
 					</span>
 					@endif
-							</div>
+							<br>
+							<div class="form-group row">
 							<div class="col form-group">
-								<label class="label-form-group">Matricula</label>
-								<input class="form-control" name="matricula" type="text" value="{{old('matricula')}}">
-							</div>
-						</div>
-						<div class="form-group row">
-							<div class="col form-group">
-								<label class="label-form-group">Curso</label>
-								<select class="form-control" name="curso">
+								<label class="label-form-group">Cargo</label>
+								<select class="form-control" name="cargo">
 									<option disabled selected>Selecionar</option>
-									<option value="1">Informática Para Internet</option>
-									<option value="2">Logística</option>
-									<option value="3">Gestão da Qualidade</option>
+									<option value="1">Docente</option>
+									<option value="2">Administrativo</option>
 								</select>
 							</div>
 							<div class="col form-group">
-								<label class="label-form-group">Periodo</label>
-								<input type="number" class="form-control" data-width="100%"  name="periodo" required>
-							</div>
-							<div class="col form-group">
-								<label class="label-form-group">Turno</label>
-								<select class="form-control">
-									<option selected disabled>Selecionar</option>
-									<option>Manhã</option>
-									<option>Tarde</option>
-									<option>Noite</option>
-								</select>
+								<label class="label-form-group">Siape</label>
+								<input class="form-control" name="siape" type="text" value="{{old('siape')}}">
 							</div>
 						</div>
 						<div class="form-group row">
@@ -82,9 +71,8 @@
 							</div>
 						</div>
 						<div class="col form-group">
-							<button class="btn btn-secondary btn-lg btn-block bg-success" type="submit">Finalizar cadastro</button>
+							<button class="btn btn-secondary btn-lg btn-block bg-success text-light" type="submit">Finalizar cadastro</button>
 						</div>
-							<a href="/register-adm" class="btn btn-link">Cadastro Admin/Professor</a>
 					</form>
 
 				</div>
@@ -94,3 +82,5 @@
 		</div>	
 	</div>
 </div>
+
+@endsection

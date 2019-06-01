@@ -104,6 +104,10 @@ Route::get('/login-adm', function(){
     return view('login-adm');
 });
 
+Route::get('/register-adm', function(){
+    return view('register-adm');
+});
+
 Route::get('/admin', function(){
     return view('admin');
 });

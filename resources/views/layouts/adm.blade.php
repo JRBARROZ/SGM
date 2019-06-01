@@ -26,8 +26,8 @@
   <script src=" {{ asset('js/app.js') }} "></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a href="{{url('/')}}" class="nav-item h4 btn btn-outline-success mt-auto mb-auto mr-3">SGM</a>
+  <nav class="navbar navbar-expand-md navbar-success bg-success">
+    <a href="{{url('/')}}" class="nav-item h4 btn btn-outline-light mt-auto mb-auto mr-3">SGM</a>
     <!-- Botão de menu para telas mobile com efeito collapse (aparecer e desaparecer algo) -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
       <span class="navbar-toggler-icon"></span>
@@ -37,26 +37,26 @@
       @guest
       <ul class="navbar navbar-nav ml-auto">
         <li class="nav-item">
-          <span class="h5 text-center text-success">Acesso Restrito</span>
+          <span class="h5 text-center text-light">Acesso Restrito</span>
         </li>
       @else
       <ul class="navbar navbar-nav mr-auto">
         <li class="nav-item">
-          <a href="/admin" class="nav-link text-success">Início</a>
+          <a href="/admin" class="nav-link text-light">Início</a>
         </li>
         @if (Auth::user()->tipo == 'professor')
           <li class="nav-item">
-            <a href="#" class="nav-link text-success">Opa</a>
+            <a href="#" class="nav-link text-light">Opa</a>
           </li>
         @endif
       </ul>
 
       <ul class="navbar navbar-nav mr-0">
         <li class="nav-item">
-          <a href="{{ route('user.index') }}" class="nav-link text-success"><span class="fas fa-user mr-2 "></span>{{ Auth::user()->name }}</a>
+          <a href="{{ route('user.index') }}" class="nav-link text-light"><span class="fas fa-user mr-2 "></span>{{ Auth::user()->name }}</a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('logout') }}" class="nav-link text-success"
+          <a href="{{ route('logout') }}" class="nav-link text-light"
           onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
           <span class="fas fa-sign-out-alt mr-2 "></span>Sair</a>
@@ -68,13 +68,54 @@
       @endguest
     </nav>
   </div>
-  <main style="min-height: 75.3vh">
+  <main style="min-height: 62.5vh">
     @yield('content')
   </main>
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small bg-dark text-light mt-5 footer navbar-fixed-bottom">
+<footer class="page-footer font-small bg-success text-light mt-5 footer navbar-fixed-bottom">
   <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md">
+        <img  src="https://image.winudf.com/v2/image/ZGV2Lmlnb3J4cDUuaWZfZXN0dWRhbnRlX2ljb25fMTUyMDc3NTY2MV8wMTI/icon.png?w=170&fakeurl=1" class="card card-link bg-success border-0 m-auto">
+      </div>
+      <div class="col-md">
+        <h5 class="text-uppercase mt-3">SGM</h5>
+        <p>O projeto SGM tem como objetivo facilitar o método de integração de monitorias com os alunos nos campus IFPE. Com o intuito de apresentar uma plantaforma inovadora, rápida e dinâmica.</p>
+      </div>
+      <div class="col-md">
+        <h5 class="text-uppercase mt-3">Redes Sociais</h5>
+        <ul class="list-unstyled text-light">
+          <li>
+            <a class="text-light" href="https://github.com/murielson/SGM"><span class="fab fa-github-square btn-lg"> Github</span></a>
+          </li>
+          <li>
+            <a class="text-light" href="#!"><span class="fab fa-facebook-square btn-lg"> Facebook</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md">
+        <h5 class="text-uppercase mt-3 ">Colaboradores</h5>
+
+        <ul class="list-unstyled text-light">
+          <li>
+            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Carlos Monteiro</span></a>
+          </li>
+          <li>
+            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Eduardo Bispo</span> </a>
+          </li>
+          <li>
+            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Fernanda Batista</span>  </a>
+          </li>
+          <li>
+            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Jhonatan Rodrigues</span>  </a>
+          </li>
+          <li>
+            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Silvio Paiva</span>  </a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
       <a href="{{url('/')}}" class="text-light mb-2" style="text-decoration: underline;"> Sistema de Gerenciamento de Monitorias - SGM</a>
     </div>
