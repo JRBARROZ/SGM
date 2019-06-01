@@ -14,8 +14,9 @@ class CreateNotificacoesTable extends Migration
     public function up()
     {
         Schema::create('notificacoes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->timestamps();
+            $table->enum('status', ['nova', 'visualizada']);
         });
     }
 

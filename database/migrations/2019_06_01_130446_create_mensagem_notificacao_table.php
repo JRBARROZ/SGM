@@ -14,7 +14,7 @@ class CreateMensagemNotificacaoTable extends Migration
     public function up()
     {
         Schema::create('mensagem_notificacao', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->timestamps();
             $table->string('mensagem');
         });
