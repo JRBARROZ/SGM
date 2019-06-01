@@ -17,6 +17,12 @@ class CreateNotificacoesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->enum('status', ['nova', 'visualizada']);
+
+            $table->integer('from')->unsigned();
+            $table->foreign('from')->references('id')->on('users')->onDelete('cascade');
+
+            $table->integer('to')->unsigned();
+            $table->foreign('to')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
