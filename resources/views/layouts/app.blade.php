@@ -21,9 +21,12 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/user.css')}}">
   <style>
-    .hover:hover{cursor:pointer;background-color:#F0F0F0;}
-  </style>
-  <script src=" {{ asset('js/app.js') }} "></script>
+  .hover:hover{cursor:pointer;background-color:#F0F0F0;}
+  .chat-closed {
+    top: calc(100% - 3rem);
+  }
+</style>
+<script src=" {{ asset('js/app.js') }} "></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-success ">
@@ -97,54 +100,137 @@
   <main style="min-height: 61.9vh">
     @yield('content')
   </main>
-</body>
-<!-- Footer -->
-<footer class="page-footer font-small bg-success text-light mt-5 footer navbar-fixed-bottom">
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-md">
-        <img  src="https://image.winudf.com/v2/image/ZGV2Lmlnb3J4cDUuaWZfZXN0dWRhbnRlX2ljb25fMTUyMDc3NTY2MV8wMTI/icon.png?w=170&fakeurl=1" class="card card-link bg-success border-0 m-auto">
+  <div class="row fixed-bottom mr-3 chat-closed d-none d-md-block" id="chat-wrapper">
+    <div class="offset-md-9 col-md-3">
+      <div class="card-header btn bg-success" id="chat-header" style="width: 25vw" >
+        <span>Mensagens</span>
       </div>
-      <div class="col-md">
-        <h5 class="text-uppercase mt-3">SGM</h5>
-        <p>O projeto SGM tem como objetivo facilitar o método de integração de monitorias com os alunos nos campus IFPE. Com o intuito de apresentar uma plantaforma inovadora, rápida e dinâmica.</p>
+      <div class="card-body bg-secondary" style="height: 50vh;width: 25vw; overflow-y: auto" id="card-scroller">
+        <div id="card-body">
+          
+          
+        </div>
+        
+        <div class="input-group mb-3 mb-0" style="top: calc()">
+          <input type="text" id="textarea" class="form-control" >
+          <div class="input-group-append">
+            <button class="btn btn-info fas fa-paper-plane" type="button" id="button-msn"></button>
+          </div>
+        </div>
       </div>
-      <div class="col-md">
-        <h5 class="text-uppercase mt-3">Redes Sociais</h5>
-        <ul class="list-unstyled text-light">
-          <li>
-            <a class="text-light" href="https://github.com/murielson/SGM"><span class="fab fa-github-square btn-lg"> Github</span></a>
-          </li>
-          <li>
-            <a class="text-light" href="#!"><span class="fab fa-facebook-square btn-lg"> Facebook</span></a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md">
-        <h5 class="text-uppercase mt-3 ">Colaboradores</h5>
+    </div>
+    <script type="text/javascript">
+      let size = 0;
 
-        <ul class="list-unstyled text-light">
-          <li>
-            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Carlos Monteiro</span></a>
-          </li>
-          <li>
-            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Eduardo Bispo</span> </a>
-          </li>
-          <li>
-            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Fernanda Batista</span>  </a>
-          </li>
-          <li>
-            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Jhonatan Rodrigues</span>  </a>
-          </li>
-          <li>
-            <a class="text-light" href="#!"><span class="fas fa-user-tie"> Silvio Paiva</span>  </a>
-          </li>
-        </ul>
+      function mensagens_count(){
+        $.get('{{route('count')}}', function(data) {
+          if (size <  data.length) {
+            mensagens();
+
+            size = data.length;
+          }
+        });
+      }
+
+
+
+      setInterval(function(){
+        mensagens_count();
+
+      },1000)
+
+      function mensagens(){
+
+        $.get('{{route('mensagens')}}', function(data) {
+          $('#card-body').html(data);
+          $('#card-scroller').scrollTop($('#card-body').height());
+
+        });
+      }
+
+      $('#chat-header').on('click', function(event) {
+        event.preventDefault();
+        let wrapper = $('#chat-wrapper');
+        wrapper.toggleClass('chat-open');
+        if (wrapper.hasClass('chat-open')) {
+          wrapper.css('top', 'calc(50% - 3rem)');
+        } else {
+          wrapper.css('top', 'calc(100% - 3rem)');
+        }
+      });
+
+      function addMensagem(){
+        $.post('{{route('enviar')}}',{mensagem: $('#textarea').val()}, function() {
+          /*optional stuff to do after success */
+          mensagens();
+        });
+
+        $('#textarea').val('');
+      }
+
+      $( "#textarea" ).on( "keydown", function(event) {
+        if(event.which == 13){
+          event.preventDefault();
+          addMensagem();
+        }
+
+      });
+      $('#button-msn').on('click', function(event) {
+        event.preventDefault();
+        /* Act on the event */
+        addMensagem();
+
+      });
+    </script>
+  </div>
+  <!-- Footer -->
+  <footer class="page-footer font-small bg-success text-light mt-5 footer navbar-fixed-bottom">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md">
+          <img  src="https://image.winudf.com/v2/image/ZGV2Lmlnb3J4cDUuaWZfZXN0dWRhbnRlX2ljb25fMTUyMDc3NTY2MV8wMTI/icon.png?w=170&fakeurl=1" class="card card-link bg-success border-0 m-auto">
+        </div>
+        <div class="col-md">
+          <h5 class="text-uppercase mt-3">SGM</h5>
+          <p>O projeto SGM tem como objetivo facilitar o método de integração de monitorias com os alunos nos campus IFPE. Com o intuito de apresentar uma plantaforma inovadora, rápida e dinâmica.</p>
+        </div>
+        <div class="col-md">
+          <h5 class="text-uppercase mt-3">Redes Sociais</h5>
+          <ul class="list-unstyled text-light">
+            <li>
+              <a class="text-light" href="https://github.com/murielson/SGM"><span class="fab fa-github-square btn-lg"> Github</span></a>
+            </li>
+            <li>
+              <a class="text-light" href="#!"><span class="fab fa-facebook-square btn-lg"> Facebook</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <h5 class="text-uppercase mt-3 ">Colaboradores</h5>
+
+          <ul class="list-unstyled text-light">
+            <li>
+              <a class="text-light" href="#!"><span class="fas fa-user-tie"> Carlos Monteiro</span></a>
+            </li>
+            <li>
+              <a class="text-light" href="#!"><span class="fas fa-user-tie"> Eduardo Bispo</span> </a>
+            </li>
+            <li>
+              <a class="text-light" href="#!"><span class="fas fa-user-tie"> Fernanda Batista</span>  </a>
+            </li>
+            <li>
+              <a class="text-light" href="#!"><span class="fas fa-user-tie"> Jhonatan Rodrigues</span>  </a>
+            </li>
+            <li>
+              <a class="text-light" href="#!"><span class="fas fa-user-tie"> Silvio Paiva</span>  </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="{{url('/')}}" class="text-light mb-2" style="text-decoration: underline;"> Sistema de Gerenciamento de Monitorias - SGM</a>
       </div>
     </div>
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="{{url('/')}}" class="text-light mb-2" style="text-decoration: underline;"> Sistema de Gerenciamento de Monitorias - SGM</a>
-    </div>
-  </div>
-</footer>
+  </footer>
+</body>
 </html>

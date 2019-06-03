@@ -48,4 +48,8 @@ class User extends Authenticatable
     public function cadeiras_monitor(){
         return $this->hasMany('App\Cadeira', 'cadeira_id');
     }
+    public function mensagens(){
+        return $this->hasMany('App\Mensagens');
+    }
+
 }
