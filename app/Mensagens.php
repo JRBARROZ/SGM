@@ -10,11 +10,11 @@ class Mensagens extends Model
     protected $table = 'mensagens';
 
     protected $fillable = [
-        'mensagem','users_id',
+        'mensagem','user_id',
     ];
 
-   	 public function users()
+   	 public function user()
     {
-        return $this->hasMany('App\User', 'id', 'users_id');
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 }

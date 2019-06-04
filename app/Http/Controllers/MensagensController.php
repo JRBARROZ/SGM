@@ -22,8 +22,8 @@ class MensagensController extends Controller
     }
 
    public function getMensagens(){
-      $mensagens = Mensagens::with('users')->orderBy('created_at', 'desc')->get();
-       return view('chat.mensagens',compact('mensagens'));
+      $mensagens = Mensagens::with('user')->orderBy('created_at', 'asc')->get();
+      return view('chat.mensagens',compact('mensagens'));
 
    }
 
@@ -37,7 +37,7 @@ class MensagensController extends Controller
     }
 
    public function count(){
-    $mensagens = Mensagens::with('users')->orderBy('created_at', 'desc')->get();
+    $mensagens = Mensagens::All();
    	return $count = $mensagens->count();
 
    }
