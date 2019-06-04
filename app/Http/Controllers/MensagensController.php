@@ -27,11 +27,11 @@ class MensagensController extends Controller
 
    }
 
-  public function enviar($mensagem)
+  public function store(Request $request)
     {
         $mensagens = new Mensagens();
-        $mensagens->mensagem = $mensagem;
-        $mensagens->users_id = Auth::id();
+        $mensagens->mensagem = $request->mensagem;
+        $mensagens->user_id = Auth::id();
         $mensagens->save();
 
     }

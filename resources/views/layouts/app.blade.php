@@ -167,7 +167,7 @@
         event.preventDefault();
         /* Act on the event */
         $.ajax({
-          url: $(this).attr('action'),
+          url: 'http://localhost:8000/chat/enviarMensagem',
           type: 'POST',
           data: $(this).serialize(),
           success: function(data){

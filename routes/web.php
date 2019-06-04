@@ -117,5 +117,5 @@ Route::get('/mensagens','MensagensController@getMensagens')->name('mensagens');
     //contar quantas mensagens tem no chat para atualizar caso tenha novas
 Route::get('/mensagensCount', 'MensagensController@count')->name('count');
     //enviar novas mensagens para o banco
-Route::post('/enviarMensagem', 'MensagensController@store')->name('enviarMensagem');
+Route::any('/enviarMensagem', 'MensagensController@store')->name('enviarMensagem');
 });
