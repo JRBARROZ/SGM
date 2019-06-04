@@ -111,10 +111,9 @@ Route::get('/register-adm', function(){
     return view('register-adm');
 });
 
-Route::get('/chat','MensagensController@show')->name('chat');
 
-Route::get('/mensagens','MensagensController@getMensagens')->name('mensagens');
+Route::get('chat/mensagens','MensagensController@getMensagens')->name('mensagens');
 
-Route::get('/mensagensCount', 'MensagensController@count')->name('count');
+Route::get('chat/mensagensCount', 'MensagensController@count')->name('count');
 
-Route::post('/mandaMensagem','MensagensController@store')->name('enviar');
+Route::post('chat/enviarMensagem', 'MensagensController@store')->name('enviarMensagem');

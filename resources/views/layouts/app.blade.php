@@ -100,9 +100,10 @@
   <main style="min-height: 61.9vh">
     @yield('content')
   </main>
+  @auth
   <div class="row fixed-bottom mr-3 chat-closed d-none d-md-block" id="chat-wrapper">
     <div class="offset-md-9 col-md-3">
-      <div class="card-header btn bg-success" id="chat-header" style="width: 25vw" >
+      <div class="card-header btn" id="chat-header" style="width: 25vw;background-color: lightgreen" >
         <span>Mensagens</span>
       </div>
       <div class="card-body bg-secondary" style="height: 50vh;width: 25vw; overflow-y: auto" id="card-scroller">
@@ -111,11 +112,14 @@
           
         </div>
         
-        <div class="input-group mb-3 mb-0" style="top: calc()">
-          <input type="text" id="textarea" class="form-control" >
+        <div class=" mb-3 mb-0" style="top: calc()">
+          <form action="{{route('enviarMensagem')}}" method="POST" id="textarea" class="input-group">
+            @csrf
+          <input type="text" name="mensagem" class="form-control" >
           <div class="input-group-append">
-            <button class="btn btn-info fas fa-paper-plane" type="button" id="button-msn"></button>
+            <button class="btn btn-info fas fa-paper-plane" type="submit" id="button-msn"></button>
           </div>
+          </form>
         </div>
       </div>
     </div>
@@ -144,7 +148,7 @@
         $.get('{{route('mensagens')}}', function(data) {
           $('#card-body').html(data);
           $('#card-scroller').scrollTop($('#card-body').height());
-
+          // console.log(data[0]['users'].name)
         });
       }
 
@@ -159,30 +163,31 @@
         }
       });
 
-      function addMensagem(){
-        $.post('{{route('enviar')}}',{mensagem: $('#textarea').val()}, function() {
-          /*optional stuff to do after success */
-          mensagens();
+      $('#textarea').on('submit', function(event) {
+        event.preventDefault();
+        /* Act on the event */
+        $.ajax({
+          url: $(this).attr('action'),
+          type: 'POST',
+          data: $(this).serialize(),
+          success: function(data){
+            mensagens();
+            $('#textarea').trigger('reset');
+          }
         });
-
-        $('#textarea').val('');
-      }
+        
+      });
 
       $( "#textarea" ).on( "keydown", function(event) {
         if(event.which == 13){
           event.preventDefault();
-          addMensagem();
+          $('#textarea').submit();
         }
-
-      });
-      $('#button-msn').on('click', function(event) {
-        event.preventDefault();
-        /* Act on the event */
-        addMensagem();
 
       });
     </script>
   </div>
+  @endauth
   <!-- Footer -->
   <footer class="page-footer font-small bg-success text-light mt-5 footer navbar-fixed-bottom">
     <div class="container-fluid">
