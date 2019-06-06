@@ -129,10 +129,10 @@
 
       function mensagens_count(){
         $.get('{{route('count')}}', function(data) {
-          if (size <  data.length) {
+          if (size <  data) {
             mensagens();
 
-            size = data.length;
+            size = data;
           }
         });
       }
