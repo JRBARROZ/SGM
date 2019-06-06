@@ -37,8 +37,8 @@ class MensagensController extends Controller
     }
 
    public function count(){
-    $mensagens = Mensagens::All();
-   	return $count = $mensagens->count();
+    $mensagens = DB::table('mensagens')->count();
+   	return $mensagens;
 
    }
 }
