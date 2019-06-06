@@ -41,7 +41,7 @@
 
       <ul class="navbar navbar-nav ml-auto">
         <li class="nav-item">
-          <a href="{{ route('login') }}" class="nav-link text-light" 
+          <a href="{{ route('login') }}" class="nav-link text-light"
           onclick="event.preventDefault();
           $.get($(this).attr('href'), function(data) {
             /*optional stuff to do after success */
@@ -101,6 +101,7 @@
     @yield('content')
   </main>
   @auth
+  <br>
   <div class="row fixed-bottom mr-3 chat-closed d-none d-md-block" id="chat-wrapper">
     <div class="offset-md-9 col-md-3">
       <div class="card-header btn" id="chat-header" style="width: 25vw;background-color: lightgreen" >
@@ -108,10 +109,10 @@
       </div>
       <div class="card-body bg-secondary" style="height: 50vh;width: 25vw; overflow-y: auto" id="card-scroller">
         <div id="card-body">
-          
-          
+
+
         </div>
-        
+
         <div class=" mb-3 mb-0" style="top: calc()">
           <form action="{{route('enviarMensagem')}}" method="POST" id="textarea" class="input-group">
             @csrf
@@ -175,7 +176,7 @@
             $('#textarea').trigger('reset');
           }
         });
-        
+
       });
 
       $( "#textarea" ).on( "keydown", function(event) {
