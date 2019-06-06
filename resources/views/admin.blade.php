@@ -7,7 +7,7 @@
 			<div class="col-md">
 				<div class="container">
 					<h3 class="text-center mt-4 mb-5">Dashboard Administrador</h3>
-					
+
 					<div class="row justify-content-center">
 						<div class="col-lg-4">
 							<div class="m-2 border text-center">
@@ -79,21 +79,19 @@
 										</tr>
 									</thead>
 									<tbody>
-										@for($i=0; $i < 15; $i++)
-										<tr>
-											<td>Nome do monitor</td>
-											<td><a href="#">relatorio-tal.pdf</a></td>
-											<td>Curso</td>
-											<td>Cadeira</td>
-											<td>00/00</td>
-											<td>
-												<div class="row justify-content-center">
-													<a href="#" class="m-2 text-primary">Imprimir</a>
-													<a href="#" class="m-2 text-danger">Deletar</a>
-												</div>
-											</td>
-										</tr>
-										@endfor
+                                        <tr>
+                                            <td>Nome do monitor</td>
+                                            <td><a href="#">relatorio-tal.pdf</a></td>
+                                            <td>Curso</td>
+                                            <td>Cadeira</td>
+                                            <td>00/00</td>
+                                            <td>
+                                                <div class="row justify-content-center">
+                                                    <a href="#" class="m-2 text-primary">Imprimir</a>
+                                                    <a href="#" class="m-2 text-danger">Deletar</a>
+                                                </div>
+                                            </td>
+                                        </tr>
 									</tbody>
 								</table>
 							</div>
@@ -116,42 +114,23 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td id="nome">José Carlos de Araújo Monteiro</td>
-											<td>Curso do sujeito</td>
-											<td>Cadeira que é monitor</td>
-											<td>2/3/4</td>
-											<td>
-												<div class="row justify-content-center">
-													<a href="#" class="m-2 text-primary">Visitar Perfil</a>
-													<a href="#" class="m-2 text-danger">Alterar Conta</a>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td id="nome">Eduardo Bistpo de Alguma Coisa</td>
-											<td>Curso do sujeito</td>
-											<td>Cadeira que é monitor</td>
-											<td>2/3/4</td>
-											<td>
-												<div class="row justify-content-center">
-													<a href="#" class="m-2 text-primary">Visitar Perfil</a>
-													<a href="#" class="m-2 text-danger">Alterar Conta</a>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td id="nome">Silvano Sales Código Sujo</td>
-											<td>Curso do sujeito</td>
-											<td>Cadeira que é monitor</td>
-											<td>2/3/4</td>
-											<td>
-												<div class="row justify-content-center">
-													<a href="#" class="m-2 text-primary">Visitar Perfil</a>
-													<a href="#" class="m-2 text-danger">Alterar Conta</a>
-												</div>
-											</td>
-										</tr>
+                                        @foreach($monitores as $monitor)
+                                            @foreach($monitor->monitores as $cadeira)
+                                                <tr>
+                                                    <td id="nome">{{$cadeira->name}}</td>
+                                                    <td>{{$cadeira->cursos[0]->sigla}}</td>
+                                                    <td>{{$monitor->nome}}</td>
+                                                    <td>{{$cadeira->periodo}}</td>
+                                                    <td>
+                                                        <div class="row justify-content-center">
+                                                            <a href="#" class="m-2 text-primary">Visitar Perfil</a>
+                                                            <a href="#" class="m-2 text-danger">Alterar Conta</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endforeach
+                                        {{$monitores->links()}}
 									</tbody>
 								</table>
 							</div>
@@ -192,7 +171,7 @@
 
 					<div class="row m-2 mt-4">
 						<div class="m-2">
-							
+
 						</div>
 					</div>
 
