@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Curso;
+use App\Cadeira;
 
 class AdminController extends Controller
 {
@@ -13,7 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $monitores = Cadeira::with('monitores')->with('cursos')->orderBy('fk_curso', 'desc')->paginate(5);
+        return view('admin', compact('monitores'));
+
     }
 
     /**
