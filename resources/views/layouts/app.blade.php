@@ -63,7 +63,7 @@
       @else
       <ul class="navbar navbar-nav mr-auto">
         <li class="nav-item">
-          <a href=" {{route('index')}} " class="nav-link text-light">Início</a>
+          <a href="/admin" class="nav-link text-light">Dashboard</a>
         </li>
         @if (Auth::user()->tipo == 'monitor')
         <li class="nav-item ml-2 dropdown">
