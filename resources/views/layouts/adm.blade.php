@@ -41,9 +41,6 @@
         </li>
       @else
       <ul class="navbar navbar-nav mr-auto">
-        <li class="nav-item">
-          <a href="/admin" class="nav-link text-light">Início</a>
-        </li>
         @if (Auth::user()->tipo == 'professor')
           <li class="nav-item">
             <a href="#" class="nav-link text-light">Opa</a>
