@@ -16,8 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $monitores = Cadeira::with('monitores')->with('cursos')->orderBy('fk_curso', 'desc')->paginate(5);
-        return view('admin', compact('monitores'));
+        $monitores = Cadeira::with('monitores')->with('cursos')->orderBy('periodo')->get();
+        $totalMonitores = sizeof(User::where('tipo', 'monitor')->get());
+        return view('admin', compact('monitores', 'totalMonitores'));
 
     }
 
