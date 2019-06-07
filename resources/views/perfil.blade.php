@@ -5,7 +5,6 @@
 
 <div class="container" style="margin-top: 3vw">
 	<div class="row justify-content-center">
-		@auth
 
 		<div class="col-md-3 col-6 mr-3 ml-3 mb-5 mt-0 p-0">
 			<h3 class="m-auto text-center text-light p-3 bg-success">{{$user->name.' '.$user->sobrenome}}</h3>
@@ -18,7 +17,7 @@
 				<li class="list-group-item list-group-item-success">E-mail : {{$user->email}}</li>
 			</ul>
 		</div>
-		@endauth
+	
 		<div class="col-md-8 mb-5">
 			<table class="table table-bordered" >
 				<thead class="bg-success">
