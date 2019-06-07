@@ -60,7 +60,10 @@ class PerfilController extends Controller
      */
     public function show($id)
     {
-        //
+ 
+        $perguntas = Pergunta::with('users')->where('users_id', $id)->get();
+        $user = User::with('cursos')->where('id', $id)->first();
+        return view('user.painelShow', compact('user', 'perguntas'));
     }
 
     /**
