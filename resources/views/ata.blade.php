@@ -44,10 +44,6 @@
                                         {!! Form::checkbox('presente[]', $aluno->id,false, 
                                         ['class'=>'custom-control-input'
                                         ,'id'=>"customControlValidation".$loop->iteration
-<<<<<<< HEAD
-                                    
-=======
->>>>>>> Atualizando author do commit
                                         ])!!}
                                         <label class="custom-control-label" for="customControlValidation{{$loop->iteration}}"> </label>
                                     </div>
