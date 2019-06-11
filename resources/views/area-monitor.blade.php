@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-sm">
             <div class="m-2">
-                <button class="btn btn-primary btn-block mb-1" data-toggle="collapse" data-target="#formCadastro" style="border-radius: 0px;">Agendar Monitoria</button>
+                <button class="btn btn-success btn-block mb-1" data-toggle="collapse" data-target="#formCadastro" style="border-radius: 0px;">Agendar Monitoria</button>
 
                 <div id="formCadastro" class="collapse shadow p-3 ">
                     <form id="agendar" action="{{ route('monitoria-agendar') }}" method="POST">
