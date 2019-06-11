@@ -138,17 +138,17 @@
             @slot('valor')
                 {{sizeof($perguntas)}}
             @endslot
-                {{route('user.create')}}
+                {{-- {{route('user.create')}} --}}
+                {{route('testing', $user->id)}}
         @endcomponent
 
         @component('components.dsCard')
             @slot('nome')
-                Tópicos Resolvidos
+                Atas
             @endslot
             @slot('valor')
                 0
             @endslot
-                Catraca
         @endcomponent
 
         @component('components.dsCard')
