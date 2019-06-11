@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ata extends Model
 {
     function users(){
-        return $this->belongsto('App\User');
+        return $this->belongsTo('App\User');
     }
     
 }
