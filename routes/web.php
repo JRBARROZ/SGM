@@ -77,6 +77,7 @@ Route::prefix('ata')->group(function(){
 
 //Perfil
 Route::resource('user',  'PerfilController');
+Route::get('/user/teste/{id}', 'PerfilController@create')->name('testing');
 
 Route::get('/perfil', 'PerfilController@index')->name('perfil');
 // adiciona respostas
