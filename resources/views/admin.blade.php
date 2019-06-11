@@ -114,7 +114,7 @@
 									</thead>
 									<tbody>
                                         @foreach($monitores as $monitor)
-                                            @foreach($monitor->monitores as $cadeira)
+											@foreach($monitor->monitores as $cadeira)
                                                 <tr>
                                                     <td id="nome">{{$cadeira->name}}</td>
                                                     <td>{{$cadeira->cursos[0]->sigla}}</td>
