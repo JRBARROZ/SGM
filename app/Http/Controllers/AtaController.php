@@ -36,7 +36,7 @@ class AtaController extends Controller
         $monitoria_id = $id;
 
         // query de listagem de alunos
-        $alunos = User::with('cadeiras')->with('cursos')->where([
+        $alunos = User::with('cursos')->where([
             ['fk_curso', Auth::user()->curso_monitoria],
             ['periodo', Auth::user()->periodo_monitoria],
             ['tipo', 'aluno']
@@ -66,11 +66,6 @@ class AtaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
