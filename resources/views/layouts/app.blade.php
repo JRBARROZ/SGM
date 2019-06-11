@@ -62,9 +62,11 @@
       @endif
       @else
       <ul class="navbar navbar-nav mr-auto">
+        @if(Auth::user()->tipo == 'admin')
         <li class="nav-item">
           <a href="/admin" class="nav-link text-light">Dashboard</a>
         </li>
+        @endif
         @if (Auth::user()->tipo == 'monitor')
         <li class="nav-item ml-2 dropdown">
           <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#">Área do monitor</a>
