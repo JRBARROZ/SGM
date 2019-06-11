@@ -67,7 +67,6 @@
                 {{ session('false') }}
             </div>
         @endif
-        {{$alunos->links()}}
         {!! Form::submit('Salvar',['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
 </div>
