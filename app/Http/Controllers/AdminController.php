@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Curso;
 use App\Cadeira;
-
+use App\Ata;
 class AdminController extends Controller
 {
     /**
@@ -18,7 +18,9 @@ class AdminController extends Controller
     {
         $monitores = Cadeira::with('monitores')->with('cursos')->orderBy('periodo')->get();
         $totalMonitores = sizeof(User::where('tipo', 'monitor')->get());
-        return view('admin', compact('monitores', 'totalMonitores'));
+        $atas = Ata::with('users')->get();
+        return view('admin', compact('monitores', 'totalMonitores', 'atas'));
+        //Atas
 
     }
 
