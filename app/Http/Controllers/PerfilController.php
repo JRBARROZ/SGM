@@ -32,9 +32,9 @@ class PerfilController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {   
-        $perguntas = Pergunta::with('users')->where('users_id', Auth::id())->get();
+        $perguntas = Pergunta::with('users')->where('users_id', $id)->get();
         foreach($perguntas as $item){
             $data = Carbon::parse($item->created_at)->format('d/m/Y');
         }
