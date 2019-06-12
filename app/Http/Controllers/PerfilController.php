@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\User;
+use App\Gerada;
 use App\Pergunta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -24,7 +25,8 @@ class PerfilController extends Controller
     {   
         $perguntas = Pergunta::with('users')->where('users_id', Auth::id())->get();
         $user = User::with('cursos')->where('id', Auth::id())->first();
-        return view('user.painelHome', compact('user', 'perguntas'));
+        $atas  = sizeof(Gerada::where('user_id', Auth::id())->get());
+        return view('user.painelHome', compact('user', 'perguntas', 'atas'));
     }
 
     /**
@@ -39,6 +41,7 @@ class PerfilController extends Controller
             $data = Carbon::parse($item->created_at)->format('d/m/Y');
         }
         return view('user.perguntasUser', compact('perguntas', 'data'));
+
     }
 
     /**
@@ -63,7 +66,8 @@ class PerfilController extends Controller
  
         $perguntas = Pergunta::with('users')->where('users_id', $id)->get();
         $user = User::with('cursos')->where('id', $id)->first();
-        return view('user.painelShow', compact('user', 'perguntas'));
+        $atas  = sizeof(Gerada::where('user_id', $id)->get());
+        return view('user.painelShow', compact('user', 'perguntas', 'atas'));
     }
 
     /**
