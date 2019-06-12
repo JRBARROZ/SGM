@@ -142,15 +142,17 @@
                 {{route('testing', $user->id)}}
         @endcomponent
 
-        @component('components.dsCard')
-            @slot('nome')
-                Atas
-            @endslot
-            @slot('valor')
-                0
-            @endslot
-        @endcomponent
-
+        @if(Auth::user()->tipo != 'aluno')    
+            @component('components.dsCard')
+                @slot('nome')
+                    Atas
+                @endslot
+                    @slot('valor')
+                    {{$atas}}
+                @endslot
+                    {{route('listagem', $user->id)}}
+            @endcomponent
+        @endif
         @component('components.dsCard')
             @slot('nome')
                 Votos
