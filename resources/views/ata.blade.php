@@ -26,6 +26,16 @@
     {!! Form::open(['route'=>['ataStore', $monitoria_id]], ['class'=>'was-validated']) !!}
         <div class="row">
             <div class="col">
+                @if (session('true'))
+                    <div class="alert alert-success">
+                        {{ session('true') }}
+                    </div>
+                @endif
+                @if(session('false'))
+                    <div class="alert alert-danger">
+                        {{ session('false') }}
+                    </div>
+                @endif
                 <table class="table table-borderless text-center">
                     <thead class= "table-dark bg-success">
                         <th scope="col text-justify" class="text-justify">Aluno (a)</th>
@@ -41,7 +51,7 @@
                                 <td>{{date('d/m/Y')}}</td>
                                 <td>
                                     <div class="custom-control custom-checkbox">
-                                        {!! Form::checkbox('presente[]', $aluno->id,false, 
+                                        {!! Form::checkbox('presente[]', $aluno->name,false, 
                                         ['class'=>'custom-control-input'
                                         ,'id'=>"customControlValidation".$loop->iteration
                                         ])!!}
@@ -57,16 +67,8 @@
                 <hr>
             </div>
         </div>
-        @if (session('true'))
-            <div class="alert alert-success">
-                {{ session('true') }}
-            </div>
-        @endif
-        @if(session('false'))
-            <div class="alert alert-danger">
-                {{ session('false') }}
-            </div>
-        @endif
+
+        <input type="hidden" name="data" value="{{date('Y-m-d H:i:s')}}">
         {!! Form::submit('Salvar',['class'=>'btn btn-success'])!!}
     {!! Form::close() !!}
 </div>
