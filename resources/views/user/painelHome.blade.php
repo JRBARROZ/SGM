@@ -12,7 +12,7 @@
                 <h2 class="text-dark">{{Auth::user()->name}} {{Auth::user()->sobrenome}}</h2>
                 @switch(Auth::user()->tipo)
                     @case('monitor')
-                        <h3 class="text-secondary"><i>Monitor de ()</i></h3>
+                        <h3 class="text-secondary"><i>Monitor</i></h3>
                     @break
                 @case('aluno')
                     @foreach($user->cursos as $item)
@@ -124,36 +124,39 @@
         </div>
     </div>
     <br>
-    <div class="row">
-        @component('components.dsCard')
-            @slot('nome')
-                Tópicos
-            @endslot
-            @slot('valor')
-                {{sizeof($perguntas)}}
-            @endslot
-                {{route('testing', $user->id)}}
-        @endcomponent
-
-        @component('components.dsCard')
-            @slot('nome')
-                Atas
-            @endslot
-            @slot('valor')
-                0
-            @endslot
-        @endcomponent
-
-        @component('components.dsCard')
-            @slot('nome')
-                Votos
-            @endslot
-            @slot('valor')
-                0
-            @endslot
-                Catraca
-        @endcomponent
-    </div>
+    @if(Auth::user()->tipo != 'admin')
+        <div class="row">
+            @component('components.dsCard')
+                @slot('nome')
+                    Tópicos
+                @endslot
+                @slot('valor')
+                    {{sizeof($perguntas)}}
+                @endslot
+                    {{route('testing', $user->id)}}
+            @endcomponent
+            @if(Auth::user()->tipo == 'monitor')
+                @component('components.dsCard')
+                    @slot('nome')
+                        Atas
+                    @endslot
+                    @slot('valor')
+                        {{$atas}}
+                    @endslot
+                        {{route('listagem', Auth::user()->id)}}
+                @endcomponent
+            @endif
+            @component('components.dsCard')
+                @slot('nome')
+                    Votos
+                @endslot
+                @slot('valor')
+                    0
+                @endslot
+                    Catraca
+            @endcomponent
+        </div>
+    @endif
     <br>
 </div>
 @endsection
