@@ -78,9 +78,11 @@
           </div>
         </li>
         @endif
-        <li class="nav-item">
-          <a href="{{ route('monitoria-index') }}" class="nav-link text-light">Monitorias</a>
-        </li>
+        @if(Auth::user()->tipo == 'aluno')
+          <li class="nav-item">
+            <a href="{{ route('monitoria-index') }}" class="nav-link text-light">Monitorias</a>
+          </li>
+        @endif
       </ul>
       <ul class="navbar navbar-nav mr-0">
         <li class="nav-item">
