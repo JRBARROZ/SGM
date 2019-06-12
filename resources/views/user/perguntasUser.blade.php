@@ -7,7 +7,11 @@
     </div>
     <br>
     @if(sizeof($perguntas) == 0)
-    <h2 class="text-dark">Parece que você não tem tópicos no nosso fórum :/</h2>    
+        @if(Auth::user()->tipo == 'admin' || Auth::user()->tipo == 'aluno')
+            <h2 class="text-dark">Parece que esse monitor não tem tópicos no nosso fórum :/</h2>  
+        @else
+            <h2 class="text-dark">Parece que você não tem tópicos no nosso fórum :/</h2>  
+        @endif
     <div class="row">
         @else
         @foreach ($perguntas as $item)
