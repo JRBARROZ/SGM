@@ -18,7 +18,6 @@ Route::get('/', function () {
 // index
 Route::get('/', 'PerguntaController@index')->name('index');
 
-Route::get('/teste', 'AtaController@teste');
 
 Route::prefix('pergunta')->group(function(){
 
@@ -72,6 +71,10 @@ Route::prefix('ata')->group(function(){
     Route::post('/update/{id}','AtaController@update')->name('ataUpdate');
     //Destroy
     Route::get('/destroy/{id}','AtaController@destroy')->name('ataDestroy');
+    //Listagem
+    Route::get('/listagem/{id}','AtaController@listagem')->name('listagem');
+    //PDF
+    Route::get('/teste/{id}', 'AtaController@teste')->name('atasPdf');
 
 });
 
