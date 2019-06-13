@@ -12,7 +12,13 @@
 				<textarea class="form-control" name="texto" required>{{ $resposta->texto }}</textarea>
 			</div>
 			<br>
-			<button class="btn btn-success">Salvar</button>
+			<button type="submit" class="btn btn-success">Salvar</button>
 		</form>
 </div>
+<script type="text/javascript">
+	$('button[type=submit]').on('click', function(event) {
+		window.alert("Resposta editada com sucesso .");
+
+	});
+</script>
 @endsection
