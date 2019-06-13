@@ -7,7 +7,7 @@
 			<h3 class="m-auto p-3 bg-success text-light text-center" style="width: 100%;">Discussão</h3>
 			<br>
 			@if($pergunta[0]->users_id == Auth::id())
-			<a href="{{ route('delete', $pergunta[0]->id) }}" class="float-right mr-2 text-danger"><span>Apagar</span></a>
+			<a href="{{ route('delete', $pergunta[0]->id) }}" class="float-right mr-2 text-danger apagar"><span>Apagar</span></a>
 			<a href="{{route('editar-pergunta', $pergunta[0]->id)}}}" class="float-right mr-2 text-info"><span>Editar</span></a>
 			@endif
 			<div class="m-4">
@@ -55,6 +55,21 @@
 			});
 		}
 		respostas();
+		$('.apagar').on('click', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+			if (window.confirm("Deseja apagar esta resposta ?")) {
+			var that = $(this);
+			$.get($(this).attr('href'), function(data) {
+				/*optional stuff to do after success */
+				that.parents('tr').remove();
+				window.alert("Pergunta apagada com sucesso.")
+				window.location.href = '{{route('index')}}';
+
+			});
+
+			}
+		});
 		
 	</script>
 	@endsection

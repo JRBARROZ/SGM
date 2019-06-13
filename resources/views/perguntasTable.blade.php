@@ -46,6 +46,7 @@
 			var that = $(this);
 			$.get($(this).attr('href'), function(data) {
 				that.parents('tr').remove();
+				window.alert("Pergunta apagada com sucesso.");
 			});			
 		}
 	});
