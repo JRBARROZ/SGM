@@ -19,11 +19,12 @@
 	$('.apagar').on('click', function(event) {
 		event.preventDefault();
 		/* Act on the event */
-		var confirm = window.confirm("Deseja exluir esse evento ?");
+		var confirm = window.confirm("Deseja cancelar esse evento ?");
 		if (confirm) {
 			var that = $(this);
 			$.get($(this).attr('href'), function(data) {
 				that.parents('tr').remove();
+				window.alert("Evento cancelado.")
 			});			
 		}
 	});
