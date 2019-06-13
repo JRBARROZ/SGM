@@ -7,13 +7,7 @@
 	<td>{{$monitoria->periodo}}</td>
 	<td>
 		<a href="{{ route('ataIndex', $monitoria->id) }}">Ata</a>
-		<a href="{{ route('monitoria-deletar', $monitoria->id) }}" class="p-2 btn-link text-danger" onclick="
-		event.preventDefault();
-		$.get($(this).attr('href'), function(data) {
-			/*optional stuff to do after success */
-			agenda();
-		});
-		">Deletar</a>
+		<a href="{{ route('monitoria-deletar', $monitoria->id) }}" class="p-2 btn-link text-danger apagar" >Deletar</a>
 	</td>
 </tr>
 @empty
@@ -21,3 +15,16 @@
 	<td colspan="6">Você ainda não agendou nenhuma monitoria.</td>
 </tr>
 @endforelse
+<script type="text/javascript">
+	$('.apagar').on('click', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		var confirm = window.confirm("Deseja exluir esse evento ?");
+		if (confirm) {
+			var that = $(this);
+			$.get($(this).attr('href'), function(data) {
+				that.parents('tr').remove();
+			});			
+		}
+	});
+</script>
