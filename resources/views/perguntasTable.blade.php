@@ -41,9 +41,13 @@
 	$('.apagar').on('click', function(event) {
 		event.preventDefault();
 		/* Act on the event */
-		var that = $(this);
-		$.get($(this).attr('href'), function(data) {
-			that.parents('tr').remove();
-		});
+		var confirm = window.confirm("Deseja excluir esta pergunta ?");
+		if (confirm) {
+			var that = $(this);
+			$.get($(this).attr('href'), function(data) {
+				that.parents('tr').remove();
+			});			
+		}
 	});
+
 </script>
