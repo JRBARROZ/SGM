@@ -32,6 +32,12 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$('button[type=submit]').on('click', function(event) {
+		window.alert("Pergunta editada com sucesso .");
 
+	});
+	
+</script>
 
 @endsection
