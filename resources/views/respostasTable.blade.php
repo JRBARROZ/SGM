@@ -52,15 +52,22 @@
 		$('.deletar').on('click', function(event) {
 			event.preventDefault();
 			/* Act on the event */
+			if (window.confirm("Deseja apagar esta resposta ?")) {
 			var that = $(this);
 			$.get($(this).attr('href'), function(data) {
 				/*optional stuff to do after success */
 				that.parents('tr').remove();
+				window.alert("Resposta apagada com sucesso.")
 			});
+
+			}
 		});
+
 		$('.correta').on('click', function(event) {
 			event.preventDefault();
 			/* Act on the event */
+			if (window.confirm("Marcar resposta como correta ?")) {
+
 			var that = $(this);
 			$.get($(this).attr('href'), function(data) {
 				/*optional stuff to do after success */
@@ -70,6 +77,7 @@
 				that.parents('tr').css('transition', '0.3s');
 
 			});
+			}
 
 		});
 	</script>
