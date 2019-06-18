@@ -16,8 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CursosSeeder::class);
         $this->call(CadeiraSeeder::class);
         $this->call(UserAdmSeeder::class);
+        // $this->call(UserProjetoSeeder::class);
         factory('App\User', 300)->create();
-        for ($i=0; $i < 33; $i++) { 
+        for ($i=0; $i < 33; $i++) {
             factory('App\Professores_Cadeiras', 1)->create();
         }
     }
