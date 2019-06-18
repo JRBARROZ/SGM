@@ -25,9 +25,6 @@
 				</div>
 			</div>
 			<h6 class="mt-3">
-				<a href="#" class="text-success mr-1">tag</a>
-				<a href="#" class="text-success mr-1">tag</a>
-				<a href="#" class="text-success mr-1">tag</a>
 				@if($pergunta->users_id == Auth::id())
 				<a href="{{ route('delete', $pergunta->id) }}" class="float-right mr-2 text-danger apagar"><span>Apagar</span></a>
 				<a href="{{route('editar-pergunta', $pergunta->id)}}}" class="float-right mr-2 text-info"><span>Editar</span></a>
@@ -47,7 +44,7 @@
 			$.get($(this).attr('href'), function(data) {
 				that.parents('tr').remove();
 				window.alert("Pergunta apagada com sucesso.");
-			});			
+			});
 		}
 	});
 

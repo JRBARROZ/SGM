@@ -128,6 +128,7 @@
                                                 </tr>
                                             @endforeach
                                         @endforeach
+                                        {{$monitores->links()}}
 									</tbody>
 								</table>
 							</div>

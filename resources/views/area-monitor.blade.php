@@ -71,7 +71,7 @@
            </div>
        </div>
        <div class="m-2">
-        <table class="table table-bordered table-hover text-center table-responsive m-auto m-2">
+        <table class="table table-bordered table-hover text-center table-responsive m-auto m-2" style="max-width:40vw">
             <thead>
                 <tr>
                     <th class="bg-success text-light text-center p-3 h3" colspan="6">{{$curso->nome}}</th>
@@ -107,7 +107,7 @@
         $.get('{{route('Monitoria-Table')}}', function(data) {
             /*optional stuff to do after success */
             $('#monitoria').html(data);
-        });        
+        });
     }
     agenda();
 </script>

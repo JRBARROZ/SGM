@@ -58,13 +58,7 @@
         @endif
         @if (Auth::user()->tipo == 'monitor')
         <li class="nav-item ml-2 dropdown">
-          <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" href="#">Área do monitor</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{ route('monitoria-monitor') }}">Agendar Monitoria</a>
-            <a class="dropdown-item" href="#">Documentação</a>
-            <a class="dropdown-item" href="#">Outra Funcionalidade</a>
-            <a class="dropdown-item" href="#">Outra Funcionalidade</a>
-          </div>
+          <a class="nav-link text-light"  href="{{ route('monitoria-monitor') }}">Área do monitor</a>
         </li>
         @endif
         @if(Auth::user()->tipo == 'aluno')
