@@ -128,7 +128,6 @@
                                                 </tr>
                                             @endforeach
                                         @endforeach
-                                        {{$monitores->links()}}
 									</tbody>
 								</table>
 							</div>
@@ -151,15 +150,15 @@
 									</thead>
 									<tbody>
 										@for($i=0; $i < 6; $i++)
-										<tr>
-											<td>Fulano de tals e pah</td>
-											<td>Cadeira tal</td>
-											<td>Junho</td>
-											<td class="text-center">
-												<a href="#" class="m-2 text-primary">Adverter</a>
-												<a href="#" class="m-2 text-danger">Limpar</a>
-											</td>
-										</tr>
+                                            <tr>
+                                                <td>Fulano de tals e pah</td>
+                                                <td>Cadeira tal</td>
+                                                <td>Junho</td>
+                                                <td class="text-center">
+                                                    <a href="#" class="m-2 text-primary">Adverter</a>
+                                                    <a href="#" class="m-2 text-danger">Limpar</a>
+                                                </td>
+                                            </tr>
 										@endfor
 									</tbody>
 								</table>
