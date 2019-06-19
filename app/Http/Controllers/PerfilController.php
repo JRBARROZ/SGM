@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use App\User;
 use App\Gerada;
 use App\Pergunta;
+use App\Cadeira;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Carbon;
@@ -67,7 +68,8 @@ class PerfilController extends Controller
         $perguntas = Pergunta::with('users')->where('users_id', $id)->get();
         $user = User::with('cursos')->where('id', $id)->first();
         $atas  = sizeof(Gerada::where('user_id', $id)->get());
-        return view('user.painelShow', compact('user', 'perguntas', 'atas'));
+        $cadeiras = Cadeira::where('fk_curso', $user->fk_curso)->get();
+        return view('user.painelShow', compact('user', 'perguntas', 'atas', 'cadeiras'));
     }
 
     /**
@@ -105,6 +107,9 @@ class PerfilController extends Controller
         $user->periodo = $request->periodo;
         $user->fk_curso = $request->curso;
         $user->email = $request->email;
+        $user->tipo = $request->cargo;
+        $user->curso_monitoria = $request->cursoM;
+        $user->cadeira_id = $request->cadeiraM;
         $user->save();
         if(Input::file('principal')){
             $nomeArq = "img".$user->id.'.'.$ext;
@@ -112,7 +117,7 @@ class PerfilController extends Controller
             $user->avatar = $nomeArq;
             $user->save();
         }
-        return redirect()->route('user.index');
+        return redirect()->route('user.show', $id);
     }
 
     /**

@@ -8,26 +8,18 @@
 				<div class="container">
 					<br>
 					<div class="row justify-content-center">
-						<div class="col-lg-4">
-							<div class="m-2 border text-center">
-								<button class="btn btn-light btn-block text-dark" data-toggle="collapse" data-target="#reclamacoes">
-									<h3>Atas</h3>
-									<strong class="h4">7</strong>
-								</button>
-							</div>
-						</div>
-						<div class="col-lg-4">
+						<div class="col-lg-6">
 							<div class="m-2 border text-center">
 								<button class="btn btn-light btn-block text-dark" data-toggle="collapse" data-target="#atas">
-									<h3>Relatórios</h3>
-									<strong class="h4">15</strong>
+									<h3>Alunos</h3>
+									<strong class="h4">{{$totalAlunos}}</strong>
 								</button>
 							</div>
 						</div>
-						<div class="col-lg-4">
+						<div class="col-lg-6">
 							<div class="m-2 border text-center">
 								<button class="btn btn-light btn-block text-dark" data-toggle="collapse" data-target="#monitores">
-									<h3>Listar Monitores</h3>
+									<h3>Monitores</h3>
 									<strong class="h4">{{$totalMonitores}}</strong>
 								</button>
 							</div>
@@ -35,62 +27,36 @@
 					</div>
 
 					<div class="row justify-content-center">
-
-						<!--Div com lista de reclamações/denúncias feitas pelos usuários-->
-						<div id="reclamacoes" class="col-12 collapse">
-							<div class="m-2">
-								<table class="table table-borderless table-hover">
-									<thead class="text-center">
-										<tr class="text-light bg-success">
-											<th>Postagem</th>
-											<th>Ações</th>
-										</tr>
-									</thead>
-									<tbody>
-										@for($i=0; $i < 7; $i++)
-										<tr>
-											<td><span>Motivo da reclamação/denúncia</span></td>
-											<td class="text-center">
-												<div class="row justify-content-center">
-													<a href="#" class="m-2 text-primary">Visitar</a>
-													<a href="#" class="m-2 text-danger">Deletar</a>
-												</div>
-											</td>
-										</tr>
-										@endfor
-										</tbody>
-								</table>
-							</div>
-						</div>
-
 						<!--Listar arquivos de relatórios entregues-->
 						<div id="atas" class="col-12 collapse">
 							<div class="m-2">
+								<div class="mt-4 mb-4">
+									<input type="text" class="form-control" placeholder="Filtrar por nome...">
+								</div>
+							</div>
+							<div class="m-2">
 								<table class="table table-hover table-borderless ">
-									<thead class="text-center">
+									<thead class="">
 										<tr class="bg-success text-light">
-											<th>Monitor</th>
-											<th>Arquivo</th>
+											<th>Aluno</th>
 											<th>Curso</th>
-											<th>Cadeira</th>
-											<th>Data</th>
-											<th>Ações</th>
+											<th>Periodo</th>
+											<th class="text-center">Ações</th>
 										</tr>
 									</thead>
 									<tbody>
-                                        <tr>
-                                            <td>Nome do monitor</td>
-                                            <td><a href="#">relatorio-tal.pdf</a></td>
-                                            <td>Curso</td>
-                                            <td>Cadeira</td>
-                                            <td>00/00</td>
-                                            <td>
-                                                <div class="row justify-content-center">
-                                                    <a href="#" class="m-2 text-primary">Imprimir</a>
-                                                    <a href="#" class="m-2 text-danger">Deletar</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+										@foreach ($alunos as $item)
+											<tr>
+												<td>{{$item->name}}</td>
+												<td>{{$item->cursos[0]->sigla}}</td>
+												<td>{{$item->periodo}}</td>
+												<td>
+													<div class="row justify-content-center">
+                                                        <a href="{{route('user.show', ['id' => $item->id])}}" class="m-2 text-primary">Visitar Perfil</a>
+                                                    </div>
+												</td>
+											</tr>
+										@endforeach
 									</tbody>
 								</table>
 							</div>
@@ -109,7 +75,7 @@
 											<th>Curso</th>
 											<th>Cadeira</th>
 											<th>Período</th>
-											<th>Ações</th>
+											<th class="text-center">Ações</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -136,7 +102,7 @@
 					<br>
 					<div class="row m-2">
 						<div class="col-12">
-							<h3 class="mb-2">Pendências</h3>
+							<h3>Relatórios entregues :</h3>
 							<br>
 							<div class="row">
 								<table class="table table-hover table-borderless ">
@@ -148,19 +114,6 @@
 											<th>Opção</th>
 										</tr>
 									</thead>
-									<tbody>
-										@for($i=0; $i < 6; $i++)
-                                            <tr>
-                                                <td>Fulano de tals e pah</td>
-                                                <td>Cadeira tal</td>
-                                                <td>Junho</td>
-                                                <td class="text-center">
-                                                    <a href="#" class="m-2 text-primary">Adverter</a>
-                                                    <a href="#" class="m-2 text-danger">Limpar</a>
-                                                </td>
-                                            </tr>
-										@endfor
-									</tbody>
 								</table>
 							</div>
 						</div>

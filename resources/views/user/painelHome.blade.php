@@ -52,6 +52,7 @@
                                 <label for="periodo">PERÍODO:</label>
                                 {{Form::number('periodo', $user->periodo, ['id'=>'periodo','class'=>'form-control input', 'placeholder'=>'Seu Período ', 'required', 'min'=>0,'max'=>'4'])}}
                             </div>
+                            @if(Auth::user()->id != 'admin')
                             <div class="form-group col-md-3">
                                 @foreach($user->cursos as $item)
                                     @switch($item->id)
@@ -82,6 +83,7 @@
                                     @endswitch
                                 @endforeach
                             </div>
+                            @endif
                             <div class="form-group col-md-3">
                                 <label for="turno">TURNO :</label>
                                 {{Form::select('turno', array('M' => 'Manhã', 'T' => 'Tarde'),null,['id'=>'turno','class'=>'form-control', 'required'=>true])}}
@@ -146,15 +148,6 @@
                         {{route('listagem', Auth::user()->id)}}
                 @endcomponent
             @endif
-            @component('components.dsCard')
-                @slot('nome')
-                    Votos
-                @endslot
-                @slot('valor')
-                    0
-                @endslot
-                    Catraca
-            @endcomponent
         </div>
     @endif
     <br>

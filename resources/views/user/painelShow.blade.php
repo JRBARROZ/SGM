@@ -49,6 +49,30 @@
                                     <label for="sobreNome" class="">SOBRENOME :</label>
                                     {{Form::text('sNome', $user->sobrenome, ['id'=>'sobreNome','class'=>'form-control input', 'placeholder'=>'Seu Segundo Nome', 'required'])}}
                                 </div>
+                                @if(Auth::user()->tipo == 'admin')
+                                    <div class="form-group col-md-4">
+                                        <label for="sobreNome" class="">TIPO :</label>
+                                        {{Form::select('cargo', array(''=> null, 'aluno' => 'aluno', 'monitor' => 'monitor', 'professor' => 'professor'),null,['id'=>'cargo','class'=>'form-control', 'required'=>true])}}
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="sobreNome" class="">Curso monitoria :</label>
+                                        <select class="form-control" name="cursoM">
+                                            <option disabled selected>Selecionar</option>
+                                            <option value="1">Informática Para Internet</option>
+                                            <option value="2">Logística</option>
+                                            <option value="3">Gestão da Qualidade</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="sobreNome" class="">Cadeira Monitor:</label>
+                                        <select class="form-control" name="cadeiraM">
+                                            <option disabled selected>Selecionar</option>
+                                            @foreach ($cadeiras as $item)
+                                                <option value="{{$item->id}}">{{$item->nome}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endif
                                 <div class="form-group col-md-3">
                                     <label for="matricula">MATRICULA :</label>
                                     {{Form::text('matricula', $user->matricula, ['id'=>'matricula','class'=>'form-control input', 'placeholder'=>'Sua Matrícula ', 'required'])}}
@@ -142,7 +166,7 @@
                 {{route('testing', $user->id)}}
         @endcomponent
 
-        @if(Auth::user()->tipo != 'aluno')    
+        @if($user->tipo != 'aluno')    
             @component('components.dsCard')
                 @slot('nome')
                     Atas
@@ -153,7 +177,7 @@
                     {{route('listagem', $user->id)}}
             @endcomponent
         @endif
-        @component('components.dsCard')
+        {{-- @component('components.dsCard')
             @slot('nome')
                 Votos
             @endslot
@@ -161,7 +185,7 @@
                 0
             @endslot
                 Catraca
-        @endcomponent
+        @endcomponent --}}
     </div>
     <br>
 </div>

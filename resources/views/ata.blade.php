@@ -46,7 +46,7 @@
                     <tbody>
                         @forelse ($alunos as $aluno)
                             <tr class="hover">
-                                <td class="text-justify">{{$aluno->name}}</td>
+                                <td class="text-justify">{{$aluno->name}} {{$aluno->sobrenome}}</td>
                                 <td>{{$aluno->cursos[0]->sigla}}</td>
                                 <td>{{date('d/m/Y')}}</td>
                                 <td>

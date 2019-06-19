@@ -1,4 +1,4 @@
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 slide-fwd-center">
+<div class="col-lg-6 col-md-4 col-sm-4 col-xs-12 slide-fwd-center">
     <a href="{{$slot}}" class="text-dark">
         <div class="box-card text-center">
             <div class="title">
